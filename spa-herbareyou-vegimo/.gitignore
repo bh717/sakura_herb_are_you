@@ -1,13 +1,3 @@
 /node_modules
-/public/hot
 /vendor
-.env.backup
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-
-/.vscode
-.DS_Store
-.node-version
 
