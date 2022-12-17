@@ -1,0 +1,79 @@
+APP_NAME="Herb Are You？"
+APP_ENV=production
+# APP_ENV=production
+APP_KEY=base64:EzYlpOt75uiSNHWsqk44Mj7I1pbIIiQFAKUQIumC3h8=
+APP_DEBUG=true
+APP_URL=https://api.herbarbareyou.jp
+
+
+
+# log
+LOG_CHANNEL=cloudwatch
+AWS_CLOUDWATCH_LOG_GROUP_NAME=/ec2/prod/herbareyou/api
+AWS_CLOUDWATCH_LOG_STREAM_PREFIX_NAME=prod/herbareyou/api
+AWS_CLOUDWATCH_LOG_RETENTION= # ログ保存期間（未設定の場合は無制限）
+
+# DB
+DB_CONNECTION=mysql
+DB_HOST=production.ce4atovu1ch3.ap-northeast-1.rds.amazonaws.com
+DB_PORT=3306
+DB_DATABASE=herbareyou
+DB_USERNAME=admin
+DB_PASSWORD=bvrhfehsiifhljbeuog
+
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# ses
+MAIL_MAILER=ses
+MAIL_FROM_ADDRESS=shop@herbareyou.jp
+MAIL_FROM_NAME="${APP_NAME}"
+AWS_SES_ACCESS_KEY=AKIASGOSRICO2ESPNKQJ
+AWS_SES_SECRET_KEY=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
+AWS_SES_S3_REGION=us-west-2
+
+# EPSILON
+EPSILON_CONTRACT_CODE=72663610
+EPSILON_API_BASE_URL=https://secure.epsilon.jp/
+EPSILON_APP_NAME=herbareyou_
+
+# AWS
+AWS_ACCESS_KEY=AKIASGOSRICO2ESPNKQJ
+AWS_SECRET_KEY=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
+AWS_DEFAULT_REGION=ap-northeast-1
+
+# s3
+S3_DEFAULT_BUCKET=content.herbareyou.jp
+AWS_S3_PATH=herbareyou/
+AWS_CLOUDFRONT_DOMAIN=https://content.herbareyou.jp/
+
+# S3_DEFAULT_BUCKET=local-content.herbareyou.jp
+# AWS_S3_PATH=herbareyou/furuya/
+# AWS_CLOUDFRONT_DOMAIN=https://local-content.herbareyou.jp/
+
+# ユーザー側、管理側のそれぞれのドメイン
+API_ADMIN_DOMAIN=api-admin.herbareyou.jp
+API_DOMAIN=api.herbareyou.jp
+
+# API_ADMIN_DOMAIN=admin.localhost
+# API_DOMAIN=localhost
+
+# アプリごとの設定
+AUTH_EXPIRES=259200 # jwtの有効期限(3ヶ月)
+ADMINER_EMAIL=shop@herbareyou.jp # 管理者のメール
+BASE_APP_URL=https://herbareyou.jp/
+# BASE_APP_URL=http://localhost:3001/
+NO_IMAGE_URL=https://content.herbareyou.jp/herbareyou/assets/img/noimage.png
+AFTER_MAIL_SUB_DAYS=7 # 購入後に送るメールをおくるまでの日数
+DELIVERY_CHARGE_BORDER=5000 # 送料を0円にする購入金額のボーダー
+DELIVERY_CHARGE=350 # 基本送料
+POPULARATION_PERIOD_DAYS=7 # 集計期間
+PRODUCT_TAX_RATE=0.08 # 商品の税率
+TOTAL_DELIVERY_CHARGE_INCLUDE_TAX_RATE=0.1 # 送料の税率
+FEE_INCLUDE_TAX_RATE=0.1 # 決済手数料の税率
+FEE=0 # 決済手数料
+COUPON_USABLE_AMOUNT=1000 # クーポンが使用できる金額
