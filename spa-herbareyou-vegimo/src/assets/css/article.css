@@ -1,0 +1,130 @@
+@charset "UTF-8";
+.sec {
+  width: 100%;
+  margin: auto;
+}
+
+.sec-container {
+  width: 85%;
+  margin: auto;
+  padding: 15rem 0 8rem;
+  border-bottom: 1px solid #707070;
+}
+.sec-container__hd2 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.sec-container__hd2-issue {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+}
+.sec-container__hd2-title {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.sec-container__hd2-author {
+  display: block;
+  font-size: 1.2rem;
+}
+.sec-container__txt {
+  width: 60%;
+  margin: auto;
+  line-height: 2;
+  margin-bottom: 4rem;
+}
+.sec-container__img {
+  width: 40%;
+  margin: auto;
+}
+
+.profile-container {
+  width: 85%;
+  margin: auto;
+  padding: 5rem 0;
+  font-size: 1.2rem;
+}
+.profile-container__hd3 {
+  width: 60%;
+  margin: 0 auto 0.5rem;
+  font-weight: normal;
+}
+.profile-container__txt {
+  width: 30%;
+  line-height: 1.7;
+  margin-left: 20%;
+  margin-bottom: 5rem;
+}
+
+.btn {
+  width: 60%;
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.btn__all {
+  color: #707070;
+  font-weight: bold;
+}
+.btn__all::before {
+  content: "＜　";
+  display: inline-block;
+}
+.btn__next {
+  color: #707070;
+  font-weight: bold;
+}
+.btn__next::after {
+  content: "　＞";
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .sec-container__txt {
+    width: 70%;
+  }
+  .sec-container__img {
+    width: 50%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 599px) {
+  .sec-container__txt {
+    width: 100%;
+  }
+  .sec-container__img {
+    width: 100%;
+    margin: auto;
+  }
+
+  .profile-container__hd3 {
+    width: 100%;
+  }
+  .profile-container__txt {
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .btn {
+    width: 100%;
+    margin: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}

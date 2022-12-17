@@ -1,0 +1,135 @@
+.sec {
+  width: 100%;
+  margin: auto;
+}
+
+.sec-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20rem 0 8rem 0;
+}
+
+.sec-container__hd2 {
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-parts {
+  width: 30%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 auto 5rem;
+  border-bottom: 1px solid #707070;
+  position: relative;
+}
+
+.form-parts__label,
+.form-parts__input {
+  display: block;
+  border: none;
+  outline: none;
+}
+
+.form-parts__label {
+  width: 45%;
+  font-size: 1.2rem;
+}
+
+.form-parts__input {
+  width: 55%;
+  color: #505050;
+}
+
+.form-parts__input:focus {
+  outline: none;
+}
+
+.formbtn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.formbtn__inner {
+  color: #fff;
+  background: #afafaf;
+  padding: 0.5rem 3rem;
+  border-radius: 3rem;
+  border: none;
+}
+
+.link-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.link-container__a {
+  color: #505050;
+}
+
+.success2-img {
+  display: block;
+  width: 22%;
+  max-width: 250px;
+  margin: 0 auto 3rem;
+}
+
+.success2-txt {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.success2-link {
+  display: block;
+  color: #505050;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .sec-container {
+    width: 100%;
+    padding: 15rem 0 8rem 0;
+  }
+
+  .form-parts {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .sec-container {
+    width: 85%;
+    padding: 15rem 0 8rem 0;
+  }
+
+  .form-parts {
+    width: 100%;
+  }
+
+  .success2-img {
+    display: block;
+    width: 70%;
+    margin: 0 auto 3rem;
+  }
+}

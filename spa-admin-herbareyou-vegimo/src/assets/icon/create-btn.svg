@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="34" viewBox="0 0 24 34">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="18" height="18" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Compose" transform="translate(3)" clip-path="url(#clip-path)">
+    <rect id="長方形_324" data-name="長方形 324" width="18" height="18" fill="none"/>
+    <path id="パス_110" data-name="パス 110" d="M9.173,3.462l-6.4,6.577L0,18l7.962-2.6,6.4-6.4Zm8.135-.519L15.058.692a2.1,2.1,0,0,0-3.115,0l-1.9,1.9,5.192,5.365,2.077-2.077A2.194,2.194,0,0,0,18,4.327,2.137,2.137,0,0,0,17.308,2.942Z"/>
+  </g>
+  <text id="記録" transform="translate(0 32)" font-size="12" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">記録</tspan></text>
+</svg>

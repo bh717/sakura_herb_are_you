@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.validation {
+  color: #ff0000;
+  font-size: 75%;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+}

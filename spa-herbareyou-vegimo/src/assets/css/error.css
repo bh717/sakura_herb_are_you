@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.sec {
+  width: 100%;
+  margin: auto;
+}
+
+.sec-container {
+  width: 70%;
+  margin: auto;
+  padding: 20rem 0 2rem 0;
+}
+.sec-container__hd2 {
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.sec-container__illust-container {
+  width: 30%;
+  margin: 0 auto 3rem;
+}
+.sec-container__txt {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .sec-container__illust-container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .sec-container {
+    width: 85%;
+    margin: auto;
+  }
+  .sec-container__illust-container {
+    width: 70%;
+  }
+}

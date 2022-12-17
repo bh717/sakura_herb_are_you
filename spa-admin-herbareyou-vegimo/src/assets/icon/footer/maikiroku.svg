@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="36" viewBox="0 0 40 36">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="20" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <text id="マイ記録" transform="translate(0 35)" font-size="10" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">マイ記録</tspan></text>
+  <g id="Sections" transform="translate(10)" clip-path="url(#clip-path)">
+    <path id="パス_261" data-name="パス 261" d="M0,0V5H20V0ZM3.75,3.75H1.25V1.25h2.5ZM0,12.5H20v-5H0ZM1.25,8.75h2.5v2.5H1.25ZM0,20H20V15H0Zm1.25-3.75h2.5v2.5H1.25Z"/>
+  </g>
+</svg>

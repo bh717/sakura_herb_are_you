@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="31" viewBox="0 0 20 31">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="20" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Profile" clip-path="url(#clip-path)">
+    <path id="合体_1" data-name="合体 1" d="M0,20V17.5c0-2.751,4.5-5,10-5s10,2.25,10,5V20ZM5,5a5,5,0,1,1,5,5A5,5,0,0,1,5,5Z"/>
+  </g>
+  <text id="マイ" transform="translate(0 30)" font-size="10" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">マイ</tspan></text>
+</svg>

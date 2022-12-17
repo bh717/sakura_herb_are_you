@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="35" viewBox="0 0 20 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="20" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <text id="_" data-name="３" transform="translate(5 23)" fill="#005282" font-size="14" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">３</tspan></text>
+  <g id="Comment" clip-path="url(#clip-path)">
+    <path id="Chat" d="M6.25,10A1.181,1.181,0,0,0,7.5,11.25h5A1.253,1.253,0,0,0,13.75,10,1.181,1.181,0,0,0,12.5,8.75h-5A1.253,1.253,0,0,0,6.25,10ZM0,6.25A6.189,6.189,0,0,1,6.25,0h7.5A6.189,6.189,0,0,1,20,6.25v12.5A1.181,1.181,0,0,1,18.75,20H6.25A6.189,6.189,0,0,1,0,13.75Z" fill="#005282" fill-rule="evenodd"/>
+  </g>
+  <text id="相談" transform="translate(0 34)" fill="#005282" font-size="10" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">相談</tspan></text>
+</svg>

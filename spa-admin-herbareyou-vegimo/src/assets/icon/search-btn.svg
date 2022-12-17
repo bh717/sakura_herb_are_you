@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="34" viewBox="0 0 24 34">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="18.919" height="16.817" fill="none"/>
+    </clipPath>
+  </defs>
+  <text id="検索" transform="translate(0 32)" font-size="12" font-family="HiraginoSans-W6, Hiragino Sans"><tspan x="0" y="0">検索</tspan></text>
+  <g id="Input" transform="translate(-630 -278)">
+    <g id="コンポーネント_62_1" data-name="コンポーネント 62 – 1" transform="translate(633 278)" clip-path="url(#clip-path)">
+      <rect id="長方形_176" data-name="長方形 176" width="17.697" height="17.697" fill="none"/>
+      <path id="パス_99" data-name="パス 99" d="M18.532,15.895l-3.846-3.617a7.218,7.218,0,0,0,1.632-4.6A7.878,7.878,0,0,0,8.159,0,7.878,7.878,0,0,0,0,7.673a7.878,7.878,0,0,0,8.159,7.673,8.315,8.315,0,0,0,4.9-1.535L16.9,17.43ZM2.331,7.673A5.607,5.607,0,0,1,8.159,2.192a5.607,5.607,0,0,1,5.828,5.481,5.607,5.607,0,0,1-5.828,5.481A5.607,5.607,0,0,1,2.331,7.673Z"/>
+    </g>
+  </g>
+</svg>

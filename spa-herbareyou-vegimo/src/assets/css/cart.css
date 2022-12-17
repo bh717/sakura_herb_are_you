@@ -1,0 +1,122 @@
+.cart {
+  background-color: #fff9ed;
+}
+
+.sec {
+  width: 100%;
+  margin: auto;
+}
+
+.sec-container {
+  padding: 15rem 0 8rem;
+  width: 45%;
+  margin: auto;
+}
+
+.sec-container-hd2 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 8rem;
+  text-align: center;
+}
+
+.coupon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.coupon__label {
+  margin-right: 2rem;
+}
+
+.coupon__input {
+  text-align: center;
+  margin-left: 2rem;
+  padding: 1.5rem 5rem 1.5rem;
+  border: 1px solid #707070;
+  border-radius: 2rem;
+}
+
+.coupon__input:focus {
+  outline: none;
+}
+
+.vacant-img {
+  display: block;
+  width: 46.5%;
+  max-width: 250px;
+  margin: 0 auto 3rem;
+}
+
+.vacant-txt {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.vacant-link {
+  display: block;
+  color: #505050;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .sec-container {
+    padding: 15rem 0 8rem;
+    width: 60%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .sec-container {
+    padding: 12rem 0 8rem;
+    width: 100%;
+    margin: auto;
+  }
+
+  .coupon {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .coupon__label {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .coupon__input {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .coupon__input:focus {
+    outline: none;
+  }
+}
