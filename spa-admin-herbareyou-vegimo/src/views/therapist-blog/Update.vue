@@ -149,8 +149,21 @@ export default defineComponent({
       this.items.title = this.blog.title;
       this.items.body = this.blog.body;
       this.items.is_public = this.blog.is_public;
-      this.items.upload_file_hashs[0] = this.blog.upload_files[0].hash;
-      this.imageUrls[0] = this.blog.upload_files[0].url;
+      // this.items.upload_file_hashs[0] = this.blog.upload_files[0].hash;
+      // this.imageUrls[0] = this.blog.upload_files[0].url;
+
+      for (let i = 0; i < this.blog.upload_files.length; i++) {
+        this.items.upload_file_hashs[i] = this.blog.upload_files[i].hash;
+      }
+      console.log("image urls:", this.blog.upload_files);
+
+      this.blog.upload_files.forEach((item: {
+        [x: string]: string; url: any;
+      }, index: string | number) => {
+        this.imageUrls[index] = "https://content.herbareyou.jp/" + item?.file_path;
+        console.log(this.imageUrls[index]);
+      })
+
     },
     destroy: async function () {
       if (!window.confirm("本当に削除しますか？")) {

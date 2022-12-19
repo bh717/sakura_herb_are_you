@@ -29,19 +29,14 @@
                 {{ product.description }}
               </p>
             </div>
+            
             <div class="detail-container__left">
-
               <vueper-slides fixed-height="500px">
                 <vueper-slide v-for="(uploadfile, i) in product.upload_files" :key="i" :image="'https://content.herbareyou.jp/' + uploadfile.file_path">
-                  <!-- <img :src="'https://content.herbareyou.jp/' + uploadfile.file_path" alt="" /> -->
                 </vueper-slide>
               </vueper-slides>
-
-              <!-- <div v-for="uploadfile in product.upload_files">
-                <img :src="'https://content.herbareyou.jp/' + uploadfile.file_path" alt="" />
-              </div> -->
-
             </div>
+
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
                 <dt class="detail-container__dt">キーワード</dt>
@@ -171,6 +166,7 @@ import { PageService } from "@/services/PageService";
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
+
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 // import { storeCartDetailApi } from "@/api/carts";

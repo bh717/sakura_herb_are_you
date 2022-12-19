@@ -22,7 +22,7 @@
           </a>
 
           <router-link v-if="isSct" class="footer-about__link" :to="{
-            name: 'SiteSct',
+            name: 'TrialSetIndex',
           }">
             - 初めての方へ　お試しアソートセット
           </router-link>

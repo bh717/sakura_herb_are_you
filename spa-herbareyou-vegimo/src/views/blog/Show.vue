@@ -13,15 +13,19 @@
             <p class="sec-container__txt br" data-anime="fadeup">
               {{ blog.body }}
             </p>
+
             <div class="sec-container__img" data-anime="fadeup">
-              <img :src="blog.upload_files[0].url" alt="" />
+              <vueper-slides fixed-height="300px">
+                <vueper-slide v-for="(uploadfile, i) in blog.upload_files" :key="i"
+                  :image="uploadfile.url">
+                </vueper-slide>
+              </vueper-slides>
             </div>
-            <!-- <div v-bind:style="{ 'display':`flex`, 'gap':`10px`, 'overflow-x':`auto`, 'width':`30rem`}" v-if="items.upload_file_hashs.length !== 0">
-              <div v-for="imageUrl in blog.upload_files">
-                <img :src="imageUrl.url" width="100" height="100"/>
-              </div>
-            </div>
+
+            <!-- <div class="sec-container__img" data-anime="fadeup" v-for="(uploadfile, i) in blog.upload_files" :key="i">
+              <img :src="'https://content.herbareyou.jp/' +uploadfile.file_path"/>
             </div> -->
+
           </div>
         </section>
         <section class="sec" data-anime="fadeup">
@@ -56,6 +60,9 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
+
 import { showTerapistBlogApi } from "@/api/terapist_blogs";
 
 export default defineComponent({
@@ -75,8 +82,10 @@ export default defineComponent({
     Footer,
     Header,
     ValidateError,
+    VueperSlides,
+    VueperSlide,
   },
-  created: async function () {},
+  created: async function () { },
   mounted: async function (): Promise<void> {
     document.body.className = "purchase";
     const showBlogApiResult = await showTerapistBlogApi(
@@ -106,4 +115,6 @@ export default defineComponent({
   methods: {},
 });
 </script>
-<style scoped src="@/assets/css/article.css"></style>
+<style scoped src="@/assets/css/article.css">
+
+</style>

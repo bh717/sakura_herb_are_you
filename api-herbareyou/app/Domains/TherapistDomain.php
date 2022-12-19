@@ -63,11 +63,26 @@ class TherapistDomain extends BaseDomain
         $therapistBlog->body = $data['body'];
         $therapistBlog->is_public = $data['is_public'];
         $therapistBlog->saveOrFail();
-        $uploadFileIds = $this->uploadFile
-            ->where('hash', $data['upload_file_hashs'])
-            ->pluck('id')
-            ->toArray();
-        $therapistBlog->uploadFiles()->sync($uploadFileIds);
+
+        $fileId_array = [];
+
+        foreach ($data['upload_file_hashs'] as $item) {
+            $uploadFileIds = $this->uploadFile
+                ->where('hash', $item)
+                ->pluck('id')
+                ->first();
+
+            array_push($fileId_array, $uploadFileIds);
+        }
+
+        $therapistBlog->uploadFiles()->sync($fileId_array);
+
+        // $uploadFileIds = $this->uploadFile
+        //     ->where('hash', $data['upload_file_hashs'])
+        //     ->pluck('id')
+        //     ->toArray();
+        // $therapistBlog->uploadFiles()->sync($uploadFileIds);
+
         return $therapistBlog;
     }
 
@@ -111,11 +126,23 @@ class TherapistDomain extends BaseDomain
         $therapistBlog->body = $data['body'];
         $therapistBlog->is_public = $data['is_public'];
         $therapistBlog->saveOrFail();
-        $uploadFileIds = $this->uploadFile
-            ->where('hash', $data['upload_file_hashs'])
-            ->pluck('id')
-            ->toArray();
-        $therapistBlog->uploadFiles()->sync($uploadFileIds);
+
+        foreach ($data['upload_file_hashs'] as $item) {
+            $uploadFileIds = $this->uploadFile
+                ->where('hash', $item)
+                ->pluck('id')
+                ->first();
+
+            array_push($fileId_array, $uploadFileIds);
+        }
+
+        $therapistBlog->uploadFiles()->sync($fileId_array);
+
+        // $uploadFileIds = $this->uploadFile
+        //     ->where('hash', $data['upload_file_hashs'])
+        //     ->pluck('id')
+        //     ->toArray();
+        // $therapistBlog->uploadFiles()->sync($uploadFileIds);
         return $therapistBlog;
     }
 
