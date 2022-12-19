@@ -170,15 +170,15 @@
                 <p class="product-item__sub">
                   {{ product.category.name }}
                 </p>
-                <h3 class="product-item__ttl">
+                <p class="product-item__name">{{ product.name2 }}</p>
+                <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                     product.product_no
                   }}</span>
                   <span class="product-item__ttl-main"
                     >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
                   >
-                </h3>
-                <p class="product-item__name">{{ product.name2 }}</p>
+                </p>
                 <p class="product-item__material">
                   {{
                     pageService.cutText(

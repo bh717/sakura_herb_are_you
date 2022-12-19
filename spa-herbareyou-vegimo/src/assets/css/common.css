@@ -7,6 +7,12 @@
 /* Box sizing rules */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+@font-face{
+  font-family: "koburina";
+  src:local("koburina"), url(../font/koburina/koburina.otf) format("opentype");
+}
+
 *,
 *::before,
 *::after {
@@ -1275,8 +1281,8 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
 }
 .product-item__ttl {
   color: #5d5d5d;
+  margin-bottom: 1rem;
   font-size: 1.6rem;
-  font-weight: bold;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1287,17 +1293,17 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   justify-content: center;
 }
 .product-item__ttl-num {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Acme";
   padding-right: 1rem;
 }
 .product-item__ttl-main {
-  font-family: "Acme", sans-serif;
+  font-family: "Acme";
+  padding-left: 1rem;
   text-align: left;
 }
 .product-item__name {
-  font-family: "Acme", sans-serif;
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-family: "koburina";
+  font-size: 1rem;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -1899,6 +1905,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   border-radius: 3rem;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  margin-top: 2rem;
 }
 
 .gift-btn__link:hover {

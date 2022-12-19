@@ -93,15 +93,17 @@
 }
 
 .sec-container__hd2-en {
-    font-family: "Acme", sans-serif;
+    font-family: "koburina", sans-serif;
     font-size: 1.8rem;
     display: block;
-    font-weight: bold;
+    color: #505050;
 }
 
 .sec-container__hd2-ja {
+    font-family: "koburina", sans-serif;
     font-size: 1.2rem;
     font-weight: normal;
+    color: #505050;
 }
 
 .sec-container__txt {
@@ -125,7 +127,7 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    width:50%;
+    width: 50%;
     display: grid;
     grid-template-columns: 18% 18% 18% 18% 18%;
     row-gap: 1.125rem;
@@ -146,33 +148,44 @@
     width: auto;
 }
 
-.gift-section{
+.gift-section {
     position: absolute;
     background-color: white;
     opacity: 80%;
-    width: 50%;
+    width: 30%;
+    
     justify-content: center;
     display: flex;
     flex-direction: column;
     height: 50%;
-    align-items:center;
-    padding: 3rem;
-    gap: 15px;
+    align-items: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
 }
 
-.p-gift-title{
-    font-size: 3.5rem;
+.p-gift-title {
+    font-size: 2.5rem;
     color: #6e6e6e;
+    font-family: "Acme", sans-serif;
 }
 
-.p-gift-main{
-    font-size: 2.3rem;
+.p-gift-title1 {
+    font-size: 2.5rem;
     color: #6e6e6e;
+    font-family: "Acme", sans-serif;
 }
 
-.border-gift{
+.p-gift-main {
+    font-size: 1.3125rem;
+    color: #6e6e6e;
+    margin-top: 1rem;
+}
+
+.border-gift {
     border: 1px solid;
-    border-color:#6e6e6e;
+    border-color: #6e6e6e;
     width: 100%;
 }
 
@@ -214,37 +227,37 @@
     width: 100%;
     border-bottom: 1px solid #d6ac4e;
     color: #d6ac4e;
-    padding-bottom: 0.5rem; 
+    padding-bottom: 0.5rem;
     position: relative;
 }
 
 .blog-item-link__issue {
     font-weight: normal;
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
-    color:#d6ac4e
+    color: #d6ac4e
 }
 
 .blog-item-link__hd3 {
     font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
-    color:#d6ac4e
+    color: #d6ac4e
 }
 
-.btnsection{
+.btnsection {
     width: 100%;
     justify-content: center;
     display: flex;
     margin-top: 3rem;
 }
 
-.blog-btn{
-    opacity :1;
+.blog-btn {
+    opacity: 1;
     border: 1px solid #505050;
     width: 200px;
-    height:60px;
+    height: 60px;
     cursor: pointer;
     align-items: center;
     display: flex;
@@ -291,15 +304,15 @@
     }
 
     .blog-item-link {
-        text-align:left;
+        text-align: left;
     }
-    
+
     .blog-item-link__hd3 {
         text-align: center;
     }
-      
-    .symptom-container{
-        width:99%;
+
+    .symptom-container {
+        width: 99%;
         display: grid;
         grid-template-columns: 32% 32% 32%;
     }
@@ -308,24 +321,30 @@
         width: 80%;
     }
 
-    .gift-section{
+    .gift-section {
         height: 70%;
         gap: 2px;
     }
-    
-    .p-gift-title{
-        font-size: 1.8rem;
+
+    .p-gift-title {
+        font-size: 1.875rem;
         color: #6e6e6e;
     }
-    
-    .p-gift-main{
-        font-size: 1.4 rem;
+
+    .p-gift-title1 {
+        font-size: 1.875rem;
+        color: #6e6e6e;
+        font-weight: bold;
+    }
+
+    .p-gift-main {
+        font-size: 0.9375 rem;
         color: #6e6e6e;
     }
-    
-    .border-gift{
+
+    .border-gift {
         border: 1px solid;
-        border-color:#6e6e6e;
+        border-color: #6e6e6e;
         width: 100%;
     }
 
@@ -390,7 +409,7 @@
     }
 
     .blog-item-link {
-        text-align:left;
+        text-align: left;
     }
 
     .blog-item-link__issue {
@@ -401,8 +420,8 @@
         text-align: left;
     }
 
-    .symptom-container{
-        width:99%;
+    .symptom-container {
+        width: 99%;
         display: grid;
         grid-template-columns: 32% 32% 32%;
     }
@@ -411,25 +430,25 @@
         width: 80%;
     }
 
-    .gift-section{
+    .gift-section {
         height: 70%;
         gap: 2px;
     }
 
-    .p-gift-title{
-        font-size: 1rem;
+    .p-gift-title {
+        font-size: 1.1rem;
         color: #6e6e6e;
     }
-    
-    .p-gift-main{
-        font-size: 0.9rem;
+
+    .p-gift-title1 {
+        font-size: 1.1rem;
         color: #6e6e6e;
+        font-weight: bold;
     }
-    
-    .border-gift{
-        border: 1px solid;
-        border-color:#6e6e6e;
-        width: 100%;
+
+    .p-gift-main {
+        font-size: 0.7375 rem;
+        color: #6e6e6e;
     }
 }
 

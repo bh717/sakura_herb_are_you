@@ -54,6 +54,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/product/Index.vue"),
   },
   {
+    path: "/product/symptom",
+    name: "SymptomIndex",
+    component: () => import("@/views/product/Symptoms.vue"),
+  },
+  {
     path: "/product/:id",
     name: "ProductShow",
     component: () => import("@/views/product/Show.vue"),
@@ -132,6 +137,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/site/sct",
     name: "SiteSct",
     component: () => import("@/views/site/Sct.vue"),
+  },
+  {
+    path: "/trialset",
+    name: "TrialSetIndex",
+    component: () => import("@/views/trialset/index.vue"),
   },
   {
     path: "/error/500",

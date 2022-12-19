@@ -9,7 +9,7 @@
         <section class="sec">
           <div class="detail-container clearfix">
             <div class="detail-container__right1">
-              <h2 class="detail-container__hd2">
+              <p class="detail-container__hd2">
                 <span class="detail-container__hd2-ttl">
                   <span class="detail-container__hd2-sub">{{
                       product.category.name
@@ -24,7 +24,7 @@
                   <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
 
                 </span>
-              </h2>
+              </p>
               <p class="detail-container__txt">
                 {{ product.description }}
               </p>
@@ -125,19 +125,20 @@
                   <img :src="recommendProduct.upload_files[0].url" alt="" />
                 </router-link>
                 <p class="product-item__sub">
-                  {{ recommendProduct.category.name1 }}
+                  {{ recommendProduct.category.name }}
                 </p>
-                <h3 class="product-item__ttl">
+                <p class="product-item__name">
+                  {{ recommendProduct.name2 }}
+                </p>
+                <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                       recommendProduct.product_no
                   }}</span>
                   <span class="product-item__ttl-main">{{ recommendProduct.name1 }}　¥{{
                       recommendProduct.prices[0].price
                   }}</span>
-                </h3>
-                <p class="product-item__name">
-                  {{ recommendProduct.category.name2 }}
                 </p>
+                
                 <p class="product-item__material">
                   {{
                       pageService.cutText(
@@ -286,6 +287,7 @@ export default defineComponent({
         return false;
       }
       this.recommendProducts = productIndexApiResult.data;
+      console.log("recommendProduct:", this.recommendProducts);
       return true;
     },
     inCart: async function (): Promise<void> {

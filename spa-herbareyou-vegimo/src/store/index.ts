@@ -59,20 +59,20 @@ export default createStore({
     setCartData: async ({ commit, state }): Promise<void> => {
       const productPriceData = getCartData();
       console.log("data",productPriceData);
-      // const apiResult = await showCartMineApi(productPriceData);
-      // if (!apiResult.success) {
-      //   // alert('カートの更新に失敗しましたので、カート情報がリセットされました。');
-      //   allDeleteProductPriceData();
-      //   deleteCouponCode();
-      //   return;
-      // }
-      // commit("setCartData", apiResult.data);
-      // setProductPrice(apiResult.data.cart_in_product_prices.product_prices);
-      // setCouponCode(apiResult.data.cart.coupon_code);
-      // if (apiResult?.data?.cart?.is_delete_product_price) {
-      //   alert('商品が削除されていたため、カートが更新されました。');
-      // }
-      // return apiResult.data;
+      const apiResult = await showCartMineApi(productPriceData);
+      if (!apiResult.success) {
+        // alert('カートの更新に失敗しましたので、カート情報がリセットされました。');
+        allDeleteProductPriceData();
+        deleteCouponCode();
+        return;
+      }
+      commit("setCartData", apiResult.data);
+      setProductPrice(apiResult.data.cart_in_product_prices.product_prices);
+      setCouponCode(apiResult.data.cart.coupon_code);
+      if (apiResult?.data?.cart?.is_delete_product_price) {
+        alert('商品が削除されていたため、カートが更新されました。');
+      }
+      return apiResult.data;
     },
   },
   modules: {},

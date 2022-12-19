@@ -87,6 +87,9 @@
                   </ul>
                 </li>
                 <li class="child-list-item">
+                  <a href="/trialset" class="child-list-item__link child-list-item__link--mb30" tabindex="-1">初めての方へ　お試しアソートセット</a>
+                </li>
+                <li class="child-list-item">
                   <a class="child-list-item__link child-list-item__link--mb30" tabindex="-1">プレゼント＆ギフトBOX<span
                       class="child-list-item__link-span">近日公開</span></a>
                 </li>

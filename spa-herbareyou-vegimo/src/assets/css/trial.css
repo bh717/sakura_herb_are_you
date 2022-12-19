@@ -1,0 +1,141 @@
+.kv {
+    margin-top: 6%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kv__img {
+    width: 100%;
+    height: 100vh;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.trial-sec-p-section {
+    position: absolute;
+    top: 15%;
+    text-align: center;
+}
+
+.trial-sec-p1 {
+    font-family: "Acme", sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    padding: 1rem;
+}
+
+.trial-sec-p2 {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.sec {
+    width: 100%;
+    margin: auto;
+}
+
+.trial-sec-container {
+    width: 85%;
+    margin: auto;
+    padding: 3rem 0 1rem;
+}
+
+.trial-p {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.sec-container {
+    width: 85%;
+    margin: auto;
+    padding: 5rem 0 5rem;
+}
+
+.sec-container__hd2 {
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.trial-border{
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .kv {
+        margin-top: 8%;
+        width: 100%;
+    }
+
+    .trial-sec-p-section {
+        position: absolute;
+        top: 10%;
+        text-align: center;
+    }
+
+    .trial-sec-p {
+        font-family: "Acme", sans-serif;
+        color: white;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+    }
+
+    .trial-sec-p1 {
+        font-family: "Acme", sans-serif;
+        color: white;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+    }
+    
+    .trial-sec-p2 {
+        color: white;
+        font-size: 0.9375rem;
+    }
+
+    .trial-border{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 599px) {
+    .kv {
+        margin-top: 14%;
+        width: 100%;
+    }
+
+    .trial-sec-p-section {
+        position: absolute;
+        top: 10%;
+        text-align: center;
+    }
+
+    .trial-sec-p {
+        font-family: "Acme", sans-serif;
+        color: white;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+    }
+
+    .trial-sec-p1 {
+        font-family: "Acme", sans-serif;
+        color: white;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+    }
+    
+    .trial-sec-p2 {
+        color: white;
+        font-size: 0.9375rem;
+    }
+
+    .trial-border{
+        display: none;
+    }
+}

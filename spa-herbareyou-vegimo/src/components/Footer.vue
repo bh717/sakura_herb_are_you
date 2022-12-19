@@ -7,7 +7,7 @@
     <footer class="footer-about" v-if="isSct">
       <div class="sec-container">
         <div class="sec-sub-container">
-          <p>商品をさがす</p>
+          <p class="footer-about-title">商品をさがす</p>
           <router-link v-if="isSct" class="footer-about__link" :to="{ name: 'ProductIndex' }">
             - 商品一覧
           </router-link>
@@ -130,7 +130,9 @@ export default defineComponent({
   padding: 3rem 0 8rem;
   background-color: #f7f7f7;
 }
-
+.footer-about-title{
+  margin-bottom: 1rem;
+}
 .footer-end {
   text-align: center;
   width: 100%;
@@ -140,6 +142,7 @@ export default defineComponent({
 
 .footer-about__link {
   color: #707070;
+  margin-bottom: 1rem;
 }
 
 .sec-container {

@@ -37,12 +37,12 @@
           <div class="sec-container">
             <h2 class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh" data-anime="fadeup">
 
-              <span class="sec-container__hd2-en">SERCHING BY THE THEME</span>
+              <span class="sec-container__hd2-en">Serching by the THEME</span>
               <span class="sec-container__hd2-ja">具体的な症状・テーマからハーブティを探す</span>
             </h2>
             <!-- <div class="symptom-section" data-anime="fadeup"> -->
               <div class="symptom-container" data-anime="fadeup">
-                <router-link class="theme-btn__link" :to="'/product/?symptom_ids=' + String(symptom.id)"
+                <router-link class="theme-btn__link" :to="'/product/symptom/?symptom_ids=' + String(symptom.id)"
                   v-for="(symptom, index) in symptoms">{{ symptom.name }}</router-link>
               </div>
             <!-- </div> -->
@@ -52,7 +52,7 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh" data-anime="fadeup">
-              <span class="sec-container__hd2-en">SERCHING BY THE CATEGORY</span>
+              <span class="sec-container__hd2-en">Serching by the category</span>
               <span class="sec-container__hd2-ja">今の自分の気分に合ったハーブティを3つのカテゴリーから探す</span>
             </h2>
             <div class="illust-container" data-anime="fadeup">
@@ -86,10 +86,10 @@
 
           <div class="gift-section">
             <p class="p-gift-title">飲み比べができるお試しセット</p>
-            <p class="p-gift-title">Assorted Trial Pack</p>
+            <p class="p-gift-title1">Assorted Trial Pack</p>
             <hr class="border-gift"/>
             <p class="p-gift-main">7種類のブレンド入り</p>
-            <router-link class="gift-btn__link" :to="'/product/'">もっと詳しく知る</router-link>
+            <router-link class="gift-btn__link" :to="'/trialset'">もっと詳しく知る</router-link>
           </div>
 
         </div>
@@ -137,13 +137,14 @@
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
                 <p class="product-item__sub">{{ product.category.name }}</p>
-                <h3 class="product-item__ttl">
+                <p class="product-item__name">{{ product.name2 }}</p>
+                <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                       product.product_no
                   }}</span>
+                  <span>|</span>
                   <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
-                </h3>
-                <p class="product-item__name">{{ product.name2 }}</p>
+                </p>
                 <p class="product-item__material">
                   {{
                       pageService.cutText(
