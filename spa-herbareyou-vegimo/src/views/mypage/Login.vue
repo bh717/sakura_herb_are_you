@@ -128,7 +128,11 @@ export default defineComponent({
         this.commonError(loginApiResult);
         return;
       }
+      
       localStorage.setItem("access_token", loginApiResult.data.access_token);
+      console.log("Gmail",this.params.email);
+      localStorage.setItem("gmail", this.params.email);
+
       await this.$store.dispatch("setAuthData");
 
       const query = this.pageService.getQueryObjectForUrl();

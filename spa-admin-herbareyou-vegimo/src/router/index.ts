@@ -68,6 +68,24 @@ const routes: Array<RouteRecordRaw> = [
     name: "SymptomStore",
     component: () => import("@/views/mst-symptom/Store.vue"),
   },
+  
+  //flavor start
+  {
+    path: "/flavor",
+    name: "FlavorIndex",
+    component: () => import("@/views/mst-flavor/Index.vue"),
+  },
+  {
+    path: "/flavor/update/:id",
+    name: "FlavorUpdate",
+    component: () => import("@/views/mst-flavor/Update.vue"),
+  },
+  {
+    path: "/flavor/store",
+    name: "FlavorStore",
+    component: () => import("@/views/mst-flavor/Store.vue"),
+  },
+  //flarvor end
 
   {
     path: "/product-category",

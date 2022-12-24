@@ -93,16 +93,16 @@
 }
 
 .sec-container__hd2-en {
-    font-family: "koburina", sans-serif;
+    font-family: Acme,sans-serif;
     font-size: 1.8rem;
     display: block;
     color: #505050;
+    font-weight: 700;
 }
 
 .sec-container__hd2-ja {
-    font-family: "koburina", sans-serif;
     font-size: 1.2rem;
-    font-weight: normal;
+    font-weight: 400;
     color: #505050;
 }
 
@@ -127,9 +127,9 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    width: 50%;
+    width: 70%;
     display: grid;
-    grid-template-columns: 18% 18% 18% 18% 18%;
+    grid-template-columns: repeat(auto-fit, 18%);
     row-gap: 1.125rem;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
@@ -151,7 +151,7 @@
 .gift-section {
     position: absolute;
     background-color: white;
-    opacity: 80%;
+    opacity: 0.8;
     width: 30%;
     
     justify-content: center;
@@ -273,7 +273,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #d6ac4e;
     background: #fff;

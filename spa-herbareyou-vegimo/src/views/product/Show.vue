@@ -31,10 +31,11 @@
             </div>
             
             <div class="detail-container__left">
-              <vueper-slides fixed-height="500px">
+              <vueper-slides fixed-height="500px" v-if="product.upload_files.length !== 1">
                 <vueper-slide v-for="(uploadfile, i) in product.upload_files" :key="i" :image="'https://content.herbareyou.jp/' + uploadfile.file_path">
                 </vueper-slide>
               </vueper-slides>
+              <img v-if="product.upload_files.length === 1" :src="product.upload_files[0].url" alt="" />
             </div>
 
             <div class="detail-container__right2">

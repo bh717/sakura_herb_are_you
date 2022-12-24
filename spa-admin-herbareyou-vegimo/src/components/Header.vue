@@ -77,6 +77,21 @@
                 <li>
                   <router-link
                     class="dropdown-item"
+                    :to="{ name: 'FlavorIndex' }"
+                    >香り一覧</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    class="dropdown-item"
+                    :to="{ name: 'FlavorStore' }"
+                    >香り作成</router-link
+                  >
+                </li>
+
+                <li>
+                  <router-link
+                    class="dropdown-item"
                     :to="{ name: 'CouponIndex' }"
                     >coupon一覧</router-link
                   >

@@ -33,7 +33,7 @@
         </div>
 
         <!-- show theme of product -->
-        <section class="sec sec--theme sec--gray">
+        <section class="sec sec--theme sec--gray" id="detailedSymptomBlock">
           <div class="sec-container">
             <h2 class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh" data-anime="fadeup">
 
@@ -168,8 +168,9 @@
     </main>
     <Footer :isSct="true" />
   </div>
-  <a href="/diagnose" class="diagnose-icon">
-    <img src="@/assets/img/index/diagnose.svg" alt="" class="diagnose__img" />
+  <a href="/diagnose1" class="diagnose-icon">
+    <!-- <img src="@/assets/img/index/diagnose.svg" alt="" class="diagnose__img" /> -->
+    <img src="@/assets/img/index/562.png" alt="" class="diagnose__img" />
   </a>
 </template>
 
@@ -257,8 +258,11 @@ export default defineComponent({
   },
   methods: {
     showMore(): void {
-      if (this.blogcount < this.blogtotalcount)
-        this.blogcount++;
+      // if (this.blogcount < this.blogtotalcount)
+      //   this.blogcount++;
+      const query = "blog";
+      console.log(location.pathname, location);
+      location.href = location.href + query;
     },
     commonError: function (result: any = null): void {
       if (result.status === 422) {

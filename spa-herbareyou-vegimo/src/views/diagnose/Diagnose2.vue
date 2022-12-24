@@ -6,16 +6,16 @@
         <section class="sec">
           <div class="sec-container">
             <p class="sec-container__name">
-              {{ diagnoseData.diagnose0.name }}さん
+              「{{ diagnoseData.diagnose0.name }}」さん
             </p>
             <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose1.condition === 1">
-              どんな症状がありますか？
+              表示されている中に具体的な症状の悩みがありますか？
             </h2>
             <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 2">
-              どんな症状がありますか？
+              表示されている中に具体的な症状の悩みがありますか？
             </h2>
             <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 3">
-              どんな症状がありますか？
+              表示されている中に具体的な症状の悩みがありますか？
             </h2>
             <div class="sec-container__form">
               <div class="sec-container__form-parts"  >

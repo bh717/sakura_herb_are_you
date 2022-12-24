@@ -50,39 +50,29 @@
                   <router-link class="child-list-item__link child-list-item__link--mb30" v-on:click="closeMenu()"
                     :to="{ name: 'ProductIndex' }">商品一覧</router-link>
                 </li>
+
                 <li class="child-list-item">
-                  <span class="child-list-item__txt child-list-item__txt--mb20">カテゴリーから探す</span>
+                  <router-link class="child-list-item__link child-list-item__link--mb30" v-on:click="closeMenu()"
+                    :to="{ name: 'Home' , hash: '#detailedSymptomBlock'}">具体的な症状・テーマから探す</router-link>
+                </li>
+
+                <li class="child-list-item">
+                  <span class="child-list-item__txt child-list-item__txt--mb20">今の気分に合わせて探す</span>
                   <ul class="gran-child-list">
                     <li class="gran-child-list-item">
                       <a href="/product/category/2"
                         class="gran-child-list-item__link gran-child-list-item__link--mb20">INSPIRATION　<br
-                          class="sp" />前向きな今日に</a>
-                      <!-- <router-link class="gran-child-list-item__link gran-child-list-item__link--mb20"
-                        v-on:click="closeMenu()" :to="{
-                          name: 'ProductIndexInspiration',
-                          params: { kind: 2 },
-                        }">INSPIRATION　<br class="sp" />前向きな今日に</router-link> -->
+                          class="sp" />閃きや活力が欲しい時に</a>
                     </li>
                     <li class="gran-child-list-item">
                       <a href="/product/category/3"
                         class="gran-child-list-item__link gran-child-list-item__link--mb20">MAINTENANCE　<br
-                          class="sp" />なんとなくのもやもやに</a>
-                      <!-- <router-link class="gran-child-list-item__link gran-child-list-item__link--mb20"
-                        v-on:click="closeMenu()" :to="{
-                          name: 'ProductIndexMaintenance',
-                          params: { kind: 3 },
-                        }">MAINTENANCE　<br class="sp" />なんとなくのもやもやに
-                      </router-link> -->
+                          class="sp" />いつもの自分を取り戻すために</a>
                     </li>
                     <li class="gran-child-list-item">
                       <a href="/product/category/1"
                         class="gran-child-list-item__link gran-child-list-item__link--mb20">HEALING　<br
                           class="sp" />具体的な症状・不調に</a>
-                      <!-- <router-link class="gran-child-list-item__link gran-child-list-item__link--mb20"
-                        v-on:click="closeMenu()" :to="{
-                          name: 'ProductIndexHealing',
-                          params: { kind: 1 },
-                        }">HEALING　<br class="sp" />具体的な症状・不調に</router-link> -->
                     </li>
                   </ul>
                 </li>

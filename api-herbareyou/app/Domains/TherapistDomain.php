@@ -138,11 +138,6 @@ class TherapistDomain extends BaseDomain
 
         $therapistBlog->uploadFiles()->sync($fileId_array);
 
-        // $uploadFileIds = $this->uploadFile
-        //     ->where('hash', $data['upload_file_hashs'])
-        //     ->pluck('id')
-        //     ->toArray();
-        // $therapistBlog->uploadFiles()->sync($uploadFileIds);
         return $therapistBlog;
     }
 

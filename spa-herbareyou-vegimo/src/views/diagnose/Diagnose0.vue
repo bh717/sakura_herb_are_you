@@ -34,6 +34,7 @@ import { defineComponent } from "vue";
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import { CommonScriptService } from "@/services/CommonScriptService";
+import { getName } from "@/api/name";
 
 export default defineComponent({
   name: "Diagnose0",
@@ -60,8 +61,29 @@ export default defineComponent({
   },
 
   methods: {
-    init: function () {
+    init: async function (): Promise<any> {
       localStorage.removeItem("diagnoseJsonData");
+      if (!localStorage.getItem("access_token")) {
+        this.name = "ゲスト様";
+
+        localStorage.setItem(
+          "diagnoseJsonData",
+          JSON.stringify({
+            diagnose0: { name: this.name },
+          })
+        );
+      }
+
+      else {
+        this.email = localStorage.getItem("gmail");
+        const res = await getName(this.email);
+        const response = res.data;
+        console.log("resData:", res.data);
+        this.firstname = response[0].first_name;
+        this.lastname = response[0].last_name;
+        this.name = this.firstname + " " + this.lastname;
+        this.nextPage();
+      }
     },
     nextPage: function () {
       if (!this.name) {

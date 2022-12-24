@@ -47,18 +47,16 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+  display: grid;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, 24%);
   margin-bottom: 5rem;
 }
 .sec-container__form-parts {
-  width: 18%;
+  width: 100%;
   margin-bottom: 3rem;
   cursor: pointer;
 }
@@ -107,7 +105,7 @@
 .deco {
   width: 15%;
   position: absolute;
-  bottom: 3rem;
+  bottom: 25rem;
   right: 7rem;
 }
 

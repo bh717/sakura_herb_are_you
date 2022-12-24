@@ -11,30 +11,15 @@
               <div class="sort-left">
                 <div class="accordion" id="js-filter">
                   <div class="accordion__container">
-                    <a class="accordion__title js-accordion-title"
-                      >症状で探す</a
-                    >
+                    <a class="accordion__title js-accordion-title">症状で探す</a>
                     <div class="accordion__content">
                       <ul class="sort-inner-list">
-                        <li
-                          class="sort-inner-item"
-                          v-for="symptom in symptoms"
-                          v-bind:key="symptom.id"
-                        >
-                          <input
-                            type="checkbox"
-                            :id="'symptom-' + String(symptom.id)"
-                            name="categories"
-                            :value="symptom.id"
-                            v-model="symptomIds"
-                            class="sort-inner-item__check"
-                            :checked="symptomIds.includes(symptom.id)"
-                          />
-                          <label
-                            :for="'symptom-' + String(symptom.id)"
-                            class="sort-inner-item__label"
-                            >{{ symptom.name }}</label
-                          >
+                        <li class="sort-inner-item" v-for="symptom in symptoms" v-bind:key="symptom.id">
+                          <input type="checkbox" :id="'symptom-' + String(symptom.id)" name="categories"
+                            :value="symptom.id" v-model="symptomIds" class="sort-inner-item__check"
+                            :checked="symptomIds.includes(symptom.id)" />
+                          <label :for="'symptom-' + String(symptom.id)" class="sort-inner-item__label">{{ symptom.name
+                          }}</label>
                         </li>
                       </ul>
                     </div>
@@ -43,78 +28,40 @@
                     <a class="accordion__title js-accordion-title">味で探す</a>
                     <div class="accordion__content">
                       <ul class="sort-inner-list">
-                        <li
-                          class="sort-inner-item"
-                          v-for="taste in tastes"
-                          v-bind:key="taste.id"
-                        >
-                          <input
-                            type="checkbox"
-                            :id="'taste-' + String(taste.id)"
-                            name="categories"
-                            :value="taste.id"
-                            v-model="tasteIds"
-                            class="sort-inner-item__check"
-                            :checked="tasteIds.includes(taste.id)"
-                          />
-                          <label
-                            :for="'taste-' + String(taste.id)"
-                            class="sort-inner-item__label"
-                            >{{ taste.name }}</label
-                          >
+                        <li class="sort-inner-item" v-for="taste in tastes" v-bind:key="taste.id">
+                          <input type="checkbox" :id="'taste-' + String(taste.id)" name="categories" :value="taste.id"
+                            v-model="tasteIds" class="sort-inner-item__check" :checked="tasteIds.includes(taste.id)" />
+                          <label :for="'taste-' + String(taste.id)" class="sort-inner-item__label">{{ taste.name
+                          }}</label>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div class="accordion__container">
-                    <a class="accordion__title js-accordion-title"
-                      >ハーブで探す</a
-                    >
+                    <a class="accordion__title js-accordion-title">ハーブで探す</a>
                     <div class="accordion__content">
                       <ul class="sort-inner-list">
-                        <li
-                          class="sort-inner-item"
-                          v-for="material in materials"
-                          v-bind:key="material.id"
-                        >
-                          <input
-                            type="checkbox"
-                            :id="'material-' + String(material.id)"
-                            name="categories"
-                            :value="material.id"
-                            v-model="materialIds"
-                            class="sort-inner-item__check"
-                            :checked="materialIds.includes(material.id)"
-                          />
-                          <label
-                            :for="'material-' + String(material.id)"
-                            class="sort-inner-item__label"
-                            >{{ material.name }}</label
-                          >
+                        <li class="sort-inner-item" v-for="material in materials" v-bind:key="material.id">
+                          <input type="checkbox" :id="'material-' + String(material.id)" name="categories"
+                            :value="material.id" v-model="materialIds" class="sort-inner-item__check"
+                            :checked="materialIds.includes(material.id)" />
+                          <label :for="'material-' + String(material.id)" class="sort-inner-item__label">{{
+                              material.name
+                          }}</label>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div class="accordion__container pc">
-                    <a class="clearall" v-on:click="clearAll($event)"
-                      >CLEAR ALL</a
-                    >
+                    <a class="clearall" v-on:click="clearAll($event)">CLEAR ALL</a>
                   </div>
                   <div class="accordion__container pc">
                     <a class="clearall" v-on:click="toSearch($event)">検索</a>
                   </div>
                   <a class="backBtn sp" href="">一覧へ</a>
                   <div class="btn-container sp">
-                    <a
-                      class="btn-container__clear"
-                      v-on:click="clearAll($event)"
-                      >クリア</a
-                    >
-                    <a
-                      class="btn-container__search"
-                      v-on:click="toSearch($event)"
-                      >検索</a
-                    >
+                    <a class="btn-container__clear" v-on:click="clearAll($event)">クリア</a>
+                    <a class="btn-container__search" v-on:click="toSearch($event)">検索</a>
                   </div>
                 </div>
               </div>
@@ -122,28 +69,16 @@
                 <div class="sort-right">
                   <div class="accordion">
                     <div class="accordion__container accordion__container--pr0">
-                      <a
-                        class="accordion__title accordion__title--exc js-accordion-title"
-                        >並び替え</a
-                      >
+                      <a class="accordion__title accordion__title--exc js-accordion-title">並び替え</a>
                       <div class="accordion__content">
                         <ul class="sort-inner-list">
-                          <li
-                            class="sort-inner-item"
-                            v-on:click="changeSortOrder('popularity_asc')"
-                          >
+                          <li class="sort-inner-item" v-on:click="changeSortOrder('popularity_asc')">
                             人気順
                           </li>
-                          <li
-                            class="sort-inner-item"
-                            v-on:click="changeSortOrder('price_asc')"
-                          >
+                          <li class="sort-inner-item" v-on:click="changeSortOrder('price_asc')">
                             値段順
                           </li>
-                          <li
-                            class="sort-inner-item"
-                            v-on:click="changeSortOrder('product_no_asc')"
-                          >
+                          <li class="sort-inner-item" v-on:click="changeSortOrder('product_no_asc')">
                             商品番号
                           </li>
                         </ul>
@@ -154,17 +89,9 @@
               </div>
             </div>
             <ul class="product-list clearfix" v-if="products.length !== 0">
-              <li
-                class="product-item"
-                data-anime="fadeup"
-                :data-category="'att-' + String(product.id)"
-                v-for="(product, index) in products"
-                v-bind:key="index"
-              >
-                <router-link
-                  :to="'/product/' + String(product.id)"
-                  class="product-item__link"
-                >
+              <li class="product-item" data-anime="fadeup" :data-category="'att-' + String(product.id)"
+                v-for="(product, index) in products" v-bind:key="index">
+                <router-link :to="'/product/' + String(product.id)" class="product-item__link">
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
                 <p class="product-item__sub">
@@ -173,29 +100,24 @@
                 <p class="product-item__name">{{ product.name2 }}</p>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
-                    product.product_no
+                      product.product_no
                   }}</span>
-                  <span class="product-item__ttl-main"
-                    >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
-                  >
+                  <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
                 </p>
                 <p class="product-item__material">
                   {{
-                    pageService.cutText(
-                      20,
-                      "…",
-                      pageService.implode(
-                        "、",
-                        pageService.pluck("name", product.materials)
+                      pageService.cutText(
+                        20,
+                        "…",
+                        pageService.implode(
+                          "、",
+                          pageService.pluck("name", product.materials)
+                        )
                       )
-                    )
                   }}
                 </p>
                 <div class="a-btn">
-                  <router-link
-                    :to="'/product/' + String(product.id)"
-                    class="a-btn__link"
-                  >
+                  <router-link :to="'/product/' + String(product.id)" class="a-btn__link">
                     詳細を見る
                   </router-link>
                 </div>
@@ -229,6 +151,7 @@ export default defineComponent({
       validateErrors: {} as any,
       tastes: [] as any[],
       materials: [] as any[],
+      sortedmaterials: [] as any[],
       symptoms: [] as any[],
       products: [] as any[],
       tasteIds: [] as number[],
@@ -244,7 +167,7 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: async function () {},
+  created: async function () { },
   mounted: async function (): Promise<void> {
     document.body.className = "index";
 
@@ -257,7 +180,18 @@ export default defineComponent({
       return;
     }
     this.tastes = ProductCategoriesApiresult.data.tastes;
+
     this.materials = ProductCategoriesApiresult.data.materials;
+    console.log("materials", this.materials);
+
+    this.sortedmaterials = this.materials.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+
+    console.log("sorted materials", this.sortedmaterials);
+    
     this.symptoms = ProductCategoriesApiresult.data.symptoms;
     // 商品の検索を行う
     let productApiresult = await indexProductApi(this.getSearchData());
@@ -272,6 +206,25 @@ export default defineComponent({
     });
   },
   methods: {
+    sortedItems: function () {
+      let searchString = this.searchString;
+      const sortedArray = this.materials.sort((a, b) => {
+        if (a[this.sortKey].name < b[this.sortKey].name) return -1
+        if (a[this.sortKey].name > b[this.sortKey].name) return 1
+        return 0
+      });
+      if (!searchString) {
+        return sortedArray;
+      } else {
+        searchString = searchString.trim().toLowerCase();
+        const search_array = sortedArray.filter((item) => {
+          if (item.name.toLowerCase().indexOf(searchString) !== -1) {
+            return item;
+          }
+        });
+        return search_array;
+      }
+    },
     commonError: function (result: any = null): void {
       if (result.status === 422) {
         this.validateErrors = result.data;
@@ -333,4 +286,6 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped src="@/assets/css/product.css"></style>
+<style scoped src="@/assets/css/product.css">
+
+</style>

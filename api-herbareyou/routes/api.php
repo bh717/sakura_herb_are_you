@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::middleware(['multiauth:api',])->get('user-delivery-locations', 'Api\User\UserDeliveryLocationController@show');
     Route::middleware(['multiauth:api',])->put('user-delivery-locations', 'Api\User\UserDeliveryLocationController@update');
 
+    Route::get('loginName/getNameByEmail/{email}', 'Api\User\EmailController@getName');
     Route::get('detailedsymptoms/symptoms/{id}', 'Api\User\DetailedSymptomsController@symptoms');
     Route::get('detailedsymptomsproduct/symptoms/{name}/{id}', 'Api\User\DetailedSymptomsProductController@symptoms');
     Route::get('symptomproduct/product/{id}', 'Api\User\SymptomProductController@product');

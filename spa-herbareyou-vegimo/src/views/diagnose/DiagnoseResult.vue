@@ -23,11 +23,12 @@
               </div>
 
               <div class="detail-container__left">
-                <vueper-slides fixed-height="500px">
+                <vueper-slides fixed-height="500px" v-if="imageUrls.length !== 1">
                   <vueper-slide v-for="(imageUrl, i) in imageUrls" :key="i"
                     :image="'https://content.herbareyou.jp/' + imageUrl">
                   </vueper-slide>
                 </vueper-slides>
+                <img v-if="imageUrls.length === 1" :src="'https://content.herbareyou.jp/' + imageUrls[0]" alt="" />
               </div>
 
               <div class="detail-container__right2">

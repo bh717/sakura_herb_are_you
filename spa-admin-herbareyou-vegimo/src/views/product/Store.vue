@@ -330,6 +330,13 @@ export default defineComponent({
     }
     this.materials = result.data;
     console.log(result.data);
+
+    this.materials.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+
     // 症状
     result = await indexSymptomApi();
     if (!result.success) {
@@ -337,6 +344,13 @@ export default defineComponent({
       return;
     }
     this.symptoms = result.data;
+
+    this.symptoms.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+
     // 味
     result = await indexTasteApi();
     if (!result.success) {
@@ -344,6 +358,12 @@ export default defineComponent({
       return;
     }
     this.tastes = result.data;
+    this.tastes.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+    
     this.addPrice();
     this.isShow = true;
   },
