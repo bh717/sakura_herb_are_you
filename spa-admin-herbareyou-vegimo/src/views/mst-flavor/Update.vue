@@ -1,5 +1,5 @@
 <template>
-  <h2 class="mb-3">香り更新</h2>
+  <h2 class="mb-3">香りの特徴更新</h2>
   <ErrorMessage :message="message" />
   <div id="app" v-if="isShow">
     <div>
@@ -14,11 +14,7 @@
         <tr>
           <th>no</th>
           <td class="py-2">
-            <input
-              type="text"
-              class="form-control"
-              v-model="items.category_no"
-            />
+            <input type="text" class="form-control" v-model="items.category_no" />
             <ValidateError :errorMessages="validateErrors.category_no" />
           </td>
         </tr>
@@ -26,22 +22,12 @@
 
       <div class="d-flex justify-content-center">
         <div class="p-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="update()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="update()" :disabled="submitDisable">
             編集する
           </button>
         </div>
         <div class="p-2">
-          <button
-            type="button"
-            class="btn btn-danger"
-            v-on:click="destroy()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-danger" v-on:click="destroy()" :disabled="submitDisable">
             削除する
           </button>
         </div>
@@ -55,13 +41,13 @@ import { defineComponent } from "vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import {
-  showSymptomApi,
-  updateSymptomApi,
-  destroySymptomApi,
-} from "@/api/mst-symptoms";
+  showFlavorApi,
+  updateFlavorApi,
+  destroyFlavorApi,
+} from "@/api/mst-flavors";
 
 export default defineComponent({
-  name: "SymptomUpdate",
+  name: "FlavorUpdate",
   components: {
     ErrorMessage,
     ValidateError,
@@ -72,16 +58,16 @@ export default defineComponent({
     submitDisable: false,
     validateErrors: {} as any,
     items: {} as any,
-    symptom: {} as any,
+    flavor: {} as any,
   }),
   mounted: async function () {
-    const result = await showSymptomApi(this.$route.params.id);
+    const result = await showFlavorApi(this.$route.params.id);
     if (!result.success) {
       this.commonError(result);
       return;
     }
     this.items = result.data;
-    this.symptom = result.data;
+    this.flavor = result.data;
     this.isShow = true;
   },
   methods: {
@@ -95,7 +81,7 @@ export default defineComponent({
     },
     update: async function () {
       this.submitDisable = true;
-      const result = await updateSymptomApi(
+      const result = await updateFlavorApi(
         this.$route.params.id,
         this.items.name,
         this.items.category_no
@@ -107,7 +93,7 @@ export default defineComponent({
       }
       alert("更新しました");
       this.$router.push({
-        name: "SymptomIndex",
+        name: "FlavorIndex",
       });
     },
     destroy: async function () {
@@ -115,7 +101,7 @@ export default defineComponent({
         return;
       }
       this.submitDisable = true;
-      const result = await destroySymptomApi(this.$route.params.id);
+      const result = await destroyFlavorApi(this.$route.params.id);
       this.submitDisable = false;
       if (!result.success) {
         this.commonError(result);
@@ -124,7 +110,7 @@ export default defineComponent({
       }
       alert("削除しました");
       this.$router.push({
-        name: "SymptomIndex",
+        name: "FlavorIndex",
       });
     },
   },

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\IsPublic;
+use App\Enums\IsProductStatus;
+
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,6 +16,7 @@ class Product extends BaseModel
     use SoftDeletes;
 
     public const IS_PUBLIC = IsPublic::class;
+    public const IS_PRODUCT_STATUS = IsProductStatus::class;
 
     protected $table = 'products';
     protected $guarded = [];
@@ -75,6 +78,12 @@ class Product extends BaseModel
     public function tastes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Taste', 'product_taste')
+            ->orderBy('sort_order');
+    }
+
+    public function flavors(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Flavor', 'product_flavor')
             ->orderBy('sort_order');
     }
 

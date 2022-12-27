@@ -41,10 +41,10 @@
               <span class="sec-container__hd2-ja">具体的な症状・テーマからハーブティを探す</span>
             </h2>
             <!-- <div class="symptom-section" data-anime="fadeup"> -->
-              <div class="symptom-container" data-anime="fadeup">
-                <router-link class="theme-btn__link" :to="'/product/symptom/?symptom_ids=' + String(symptom.id)"
-                  v-for="(symptom, index) in symptoms">{{ symptom.name }}</router-link>
-              </div>
+            <div class="symptom-container" data-anime="fadeup">
+              <router-link class="theme-btn__link" :to="'/product/symptom/?symptom_ids=' + String(symptom.id)"
+                v-for="(symptom, index) in symptoms">{{ symptom.name }}</router-link>
+            </div>
             <!-- </div> -->
           </div>
         </section>
@@ -57,21 +57,21 @@
             </h2>
             <div class="illust-container" data-anime="fadeup">
               <router-link class="illust-container__link" :to="{
-                name: 'ProductIndexInspiration',
-                params: { kind: 2 },
-              }">
+  name: 'ProductIndexInspiration',
+  params: { kind: 2 },
+}">
                 <img src="@/assets/img/index/inspiration.svg" alt="" />
               </router-link>
               <router-link class="illust-container__link" :to="{
-                name: 'ProductIndexMaintenance',
-                params: { kind: 3 },
-              }">
+  name: 'ProductIndexMaintenance',
+  params: { kind: 3 },
+}">
                 <img src="@/assets/img/index/maintenance.svg" alt="" />
               </router-link>
               <router-link class="illust-container__link" :to="{
-                name: 'ProductIndexHealing',
-                params: { kind: 1 },
-              }"><img src="@/assets/img/index/healing.svg" alt="" /></router-link>
+  name: 'ProductIndexHealing',
+  params: { kind: 1 },
+}"><img src="@/assets/img/index/healing.svg" alt="" /></router-link>
             </div>
           </div>
         </section>
@@ -82,12 +82,12 @@
           <picture>
             <source media="(max-width:599px)" srcset="@/assets/img/top/banner.jpg" />
             <img src="@/assets/img/top/banner.jpg" alt="" />
-          </picture>  
+          </picture>
 
           <div class="gift-section">
             <p class="p-gift-title">飲み比べができるお試しセット</p>
             <p class="p-gift-title1">Assorted Trial Pack</p>
-            <hr class="border-gift"/>
+            <hr class="border-gift" />
             <p class="p-gift-main">7種類のブレンド入り</p>
             <router-link class="gift-btn__link" :to="'/trialset'">もっと詳しく知る</router-link>
           </div>
@@ -104,12 +104,12 @@
               <li class="blog-item is-active" data-anime="fadeup" v-for="blog in blogs.slice(0, blogcount)"
                 v-bind:key="blog.id">
                 <router-link :to="{
-                  name: 'BlogShow',
-                  params: { id: Number(blog.id) },
-                }" class="blog-item-link">
+  name: 'BlogShow',
+  params: { id: Number(blog.id) },
+}" class="blog-item-link">
                   <span class="blog-item-link__issue">植物療法士便り #{{
-                      pageService.get0Padding(blog.id, 2)
-                  }}</span>
+    pageService.get0Padding(blog.id, 2)
+}}</span>
                   <h3 class="blog-item-link__hd3">{{ blog.title }}</h3>
                 </router-link>
               </li>
@@ -130,39 +130,36 @@
             <ul class="product-list clearfix" v-if="isShow" id="this_month_herb_tee">
               <li class="product-item" data-anime="fadeup" :data-category="'att-' + index"
                 v-for="(product, index) in products" v-bind:key="product.id">
-                <router-link class="product-item__link" :to="{
-                  name: 'ProductShow',
-                  params: { id: product.id },
-                }">
-                  <img :src="product.upload_files[0].url" alt="" />
+                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id }, }">
+                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
                 </router-link>
                 <p class="product-item__sub">{{ product.category.name }}</p>
                 <p class="product-item__name">{{ product.name2 }}</p>
                 <p class="product-item__ttl">
-                  <span class="product-item__ttl-num">{{
-                      product.product_no
-                  }}</span>
+                  <span class="product-item__ttl-num">{{ product.product_no }}</span>
                   <span>|</span>
                   <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
                 </p>
                 <p class="product-item__material">
-                  {{
-                      pageService.cutText(
-                        20,
-                        "…",
-                        pageService.implode(
-                          "、",
-                          pageService.pluck("name", product.materials)
-                        )
-                      )
-                  }}
+                  {{pageService.cutText(20,"…",pageService.implode( "、", pageService.pluck("name", product.materials)))}}
                 </p>
                 <div class="a-btn">
                   <router-link class="a-btn__link" :to="'/product/' + String(product.id)">詳細を見る</router-link>
                 </div>
+                <div class="product_div">
+                  <img src="@/assets/img/icon/New.png" alt="" v-if="product.is_productStatus === 1"
+                    class="product_icon" />
+                  <img src="@/assets/img/icon/SoldOut.png" alt="" v-if="product.is_productStatus === 2"
+                    class="product_icon" />
+                  <img src="@/assets/img/icon/Recommend.png" alt="" v-if="product.is_productStatus === 3"
+                    class="product_icon1" />
+                </div>
               </li>
+              <div>
+              </div>
             </ul>
           </div>
+
         </section>
       </article>
     </main>
@@ -224,6 +221,7 @@ export default defineComponent({
     }
     this.symptoms = ProductCategoriesApiresult.data.symptoms;
 
+    
     const blogApiResult = await indexTerapistBlogApi();
     if (!blogApiResult.success) {
       alert("失敗");
@@ -243,6 +241,9 @@ export default defineComponent({
       return;
     }
     this.products = productApiresult.data;
+
+    console.log("products:", this.products);
+
     this.isShow = true;
     this.$nextTick(function () {
       this.commonScriptService.execute();

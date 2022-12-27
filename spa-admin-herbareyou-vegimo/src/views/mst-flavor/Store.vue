@@ -1,5 +1,5 @@
 <template>
-  <h2 class="mb-3">香り作成</h2>
+  <h2 class="mb-3">香りの特徴作成</h2>
   <ErrorMessage :message="message" />
   <div id="app" v-if="isShow">
     <div>
@@ -14,11 +14,7 @@
         <tr>
           <th>no</th>
           <td class="py-2">
-            <input
-              type="text"
-              class="form-control"
-              v-model="items.category_no"
-            />
+            <input type="text" class="form-control" v-model="items.category_no" />
             <ValidateError :errorMessages="validateErrors.category_no" />
           </td>
         </tr>
@@ -26,12 +22,7 @@
 
       <div class="d-flex justify-content-center">
         <div class="p-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="create()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="create()" :disabled="submitDisable">
             作成する
           </button>
         </div>
@@ -44,10 +35,10 @@
 import { defineComponent } from "vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import ValidateError from "@/components/ValidateError.vue";
-import { storeSymptomApi } from "@/api/mst-symptoms";
+import { storeFlavorApi } from "@/api/mst-flavors";
 
 export default defineComponent({
-  name: "SymptomUpdate",
+  name: "FlavorUpdate",
   components: {
     ErrorMessage,
     ValidateError,
@@ -73,7 +64,7 @@ export default defineComponent({
     },
     create: async function () {
       this.submitDisable = true;
-      const result = await storeSymptomApi(
+      const result = await storeFlavorApi(
         this.items.name,
         this.items.category_no
       );
@@ -84,7 +75,7 @@ export default defineComponent({
       }
       alert("作成しました");
       this.$router.push({
-        name: "SymptomIndex",
+        name: "FlavorIndex",
       });
     },
   },

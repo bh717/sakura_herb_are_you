@@ -77,6 +77,14 @@
   background-color: #afafaf;
   color: #fff;
 }
+.sec-container input[type="checkbox"] {
+  display: none;
+  color: #fff;
+}
+.sec-container input[type="checkbox"]:checked + label {
+  background-color: #afafaf;
+  color: #fff;
+}
 .sec-container__btn {
   text-align: center;
 }
@@ -152,6 +160,11 @@
     background-color: #fff;
   }
   .sec-container input[type="radio"]:checked + label {
+    background-color: #afafaf;
+    color: #fff;
+  }
+
+  .sec-container input[type="checkbox"]:checked + label {
     background-color: #afafaf;
     color: #fff;
   }

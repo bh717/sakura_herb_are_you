@@ -29,7 +29,7 @@ class ProductController extends BaseController
         $newProductRow = DB::Transaction(function () use ($request) {
             return  $this->productDomain->createProduct($request->validated());
         });
-        $newProductRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'uploadFiles']);
+        $newProductRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'flavors', 'uploadFiles']);
         return new ProductResource($newProductRow);
     }
 
@@ -37,7 +37,7 @@ class ProductController extends BaseController
     {
         $search = $request->input();
         $productRows = $this->productDomain->productPaginate($search);
-        $productRows->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'uploadFiles']);
+        $productRows->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'flavors', 'uploadFiles']);
         return new ProductCollection($productRows);
     }
 
@@ -47,7 +47,7 @@ class ProductController extends BaseController
         if ($productRow === null) {
             return $this->send404ErrorResponse();
         }
-        $productRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'uploadFiles']);
+        $productRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes','flavors', 'uploadFiles']);
         return new ProductResource($productRow);
     }
 
@@ -57,7 +57,7 @@ class ProductController extends BaseController
             $this->productDomain->updateProductById($product->id, $request->validated());
         });
         $productRow = $this->productDomain->getProductById($product->id);
-        $productRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'uploadFiles']);
+        $productRow->loadMissing(['category', 'keywords', 'materials', 'prices', 'symptoms', 'tastes', 'flavors', 'uploadFiles']);
         return $this->sendResponse($productRow);
     }
 

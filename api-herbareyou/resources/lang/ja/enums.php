@@ -16,6 +16,11 @@ return [
         App\Enums\IsPublic::IS_NOT_PUBLIC => '非公開',
         App\Enums\IsPublic::IS_PUBLIC => '公開',
     ],
+    App\Enums\IsProductStatus::class => [
+        App\Enums\IsProductStatus::IS_PRODUCT_STATUS => '新着',
+        App\Enums\IsProductStatus::IS_SOLD_OUT => '完売',
+        App\Enums\IsProductStatus::IS_RECOMMMEND => 'お勧め',
+    ],
     // App\Enums\Prefecture::class => [
     //     App\Enums\Prefecture::HOKKAIDO => '北海道',
     //     App\Enums\Prefecture::AOMORI => '青森県',

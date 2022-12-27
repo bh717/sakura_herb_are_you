@@ -25,7 +25,7 @@
 }
 
 .sec-container {
-  width: 50%;
+  width: 65%;
   padding: 20rem 0 0;
 }
 .sec-container__name {
@@ -78,6 +78,16 @@
   background-color: #afafaf;
   color: #fff;
 }
+
+.sec-container input[type="checkbox"] {
+  display: none;
+  color: #fff;
+}
+.sec-container input[type="checkbox"]:checked + label {
+  background-color: #afafaf;
+  color: #fff;
+}
+
 .sec-container__btn {
   text-align: center;
 }
@@ -157,7 +167,7 @@
     margin-bottom: 5rem;
   }
   .sec-container__form-parts {
-    width: 47%;
+    width: 55%;
     margin-bottom: 3rem;
   }
   .sec-container__form-label {
@@ -169,6 +179,11 @@
     background-color: #fff;
   }
   .sec-container input[type="radio"]:checked + label {
+    background-color: #afafaf;
+    color: #fff;
+  }
+
+  .sec-container input[type="checkbox"]:checked + label {
     background-color: #afafaf;
     color: #fff;
   }

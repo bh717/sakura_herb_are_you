@@ -10,14 +10,11 @@
           <th class="text-center">更新</th>
         </tr>
         <tbody>
-          <tr v-for="symptom in symptoms" :key="symptom.id">
-            <td>{{ symptom.name }}</td>
-            <td>{{ symptom.category_no }}</td>
+          <tr v-for="flavor in flavors" :key="flavor.id">
+            <td>{{ flavor.name }}</td>
+            <td>{{ flavor.category_no }}</td>
             <td class="text-center">
-              <router-link
-                :to="{ name: 'SymptomUpdate', params: { id: symptom.id } }"
-                class="btn btn-primary active"
-              >
+              <router-link :to="{ name: 'FlavorUpdate', params: { id: flavor.id } }" class="btn btn-primary active">
                 編集
               </router-link>
             </td>
@@ -33,10 +30,10 @@ import { defineComponent } from "vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 
 import ValidateError from "@/components/ValidateError.vue";
-import { indexSymptomApi } from "@/api/mst-symptoms";
+import { indexFlavorApi } from "@/api/mst-flavors";
 
 export default defineComponent({
-  name: "SymptomIndex",
+  name: "FlavorIndex",
   components: {
     ErrorMessage,
     ValidateError,
@@ -44,16 +41,16 @@ export default defineComponent({
   data: () => ({
     isShow: false,
     message: "",
-    symptoms: [] as any[],
+    flavors: [] as any[],
   }),
   beforeRouteUpdate: async function (to, from, next) {},
   mounted: async function () {
-    const result = await indexSymptomApi();
+    const result = await indexFlavorApi();
     if (!result.success) {
       this.commonError(result);
       return;
     }
-    this.symptoms = result.data;
+    this.flavors = result.data;
     this.isShow = true;
   },
   methods: {

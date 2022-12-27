@@ -289,6 +289,27 @@
     background: #d6ac4e;
 }
 
+.product_icon{
+    margin: 0 0;
+    width:10rem;
+}
+
+.product_icon1{
+    margin: 0 auto;
+    width:13rem;
+}
+
+.product_img{
+    position: relative;
+}
+
+.product_div{
+    position: fixed;
+    width: 100%;
+    top:-25px;
+    left:-15px;
+}
+
 @media screen and (max-width: 768px) {
     .kv {
         width: 100%;

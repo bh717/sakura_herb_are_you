@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
 
 
     Route::middleware(['multiauth:admin',])->resource('symptoms', 'Api\Adminer\SymptomController');
+    Route::middleware(['multiauth:admin',])->resource('flavors', 'Api\Adminer\FlavorController');
     Route::middleware(['multiauth:admin',])->resource('tastes', 'Api\Adminer\TasteController');
     Route::middleware(['multiauth:admin',])->resource('materials', 'Api\Adminer\MaterialController');
 

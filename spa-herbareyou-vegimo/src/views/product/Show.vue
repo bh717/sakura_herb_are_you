@@ -40,7 +40,7 @@
 
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
-                <dt class="detail-container__dt">キーワード</dt>
+                <dt class="detail-container__dt">こんな症状に</dt>
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(keyword, index) in product.keywords">
                     <span>{{ keyword.keyword }}</span>
@@ -50,8 +50,17 @@
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"
                     v-on:click="totasteSearch(taste.id)">
-                    <span>{{ taste.name }}</span>
-                    <span v-if="product.tastes.length - 1 !== index">/</span>
+                    <span>#{{ taste.name }}</span>
+                    <span v-if="product.tastes.length - 1 !== index">、 </span>
+                  </dd>
+                </div>
+
+                <dt class="detail-container__dt">香りの特徴</dt>
+                <div class="customDiv">
+                  <dd class="detail-container__dd" v-for="(flavor, index) in product.flavors"
+                    v-on:click="toflavorSearch(flavor.id)">
+                    <span>#{{ flavor.name }}</span>
+                    <span v-if="product.tastes.length - 1 !== index">、 </span>
                   </dd>
                 </div>
 
@@ -59,8 +68,8 @@
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(material, index) in product.materials"
                     v-on:click="tomaterialSearch(material.id)">
-                    <span>{{ material.name }}</span>
-                    <span v-if="product.materials.length - 1 !== index">、</span>
+                    <span>#{{ material.name }}</span>
+                    <span v-if="product.materials.length - 1 !== index">、 </span>
                   </dd>
                 </div>
 
@@ -221,6 +230,8 @@ export default defineComponent({
         "/product?" +
         "taste_ids=" +
         "" +
+        "&flavor_ids=" +
+        "" +
         "&material_ids=" +
         index +
         "&symptom_ids=" +
@@ -239,6 +250,31 @@ export default defineComponent({
       const query: string =
         "/product?" +
         "taste_ids=" +
+        index +
+        "&flavor_ids=" +
+        "" +
+        "&material_ids=" +
+        "" +
+        "&symptom_ids=" +
+        "" +
+        "&order_by=" +
+        "" +
+        "&recommendation_kind=" +
+        "";
+
+      console.log(query);
+
+      location.href = query;
+    },
+    
+    toflavorSearch: function (index: number): void {
+      // const url = Location.pathname;
+      // alert(1);
+      const query: string =
+        "/product?" +
+        "taste_ids=" +
+        "" +
+        "&flavor_ids=" +
         index +
         "&material_ids=" +
         "" +

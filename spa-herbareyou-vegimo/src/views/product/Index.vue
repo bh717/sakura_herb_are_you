@@ -121,6 +121,16 @@
                     詳細を見る
                   </router-link>
                 </div>
+
+                <div class = "product_div">
+                  <img src="@/assets/img/icon/New.png" alt="" v-if="product.is_productStatus === 1"
+                    class="product_icon" />
+                  <img src="@/assets/img/icon/SoldOut.png" alt="" v-if="product.is_productStatus === 2"
+                    class="product_icon" />
+                  <img src="@/assets/img/icon/Recommend.png" alt="" v-if="product.is_productStatus === 3"
+                    class="product_icon1" />
+                </div>
+                
               </li>
             </ul>
           </div>
@@ -150,11 +160,13 @@ export default defineComponent({
       message: "",
       validateErrors: {} as any,
       tastes: [] as any[],
+      flavors: [] as any[],
       materials: [] as any[],
       sortedmaterials: [] as any[],
       symptoms: [] as any[],
       products: [] as any[],
       tasteIds: [] as number[],
+      flavorIds: [] as number[],
       materialIds: [] as number[],
       symptomIds: [] as number[],
       sortOrder: "" as string,
@@ -173,6 +185,7 @@ export default defineComponent({
 
     // urlのqueryparamから選択されているカテゴリを配列に入れる
     this.setSearch(this.pageService.getQueryObjectForUrl());
+    console.log("pageService:", this.pageService.getQueryObjectForUrl());
     // 選択するカテゴリの取得
     let ProductCategoriesApiresult = await indexCategoriesApi();
     if (!ProductCategoriesApiresult.success) {
@@ -180,6 +193,8 @@ export default defineComponent({
       return;
     }
     this.tastes = ProductCategoriesApiresult.data.tastes;
+    this.flavors = ProductCategoriesApiresult.data.flavors;
+
 
     this.materials = ProductCategoriesApiresult.data.materials;
     console.log("materials", this.materials);
@@ -191,9 +206,11 @@ export default defineComponent({
     });
 
     console.log("sorted materials", this.sortedmaterials);
-    
+
     this.symptoms = ProductCategoriesApiresult.data.symptoms;
     // 商品の検索を行う
+    console.log("searchData:", this.getSearchData());
+
     let productApiresult = await indexProductApi(this.getSearchData());
     if (!productApiresult.success) {
       this.commonError(productApiresult);
@@ -205,6 +222,7 @@ export default defineComponent({
       this.commonScriptService.execute();
     });
   },
+
   methods: {
     sortedItems: function () {
       let searchString = this.searchString;
@@ -225,6 +243,7 @@ export default defineComponent({
         return search_array;
       }
     },
+
     commonError: function (result: any = null): void {
       if (result.status === 422) {
         this.validateErrors = result.data;
@@ -233,10 +252,15 @@ export default defineComponent({
         this.message = result.message;
       }
     },
+
     // urlのqueryparamから選択されているカテゴリを配列に入れる
     setSearch: function (queryParams: any): any {
+      console.log("queryParams:", queryParams);
       this.tasteIds = queryParams.taste_ids
         ? queryParams.taste_ids.split(",")
+        : [];
+      this.flavorIds = queryParams.flavor_ids
+        ? queryParams.flavor_ids.split(",")
         : [];
       this.materialIds = queryParams.material_ids
         ? queryParams.material_ids.split(",")
@@ -245,11 +269,14 @@ export default defineComponent({
         ? queryParams.symptom_ids.split(",")
         : [];
       this.sortOrder = queryParams.order_by ?? "";
+
     },
+
     changeSortOrder: function (sortOrder: string): void {
       this.sortOrder = sortOrder;
       this.goToSearch();
     },
+
     clearAll: function (e: any): void {
       e.preventDefault();
       // location.href = "/product";
@@ -259,21 +286,26 @@ export default defineComponent({
     getSearchData(): any {
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
+        flavor_ids: this.pageService.implode(",", this.flavorIds),
         material_ids: this.pageService.implode(",", this.materialIds),
         symptom_ids: this.pageService.implode(",", this.symptomIds),
         per_page: -1,
         order_by: this.sortOrder,
       };
     },
+
     toSearch(e: any) {
       e.preventDefault();
       this.goToSearch();
     },
+
     goToSearch() {
       const query: string =
         "?" +
         "taste_ids=" +
         this.pageService.implode(",", this.tasteIds) +
+        "&flavor_ids=" +
+        this.pageService.implode(",", this.flavorIds) +
         "&material_ids=" +
         this.pageService.implode(",", this.materialIds) +
         "&symptom_ids=" +
@@ -286,6 +318,7 @@ export default defineComponent({
   },
 });
 </script>
+
 <style scoped src="@/assets/css/product.css">
 
 </style>

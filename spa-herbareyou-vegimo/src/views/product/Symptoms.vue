@@ -161,10 +161,12 @@ export default defineComponent({
             message: "",
             validateErrors: {} as any,
             tastes: [] as any[],
+            flavors: [] as any[],
             materials: [] as any[],
             symptoms: [] as any[],
             products: [] as any[],
             tasteIds: [] as number[],
+            flavorIds: [] as number[],
             materialIds: [] as number[],
             symptomIds: [] as number[],
             sortOrder: "" as string,
@@ -190,6 +192,7 @@ export default defineComponent({
             return;
         }
         this.tastes = ProductCategoriesApiresult.data.tastes;
+        this.flavors = ProductCategoriesApiresult.data.flavors;
         this.materials = ProductCategoriesApiresult.data.materials;
         this.symptoms = ProductCategoriesApiresult.data.symptoms;
 
@@ -223,6 +226,9 @@ export default defineComponent({
             this.tasteIds = queryParams.taste_ids
                 ? queryParams.taste_ids.split(",")
                 : [];
+            this.flavorIds = queryParams.flavor_ids
+                ? queryParams.flavor_ids.split(",")
+                : [];
             this.materialIds = queryParams.material_ids
                 ? queryParams.material_ids.split(",")
                 : [];
@@ -243,6 +249,7 @@ export default defineComponent({
         getSearchData(): any {
             return {
                 taste_ids: this.pageService.implode(",", this.tasteIds),
+                flavor_ids: this.pageService.implode(",", this.flavorIds),
                 material_ids: this.pageService.implode(",", this.materialIds),
                 symptom_ids: this.pageService.implode(",", this.symptomIds),
                 per_page: -1,
@@ -258,6 +265,8 @@ export default defineComponent({
                 "?" +
                 "taste_ids=" +
                 this.pageService.implode(",", this.tasteIds) +
+                "&flavor_ids=" +
+                this.pageService.implode(",", this.flavorIds) +
                 "&material_ids=" +
                 this.pageService.implode(",", this.materialIds) +
                 "&symptom_ids=" +

@@ -28,6 +28,10 @@ class ProductStoreRequest extends BaseApiRequest
                 'required',
                 new EnumValue(Product::IS_PUBLIC),
             ],
+            'is_productStatus' => [
+                'required',
+                new EnumValue(Product::IS_PRODUCT_STATUS),
+            ],
             'capacity' => [
                 'required',
                 'string',
@@ -58,6 +62,16 @@ class ProductStoreRequest extends BaseApiRequest
                 'required',
                 'integer',
                 'exists:tastes,id'
+            ],
+            'flavor_ids' => [
+                'required',
+                'array',
+                'present',
+            ],
+            'flavor_ids.*' => [
+                'required',
+                'integer',
+                'exists:flavors,id'
             ],
             'material_ids' => [
                 'required',

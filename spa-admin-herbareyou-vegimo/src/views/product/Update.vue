@@ -84,6 +84,21 @@
             <ValidateError :errorMessages="validateErrors.taste_ids" />
           </td>
         </tr>
+
+        <tr>
+          <th>香りの特徴</th>
+          <td class="py-2">
+            <div>
+              <div class="form-check form-check-inline" v-for="flavor in flavors" :key="flavor.id">
+                <input class="form-check-input" type="checkbox" :id="'flavorCheckbox' + String(flavor.id)"
+                  :value="flavor.id" v-model="items.flavor_ids" />
+                <label class="form-check-label" :for="'flavorCheckbox' + String(flavor.id)">{{ flavor.name }}</label>
+              </div>
+            </div>
+            <ValidateError :errorMessages="validateErrors.flavor_ids" />
+          </td>
+        </tr>
+
         <tr>
           <th>公開/非公開</th>
           <td class="py-2">
@@ -102,6 +117,32 @@
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors.is_public" />
+          </td>
+        </tr>
+        <tr>
+          <th>状態</th>
+          <td class="py-2">
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_productStatus" :value="1"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_productStatus"> 新着 </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_sold_out" :value="2"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_sold_out">
+                  完売
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_recommend" :value="3"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_recommend">
+                  お勧め
+                </label>
+              </div>
+            </div>
           </td>
         </tr>
         <tr>
@@ -186,6 +227,8 @@ import { indexProductCategoryApi } from "@/api/product-categories";
 import { indexMaterialApi } from "@/api/mst-materials";
 import { indexSymptomApi } from "@/api/mst-symptoms";
 import { indexTasteApi } from "@/api/mst-tastes";
+import { indexFlavorApi } from "@/api/mst-flavors";
+
 import {
   showProductApi,
   updateProductApi,
@@ -210,6 +253,7 @@ export default defineComponent({
       material_ids: [] as number[],
       symptom_ids: [] as number[],
       taste_ids: [] as number[],
+      flavor_ids: [] as number[],
       prices: [] as any[],
       upload_file_hashs: [] as string[],
     } as any,
@@ -217,6 +261,7 @@ export default defineComponent({
     materials: [] as any[],
     symptoms: [] as any[],
     tastes: [] as any[],
+    flavors: [] as any[],
     product: {} as any,
     imageUrls: [] as string[],
   }),
@@ -250,6 +295,14 @@ export default defineComponent({
       return;
     }
     this.tastes = result.data;
+
+    result = await indexFlavorApi();
+    if (!result.success) {
+      this.commonError(result);
+      return;
+    }
+    this.flavors = result.data;
+
     await this.setInitData();
     this.isShow = true;
   },
@@ -270,6 +323,7 @@ export default defineComponent({
         return;
       }
       this.product = result.data;
+      console.log("asdfa:", this.product);
 
       this.items.product_category_id = this.product.product_category_id;
       this.items.product_no = this.product.product_no;
@@ -277,9 +331,12 @@ export default defineComponent({
       this.items.name2 = this.product.name2;
       this.items.description = this.product.description;
       this.items.is_public = this.product.is_public ?? 0;
+      this.items.is_productStatus = this.product.is_productStatus ?? 0;
+
       this.items.material_ids = this.product.material_ids;
       this.items.symptom_ids = this.product.symptom_ids;
       this.items.taste_ids = this.product.taste_ids;
+      this.items.flavor_ids = this.product.flavor_ids;
       this.items.keyword_csv = this.product.keyword_csv;
       this.items.capacity = this.product.capacity;
       this.items.prices = [];
@@ -324,6 +381,7 @@ export default defineComponent({
       }
       this.items.prices = priceArray;
     },
+
     update: async function () {
       this.validateErrors = {};
       this.message = "";

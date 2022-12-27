@@ -7,11 +7,7 @@
         <tr>
           <th>品番</th>
           <td class="py-2">
-            <input
-              type="text"
-              class="form-control"
-              v-model="items.product_no"
-            />
+            <input type="text" class="form-control" v-model="items.product_no" />
             <ValidateError :errorMessages="validateErrors.product_no" />
           </td>
         </tr>
@@ -33,17 +29,12 @@
           <th>カテゴリー</th>
           <td class="py-2">
             <select class="form-select" v-model="items.product_category_id">
-              <option
-                v-for="category in categories"
-                :selected="category.id === items.product_category_id"
-                :value="category.id"
-              >
+              <option v-for="category in categories" :selected="category.id === items.product_category_id"
+                :value="category.id">
                 {{ category.name }}
               </option>
             </select>
-            <ValidateError
-              :errorMessages="validateErrors.product_category_id"
-            />
+            <ValidateError :errorMessages="validateErrors.product_category_id" />
           </td>
         </tr>
         <tr>
@@ -57,23 +48,11 @@
           <th>材料</th>
           <td class="py-2">
             <div>
-              <div
-                class="form-check form-check-inline"
-                v-for="material in materials"
-                :key="material.id"
-              >
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  :id="'materialCheckbox' + String(material.id)"
-                  :value="material.id"
-                  v-model="items.material_ids"
-                />
-                <label
-                  class="form-check-label"
-                  :for="'materialCheckbox' + String(material.id)"
-                  >{{ material.name }}</label
-                >
+              <div class="form-check form-check-inline" v-for="material in materials" :key="material.id">
+                <input class="form-check-input" type="checkbox" :id="'materialCheckbox' + String(material.id)"
+                  :value="material.id" v-model="items.material_ids" />
+                <label class="form-check-label" :for="'materialCheckbox' + String(material.id)">{{ material.name
+}}</label>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors.material_ids" />
@@ -83,23 +62,10 @@
           <th>症状</th>
           <td class="py-2">
             <div>
-              <div
-                class="form-check form-check-inline"
-                v-for="symptom in symptoms"
-                :key="symptom.id"
-              >
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  :id="'symptomCheckbox' + String(symptom.id)"
-                  :value="symptom.id"
-                  v-model="items.symptom_ids"
-                />
-                <label
-                  class="form-check-label"
-                  :for="'symptomCheckbox' + String(symptom.id)"
-                  >{{ symptom.name }}</label
-                >
+              <div class="form-check form-check-inline" v-for="symptom in symptoms" :key="symptom.id">
+                <input class="form-check-input" type="checkbox" :id="'symptomCheckbox' + String(symptom.id)"
+                  :value="symptom.id" v-model="items.symptom_ids" />
+                <label class="form-check-label" :for="'symptomCheckbox' + String(symptom.id)">{{ symptom.name }}</label>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors.symptom_ids" />
@@ -109,52 +75,42 @@
           <th>味の特徴</th>
           <td class="py-2">
             <div>
-              <div
-                class="form-check form-check-inline"
-                v-for="taste in tastes"
-                :key="taste.id"
-              >
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  :id="'tasteCheckbox' + String(taste.id)"
-                  :value="taste.id"
-                  v-model="items.taste_ids"
-                />
-                <label
-                  class="form-check-label"
-                  :for="'tasteCheckbox' + String(taste.id)"
-                  >{{ taste.name }}</label
-                >
+              <div class="form-check form-check-inline" v-for="taste in tastes" :key="taste.id">
+                <input class="form-check-input" type="checkbox" :id="'tasteCheckbox' + String(taste.id)"
+                  :value="taste.id" v-model="items.taste_ids" />
+                <label class="form-check-label" :for="'tasteCheckbox' + String(taste.id)">{{ taste.name }}</label>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors.taste_ids" />
           </td>
         </tr>
+
         <tr>
-          <th>公開/非公開</th>
+          <th>味の特徴</th>
+          <td class="py-2">
+            <div>
+              <div class="form-check form-check-inline" v-for="flavor in flavors" :key="flavor.id">
+                <input class="form-check-input" type="checkbox" :id="'flavorCheckbox' + String(flavor.id)"
+                  :value="flavor.id" v-model="items.flavor_ids" />
+                <label class="form-check-label" :for="'flavorCheckbox' + String(flavor.id)">{{ flavor.name }}</label>
+              </div>
+            </div>
+            <ValidateError :errorMessages="validateErrors.flavor_ids" />
+          </td>
+        </tr>
+
+        <tr>
+          <th>状態</th>
           <td class="py-2">
             <div>
               <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="is_public"
-                  id="is_public"
-                  :value="1"
-                  v-model="items.is_public"
-                />
+                <input class="form-check-input" type="radio" name="is_public" id="is_public" :value="1"
+                  v-model="items.is_public" />
                 <label class="form-check-label" for="is_public"> 公開 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="is_public"
-                  id="is_not_public"
-                  :value="0"
-                  v-model="items.is_public"
-                />
+                <input class="form-check-input" type="radio" name="is_public" id="is_not_public" :value="0"
+                  v-model="items.is_public" />
                 <label class="form-check-label" for="is_not_public">
                   非公開
                 </label>
@@ -163,109 +119,96 @@
             <ValidateError :errorMessages="validateErrors.is_public" />
           </td>
         </tr>
+
+        <tr>
+          <th>状態</th>
+          <td class="py-2">
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_productStatus" :value="1"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_productStatus"> 新着 </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_sold_out" :value="2"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_sold_out">
+                  完売
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_recommend" :value="3"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_recommend">
+                  お勧め
+                </label>
+              </div>
+            </div>
+          </td>
+        </tr>
+
         <tr>
           <th>画像</th>
           <td class="py-2">
             <div>
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
-            <div v-bind:style="{ 'display':`flex`, 'gap':`10px`, 'overflow-x':`auto`, 'width':`30rem`}" v-if="items.upload_file_hashs.length !== 0">
+            <div v-bind:style="{ 'display': `flex`, 'gap': `10px`, 'overflow-x': `auto`, 'width': `30rem` }"
+              v-if="items.upload_file_hashs.length !== 0">
               <div v-for="imageUrl in imageUrls">
-                <img :src="imageUrl" width="100" height="100"/>
+                <img :src="imageUrl" width="100" height="100" />
               </div>
             </div>
-            <ValidateError
-              :errorMessages="validateErrors['upload_file_hashs.0']"
-            />
+            <ValidateError :errorMessages="validateErrors['upload_file_hashs.0']" />
           </td>
         </tr>
         <tr>
           <th>商品説明</th>
           <td class="py-2">
-            <textarea
-              class="form-control"
-              placeholder="商品説明"
-              id="floatingTextarea"
-              v-model="items.description"
-            ></textarea>
+            <textarea class="form-control" placeholder="商品説明" id="floatingTextarea"
+              v-model="items.description"></textarea>
             <ValidateError :errorMessages="validateErrors.description" />
           </td>
         </tr>
         <tr>
           <th>キーワード(カンマ区切りで入力してください)</th>
           <td class="py-2">
-            <textarea
-              class="form-control"
-              placeholder="キーワード(カンマ区切りで入力してください)"
-              id="floatingTextarea"
-              v-model="items.keyword_csv"
-            ></textarea>
+            <textarea class="form-control" placeholder="キーワード(カンマ区切りで入力してください)" id="floatingTextarea"
+              v-model="items.keyword_csv"></textarea>
             <ValidateError :errorMessages="validateErrors.keyword_csv" />
           </td>
         </tr>
         <tr>
           <th>packs</th>
           <td class="py-2">
-            <div
-              class="row"
-              v-for="(price, index) in items.prices"
-              :key="price.id"
-            >
+            <div class="row" v-for="(price, index) in items.prices" :key="price.id">
               <div class="col-5">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="items.prices[index].capacity"
-                  placeholder="pack"
-                />
+                <input type="text" class="form-control" v-model="items.prices[index].capacity" placeholder="pack" />
               </div>
               <div class="col-5">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="items.prices[index].price"
-                  placeholder="値段"
-                />
+                <input type="text" class="form-control" v-model="items.prices[index].price" placeholder="値段" />
               </div>
               <div class="col-2">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  v-on:click="deletePrice(index)"
-                >
+                <button type="button" class="btn btn-danger" v-on:click="deletePrice(index)">
                   削除
                 </button>
               </div>
-              <ValidateError
-                :errorMessages="
-                  validateErrors[`prices.${index}.capacity`] ?? []
-                "
-              />
-              <ValidateError
-                :errorMessages="validateErrors[`prices.${index}.price`] ?? []"
-              />
+              <ValidateError :errorMessages="
+  validateErrors[`prices.${index}.capacity`] ?? []
+" />
+              <ValidateError :errorMessages="validateErrors[`prices.${index}.price`] ?? []" />
             </div>
           </td>
         </tr>
       </table>
       <div class="d-flex justify-content-center">
         <div class="px-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="create()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="create()" :disabled="submitDisable">
             作成する
           </button>
         </div>
         <div class="px-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="addPrice()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="addPrice()" :disabled="submitDisable">
             packを追加する
           </button>
         </div>
@@ -282,6 +225,8 @@ import { indexProductCategoryApi } from "@/api/product-categories";
 import { indexMaterialApi } from "@/api/mst-materials";
 import { indexSymptomApi } from "@/api/mst-symptoms";
 import { indexTasteApi } from "@/api/mst-tastes";
+import { indexFlavorApi } from "@/api/mst-flavors";
+
 import { storeProductApi } from "@/api/products";
 import UploadFile from "@/components/UploadFile.vue";
 
@@ -294,7 +239,7 @@ export default defineComponent({
   },
   data: () => ({
     isShow: false,
-    count : 0,
+    count: 0,
     message: "",
     submitDisable: false,
     validateErrors: {
@@ -304,14 +249,17 @@ export default defineComponent({
       material_ids: [] as number[],
       symptom_ids: [] as number[],
       taste_ids: [] as number[],
+      flavor_ids: [] as number[],
       prices: [] as any[],
       is_public: 0,
+      is_productStatus:0,
       upload_file_hashs: [] as string[],
     } as any,
     categories: [] as any[],
     materials: [] as any[],
     symptoms: [] as any[],
     tastes: [] as any[],
+    flavors: [] as any[],
     imageUrls: [] as string[],
   }),
   mounted: async function () {
@@ -363,7 +311,19 @@ export default defineComponent({
       if (a.name > b.name) return 1
       return 0
     });
-    
+
+    result = await indexFlavorApi();
+    if (!result.success) {
+      this.commonError(result);
+      return;
+    }
+    this.flavors = result.data;
+    this.flavors.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+
     this.addPrice();
     this.isShow = true;
   },
@@ -408,16 +368,18 @@ export default defineComponent({
         params: { id: result.data.id },
       });
     },
-    
+
     setUploadFile: function (uploadFile: any) {
       console.log(uploadFile);
       this.items.upload_file_hashs[this.count] = uploadFile.hash;
       this.imageUrls[this.count] = uploadFile.url;
       console.log(this.imageUrls);
-      this.count ++;
+      this.count++;
       console.log("count:", this.count);
     },
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

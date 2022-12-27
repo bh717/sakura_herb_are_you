@@ -82,6 +82,36 @@
           </div>
         </section>
       </article>
+      <article id="app" v-if="isSecondShow">
+        <section class="sec">
+          <div class="sec-container">
+            <h2 class="sec-container__hd2">
+              診断が完了しました！<br />山田太郎さんにおすすめの<br class="sp" />ハーブティはこちらです。
+            </h2>
+            <ul class="product-list clearfix">
+              <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
+                v-for="(product, index) in products" v-bind:key="product.id">
+                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id }, }">
+                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
+                </router-link>
+                <p class="product-item__sub1">{{ product.category.name }}</p>
+                <p class="product-item__name1">{{ product.name2 }}</p>
+                <p class="product-item__ttl1">
+                  <span class="product-item__ttl-num1">{{ product.product_no }}</span>
+                  <span>|</span>
+                  <span class="product-item__ttl-main1">{{ product.name1 }}　¥{{ product.prices.price }}</span>
+                </p>
+                <p class="product-item__material1">
+                  {{pageService.cutText(20,"…",pageService.implode( "、", pageService.pluck("name", product.materials)))}}
+                </p>
+                <div class="a-btn">
+                  <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
     </main>
     <Footer />
   </div>
@@ -96,6 +126,8 @@ import { showSymptomProduct } from "@/api/symptom_products";
 import ValidateError from "@/components/ValidateError.vue";
 import { VueperSlides, VueperSlide } from 'vueperslides';
 import 'vueperslides/dist/vueperslides.css';
+import { PageService } from "../../services/PageService";
+// import { showProductApi } from "@/api/products";
 
 import { showProductApi } from "@/api/products";
 export default defineComponent({
@@ -104,12 +136,14 @@ export default defineComponent({
   data() {
     return {
       isShow: true,
+      isSecondShow: false,
       symptoms: [] as any[],
       tastes: [] as any[],
       materials: [] as any[],
       keywords: [] as any[],
       products: [] as any[],
       imageUrls: [] as any[],
+      pageService: new PageService(),
     };
   },
   components: {
@@ -146,13 +180,25 @@ export default defineComponent({
       this.diagnoseData = diagnoseData;
       console.log("detailedProductID:", this.diagnoseData.diagnose3.condition);
 
+      
+
       const DetailedSymptomsApiResult = await showDetailedSymptomsProductApi(this.diagnoseData.diagnose3.condition, this.diagnoseData.diagnose3.id);
       console.log("detailedProduct:", DetailedSymptomsApiResult);
+
+
       if (!DetailedSymptomsApiResult.success) {
         this.commonError(DetailedSymptomsApiResult);
         return;
       }
       this.symptoms = DetailedSymptomsApiResult.data
+
+      if (this.symptoms.length === 1) {
+        this.isShow = true;
+      }
+      else {
+        this.isSecondShow = true;
+        this.isShow = false;
+      }
 
       console.log("result:", this.symptoms);
 
@@ -161,19 +207,36 @@ export default defineComponent({
           "?" +
           "&symptom_ids=" +
           this.symptoms[0].symptom_id;
-          location.href = location.origin + "/product" + query;
+        location.href = location.origin + "/product" + query;
       }
 
       console.log(this.symptoms[0].product_id);
-      const SymptomProductApiResult = await showSymptomProduct(this.symptoms[0].product_id);
 
-      this.products = SymptomProductApiResult.data.product_data;
-      this.tastes = SymptomProductApiResult.data.tastes;
-      this.keywords = SymptomProductApiResult.data.keywords;
-      this.materials = SymptomProductApiResult.data.materials;
-      this.imageUrls = SymptomProductApiResult.data.upload_files;
+      if (DetailedSymptomsApiResult.data.length === 1) {
+        const SymptomProductApiResult = await showSymptomProduct(this.symptoms[0].product_id);
 
-      console.log("SymptomProduct:", SymptomProductApiResult);
+        this.products = SymptomProductApiResult.data.product_data;
+        this.tastes = SymptomProductApiResult.data.tastes;
+        this.keywords = SymptomProductApiResult.data.keywords;
+        this.materials = SymptomProductApiResult.data.materials;
+        this.imageUrls = SymptomProductApiResult.data.upload_files;
+
+        console.log("SymptomProduct:", SymptomProductApiResult);
+      }
+      else {
+        for (let i = 0; i < DetailedSymptomsApiResult.data.length; i++) {
+          const SymptomProductApiResult = await showSymptomProduct(this.symptoms[i].product_id);
+          console.log(SymptomProductApiResult.data.product_data[0].id);
+          let productShowApiresult = await showProductApi(Number(SymptomProductApiResult.data.product_data[0].id));
+          this.products.push(productShowApiresult.data);
+          this.imageUrls.push(SymptomProductApiResult.data.upload_files);
+          this.materials.push(SymptomProductApiResult.data.materials);
+        }
+      }
+      console.log("multiproducts", this.products);
+      console.log("multiImages", this.imageUrls);
+      console.log("multimaterials", this.materials);
+
     },
   },
 });

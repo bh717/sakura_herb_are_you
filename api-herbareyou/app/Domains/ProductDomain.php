@@ -17,6 +17,8 @@ class ProductDomain extends BaseDomain
     private $uploadFile;
     private $productRecommendation;
 
+    private $productCategory;
+
     public function __construct(
         Product $product,
         ProductPrice $productPrice,
@@ -36,8 +38,10 @@ class ProductDomain extends BaseDomain
     {
         $newProduct = $this->product->create($this->getProductData($data));
         $newProduct->tastes()->sync($data['taste_ids']);
+        $newProduct->flavors()->sync($data['flavor_ids']);
         $newProduct->materials()->sync($data['material_ids']);
         $newProduct->symptoms()->sync($data['symptom_ids']);
+
         if ($data['keyword_csv'] !== null) {
             $inSertData = [];
             foreach (explode(',', $data['keyword_csv']) as $key => $value) {
@@ -54,22 +58,18 @@ class ProductDomain extends BaseDomain
         //         ->pluck('id')
         //         ->toArray();
         // }
-
         // $newProduct->uploadFiles()->sync($uploadFileIds);    
 
         $fileId_array = [];
-
         foreach ($data['upload_file_hashs'] as $item) {
             $uploadFileIds = $this->uploadFile
                 ->where('hash', $item)
                 ->pluck('id')
                 ->first();
-
             array_push($fileId_array, $uploadFileIds);
         }
 
         $newProduct->uploadFiles()->sync($fileId_array);
-
         $this->updateOrCreatePrice($newProduct->id, $data['prices']);
         return $newProduct;
     }
@@ -87,8 +87,10 @@ class ProductDomain extends BaseDomain
             return false;
         }
         $product->tastes()->sync($data['taste_ids']);
+        $product->flavors()->sync($data['flavor_ids']);
         $product->materials()->sync($data['material_ids']);
         $product->symptoms()->sync($data['symptom_ids']);
+
         $product->keywords()->delete();
         if ($data['keyword_csv'] !== null) {
             $inSertData = [];
@@ -169,6 +171,7 @@ class ProductDomain extends BaseDomain
             'name2' => $data['name2'],
             'description' => $data['description'],
             'is_public' => $data['is_public'],
+            'is_productStatus' => $data['is_productStatus'],
             'capacity' => $data['capacity'],
         ];
     }
@@ -185,6 +188,12 @@ class ProductDomain extends BaseDomain
             $searchIds = explode(',', $search['taste_ids']);
             $query = $query->whereHas('tastes', function ($query) use ($searchIds) {
                 $query->whereIn('tastes.id', $searchIds);
+            });
+        }
+        if (isset($search['flavor_ids'])) {
+            $searchIds = explode(',', $search['flavor_ids']);
+            $query = $query->whereHas('flavors', function ($query) use ($searchIds) {
+                $query->whereIn('flavors.id', $searchIds);
             });
         }
         if (isset($search['material_ids'])) {
