@@ -165,8 +165,13 @@
     padding-top: 2rem;
 }
 
+.diagnose__img{
+    /* width: 240px; */
+    /* height: 200px; */
+}
+
 .p-gift-title {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     color: #6e6e6e;
     font-family: "Acme", sans-serif;
 }
@@ -361,6 +366,7 @@
     .p-gift-main {
         font-size: 0.9375 rem;
         color: #6e6e6e;
+        margin-top: 1rem;
     }
 
     .border-gift {
@@ -454,6 +460,7 @@
     .gift-section {
         height: 70%;
         gap: 2px;
+        width:70%;
     }
 
     .p-gift-title {
@@ -470,6 +477,7 @@
     .p-gift-main {
         font-size: 0.7375 rem;
         color: #6e6e6e;
+        margin-top: 0rem;
     }
 }
 

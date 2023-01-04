@@ -192,6 +192,11 @@ export default defineComponent({
 
       this.isSecondShow = true;
     }
+    if(this.diagnoseData.diagnose2.condition === 20)
+    {
+      this.isSecondShow = false;
+      this.isShow = true;
+    }
     else {
       this.isShow = true;
       this.isSecondShow = false;

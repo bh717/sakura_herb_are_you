@@ -1236,6 +1236,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   -webkit-column-gap: 2%;
   -moz-column-gap: 2%;
   column-gap: 2%;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -2144,6 +2145,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   }
   .gift-btn__link {
     padding: 0.5rem 2rem;
+    margin-top: 0rem;
   } 
 }
 /*-----keyframe-----*/

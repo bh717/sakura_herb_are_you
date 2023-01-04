@@ -116,7 +116,7 @@ export default defineComponent({
     therapists: [] as any[],
   }),
   mounted: async function () {
-    const result = await indexTherapistApi();
+    const result = await indexTherapistApi();   
     if (!result.success) {
       this.commonError(result);
       return;
