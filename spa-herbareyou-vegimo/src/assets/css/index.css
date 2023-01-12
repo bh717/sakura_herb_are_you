@@ -316,6 +316,12 @@
     left:-15px;
 }
 
+.product_div1{
+    position: fixed;
+    width: 100%;
+    top:-25px;
+}
+
 @media screen and (max-width: 768px) {
     .kv {
         width: 100%;
