@@ -7,10 +7,8 @@
           <img src="@/assets/img/trialset/trialBackground.png" class="kv__img" />
           <div class="trial-sec-p-section">
             <p className="trial-sec-p1">飲み比べができるお試しセット</p>
-            <p className="trial-sec-p1">Assorted Trial Pack</p>
-            <hr />
+            <p className="trial-sec-p3">Assorted Trial Pack</p>
             <p className="trial-sec-p2">7種類のブレンド入り</p>
-            <hr className="trial-border"/>
           </div>
         </div>
         <section class="sec">

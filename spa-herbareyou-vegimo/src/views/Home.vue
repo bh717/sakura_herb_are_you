@@ -167,7 +167,7 @@
   </div>
   <a href="/diagnose1" class="diagnose-icon">
     <!-- <img src="@/assets/img/index/diagnose.svg" alt="" class="diagnose__img" /> -->
-    <img src="@/assets/img/index/562.png" alt="" class="diagnose__img" />
+    <img src="@/assets/img/index/diagnose.png" alt="" class="diagnose__img" />
   </a>
 </template>
 

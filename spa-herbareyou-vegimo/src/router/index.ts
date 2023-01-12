@@ -183,6 +183,7 @@ router.beforeEach(async (to, from, next): Promise<void> => {
     to.name !== "Diagnose4" &&
     to.name !== "Diagnose5" &&
     to.name !== "DiagnoseResult" &&
+    to.name !== "TrialSetIndex" &&
     !store.state.isLogin
   ) {
     next("/mypage/login");

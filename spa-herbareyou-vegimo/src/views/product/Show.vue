@@ -10,11 +10,11 @@
           <div class="detail-container clearfix">
             <div class="detail-container__right1">
               <p class="detail-container__hd2">
-                <span class="detail-container__hd2-ttl">
+                <span class="detail-container__hd2-ttl1">
                   <span class="detail-container__hd2-sub">{{
                       product.category.name
                   }}</span>
-                  <span class="detail-container__hd2-ttl-main">{{ product.name1 }}</span>
+                  <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span>
                 </span>
                 <span class="detail-container__hd2-ttl">
                   <span class="detail-container__hd2-ttl-num">{{

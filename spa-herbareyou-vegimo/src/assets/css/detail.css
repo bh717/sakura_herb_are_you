@@ -60,6 +60,20 @@
   margin-bottom: 2rem;
 }
 
+.detail-container__hd2-ttl1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  /* font-weight: bold; */
+  /* margin-bottom: 2rem; */
+}
+
 .detail-container__hd2-ttl-num {
   font-family: "Acme", sans-serif;
   font-weight: 300;
@@ -71,6 +85,11 @@
   padding-left: 1rem;
 }
 
+.detail-container__hd2-ttl-main1 {
+  /* font-family: "Acme", sans-serif; */
+  padding-left: 1rem;
+}
+
 .detail-container__txt {
   line-height: 2;
   margin-bottom: 4rem;
@@ -79,6 +98,7 @@
 .customDiv{
   display:flex;
   margin-left: 12rem;
+  flex-wrap: wrap;
 }
 
 .detail-container__table {

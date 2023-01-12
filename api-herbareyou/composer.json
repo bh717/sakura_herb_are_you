@@ -25,7 +25,8 @@
         "maxbanton/cwh": "^2.0",
         "predis/predis": "^1.1",
         "rorecek/laravel-ulid": "^2.0",
-        "smartins/passport-multiauth": "^7.0"
+        "smartins/passport-multiauth": "^7.0",
+        "lcobucci/jwt": "3.3.3"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

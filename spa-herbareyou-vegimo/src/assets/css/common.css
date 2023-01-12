@@ -1278,7 +1278,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   color: #707070;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -1441,7 +1441,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   border-bottom: 1px solid #707070;
   border-left: 1px solid #707070;
   position: absolute;
-  top: 2.8rem;
+  /* top: 2.8rem; */
   z-index: 2;
   left: 0;
   height: 0;
@@ -1684,6 +1684,18 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   background-color: #707070;
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+.vueperslides__inner .vueperslides__arrows .vueperslides__arrow{
+  color: #707070;
+}
+
+.vueperslides__inner .vueperslides__bullets .vueperslides__bullet--active{
+  color: #505050;
+}
+
+.vueperslides__inner .vueperslides__bullets .vueperslides__bullet{
+  color: #d5d5d5;
 }
 
 @media screen and (max-width: 768px) {
@@ -1974,7 +1986,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   border-radius: 3rem;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .gift-btn__link:hover {

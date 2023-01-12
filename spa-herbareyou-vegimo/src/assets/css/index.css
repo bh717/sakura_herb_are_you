@@ -127,7 +127,7 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    width: 70%;
+    width: 75%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 18%);
     row-gap: 1.125rem;
@@ -177,7 +177,8 @@
 }
 
 .p-gift-title1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    letter-spacing: normal;
     color: #6e6e6e;
     font-family: "Acme", sans-serif;
 }
@@ -278,7 +279,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #d6ac4e;
     background: #fff;
@@ -296,7 +297,7 @@
 
 .product_icon{
     margin: 0 0;
-    width:10rem;
+    width:8rem;
 }
 
 .product_icon1{
