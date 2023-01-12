@@ -127,6 +127,9 @@
                     class="product_icon" />
                   <img src="@/assets/img/icon/SoldOut.png" alt="" v-if="product.is_productStatus === 2"
                     class="product_icon" />
+                </div>
+
+                <div class = "product_div1">
                   <img src="@/assets/img/icon/Recommend.png" alt="" v-if="product.is_productStatus === 3"
                     class="product_icon1" />
                 </div>

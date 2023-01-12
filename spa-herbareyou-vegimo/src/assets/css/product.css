@@ -35,3 +35,9 @@
   top:-25px;
   left:-15px;
 }
+
+.product_div1{
+  position: fixed;
+  width: 100%;
+  top:-25px;
+}
