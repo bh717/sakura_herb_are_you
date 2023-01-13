@@ -1,6 +1,10 @@
 <template>
   <header class="header">
-    <div class="news" style="display: block" v-if="news && isShowDisplayNewsToPage()">
+    <div
+      class="news"
+      style="display: block"
+      v-if="news && isShowDisplayNewsToPage()"
+    >
       <p class="news__txt">
         {{ news }}
       </p>
@@ -14,20 +18,37 @@
         </div>
       </div>
       <h1 class="header-logo">
-        <router-link class="header-logo__inner" v-on:click="closeMenu()" :to="{ name: 'Home' }">
-          <img class="header-logo__img" src="@/assets/img/common/logo-o.svg" alt="" />
+        <router-link
+          class="header-logo__inner"
+          v-on:click="closeMenu()"
+          :to="{ name: 'Home' }"
+        >
+          <img
+            class="header-logo__img"
+            src="@/assets/img/common/logo-o.svg"
+            alt=""
+          />
         </router-link>
       </h1>
       <div class="icons">
         <router-link class="icons__inner js-search-open" to="">
           <img class="icons__img" src="@/assets/img/common/icon1.svg" alt="" />
         </router-link>
-        <router-link v-on:click="closeMenu()" :to="{ name: 'MyPageLogin' }" class="icons__inner"
-          v-if="!$store.state.isLogin">
+        <router-link
+          v-on:click="closeMenu()"
+          :to="{ name: 'MyPageLogin' }"
+          class="icons__inner"
+          v-if="!$store.state.isLogin"
+        >
           <img class="icons__img" src="@/assets/img/common/icon2.svg" alt="" />
         </router-link>
 
-        <router-link v-on:click="closeMenu()" :to="{ name: 'MyPageRegistered' }" class="icons__inner" v-else>
+        <router-link
+          v-on:click="closeMenu()"
+          :to="{ name: 'MyPageRegistered' }"
+          class="icons__inner"
+          v-else
+        >
           <img class="icons__img" src="@/assets/img/common/icon2.svg" alt="" />
         </router-link>
 
@@ -44,48 +65,83 @@
         <div class="nav-inner__left">
           <ul class="nav-list">
             <li class="nav-list-item">
-              <span class="nav-list-item__txt nav-list-item__txt--mb30">商品をさがす</span>
+              <span class="nav-list-item__txt nav-list-item__txt--mb30"
+                >商品をさがす</span
+              >
               <ul class="child-list">
                 <li class="child-list-item">
-                  <router-link class="child-list-item__link child-list-item__link--mb30" v-on:click="closeMenu()"
-                    :to="{ name: 'ProductIndex' }">商品一覧</router-link>
+                  <router-link
+                    class="child-list-item__link child-list-item__link--mb30"
+                    v-on:click="closeMenu()"
+                    :to="{ name: 'ProductIndex' }"
+                    >商品一覧</router-link
+                  >
                 </li>
 
                 <li class="child-list-item">
-                  <router-link class="child-list-item__link child-list-item__link--mb30" v-on:click="closeMenu()"
-                    :to="{ name: 'Home' , hash: '#detailedSymptomBlock'}">具体的な症状・テーマから探す</router-link>
+                  <router-link
+                    class="child-list-item__link child-list-item__link--mb30"
+                    v-on:click="closeMenu()"
+                    :to="{ name: 'Home', hash: '#detailedSymptomBlock' }"
+                    >具体的な症状・テーマから探す</router-link
+                  >
                 </li>
 
                 <li class="child-list-item">
-                  <span class="child-list-item__txt child-list-item__txt--mb20">今の気分に合わせて探す</span>
+                  <span class="child-list-item__txt child-list-item__txt--mb20"
+                    >今の気分に合わせて探す</span
+                  >
                   <ul class="gran-child-list">
                     <li class="gran-child-list-item">
-                      <a href="/product/category/2"
-                        class="gran-child-list-item__link gran-child-list-item__link--mb20">INSPIRATION　<br
-                          class="sp" />閃きや活力が欲しい時に</a>
+                      <a
+                        href="/product/category/2"
+                        class="gran-child-list-item__link gran-child-list-item__link--mb20"
+                        >INSPIRATION　<br class="sp" />閃きや活力が欲しい時に</a
+                      >
                     </li>
                     <li class="gran-child-list-item">
-                      <a href="/product/category/3"
-                        class="gran-child-list-item__link gran-child-list-item__link--mb20">MAINTENANCE　<br
-                          class="sp" />いつもの自分を取り戻すために</a>
+                      <a
+                        href="/product/category/3"
+                        class="gran-child-list-item__link gran-child-list-item__link--mb20"
+                        >MAINTENANCE　<br
+                          class="sp"
+                        />いつもの自分を取り戻すために</a
+                      >
                     </li>
                     <li class="gran-child-list-item">
-                      <a href="/product/category/1"
-                        class="gran-child-list-item__link gran-child-list-item__link--mb20">HEALING　<br
-                          class="sp" />具体的な症状・不調に</a>
+                      <a
+                        href="/product/category/1"
+                        class="gran-child-list-item__link gran-child-list-item__link--mb20"
+                        >HEALING　<br class="sp" />具体的な症状・不調に</a
+                      >
                     </li>
                   </ul>
                 </li>
                 <li class="child-list-item">
-                  <a href="/trialset" class="child-list-item__link child-list-item__link--mb30" tabindex="-1">初めての方へ　お試しアソートセット</a>
+                  <a
+                    href="/trialset"
+                    class="child-list-item__link child-list-item__link--mb30"
+                    tabindex="-1"
+                    >初めての方へ　お試しアソートセット</a
+                  >
                 </li>
                 <li class="child-list-item">
-                  <a class="child-list-item__link child-list-item__link--mb30" tabindex="-1">プレゼント＆ギフトBOX<span
-                      class="child-list-item__link-span">近日公開</span></a>
+                  <a
+                    class="child-list-item__link child-list-item__link--mb30"
+                    tabindex="-1"
+                    >プレゼント＆ギフトBOX<span
+                      class="child-list-item__link-span"
+                      >近日公開</span
+                    ></a
+                  >
                 </li>
                 <li class="child-list-item">
-                  <router-link class="child-list-item__link child-list-item__link--mb30" v-on:click="closeMenu()"
-                    to="/#this_month_herb_tee">今月のおすすめハーブティ</router-link>
+                  <router-link
+                    class="child-list-item__link child-list-item__link--mb30"
+                    v-on:click="closeMenu()"
+                    to="/#this_month_herb_tee"
+                    >今月のおすすめハーブティ</router-link
+                  >
                 </li>
               </ul>
             </li>
@@ -94,42 +150,77 @@
         <div class="nav-inner__right">
           <ul class="nav-list">
             <li class="nav-list-item">
-              <a class="nav-list-item__link nav-list-item__link--mb50" tabindex="-1">ハーブティ診断を受ける<span
-                  class="child-list-item__link-span">近日公開</span></a>
+              <a
+                class="nav-list-item__link nav-list-item__link--mb50"
+                tabindex="-1"
+                >ハーブティ診断を受ける<span class="child-list-item__link-span"
+                  >近日公開</span
+                ></a
+              >
             </li>
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()" :to="{
-                name: 'BlogIndex',
-              }">植物療法士便り</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                :to="{
+                  name: 'BlogIndex',
+                }"
+                >植物療法士便り</router-link
+              >
             </li>
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()" to="/about/">
-                HERB ARE YOU?について</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                to="/about/"
+              >
+                HERB ARE YOU?について</router-link
+              >
             </li>
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()" :to="{
-                name: 'SiteFaq',
-              }">よくあるご質問</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                :to="{
+                  name: 'SiteFaq',
+                }"
+                >よくあるご質問</router-link
+              >
             </li>
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()"
-                :to="{ name: 'MyPageRegistered' }">マイページ</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                :to="{ name: 'MyPageRegistered' }"
+                >マイページ</router-link
+              >
             </li>
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()"
-                :to="{ name: 'CartIndex' }">カートを見る</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                :to="{ name: 'CartIndex' }"
+                >カートを見る</router-link
+              >
             </li>
 
             <li class="nav-list-item">
-              <router-link class="nav-list-item__link nav-list-item__link--mb50" v-on:click="closeMenu()"
-                :to="{ name: 'Diagnose0' }">お問合せ</router-link>
+              <router-link
+                class="nav-list-item__link nav-list-item__link--mb50"
+                v-on:click="closeMenu()"
+                :to="{ name: 'Diagnose0' }"
+                >お問合せ</router-link
+              >
             </li>
-
           </ul>
         </div>
         <div class="sns">
-          <a class="sns__item" href="https://www.instagram.com/herbareyou/">Instagram</a>
-          <a class="sns__item" href="https://www.facebook.com/herbareyou.jp">Facebook</a>
+          <a class="sns__item" href="https://www.instagram.com/herbareyou/"
+            >Instagram</a
+          >
+          <a class="sns__item" href="https://www.facebook.com/herbareyou.jp"
+            >Facebook</a
+          >
         </div>
       </div>
     </nav>
@@ -141,45 +232,66 @@
           </p>
           <a class="s-cart__close js-cart-close"></a>
         </div>
-        <div class="s-cart__content" v-for="(cartDetail, index) in $store.state.cart_details" v-bind:key="index">
+        <div
+          class="s-cart__content"
+          v-for="(cartDetail, index) in $store.state.cart_details"
+          v-bind:key="index"
+        >
           <p class="s-cart__sub">{{ cartDetail.product.category.name }}</p>
           <p class="s-cart__ttl">
             <span class="s-cart__ttl-num">{{
-                cartDetail.product.product_no
+              cartDetail.product.product_no
             }}</span>
-            <span class="s-cart__ttl-main">{{ cartDetail.product.name1 }}<br />{{
+            <span class="s-cart__ttl-main"
+              >{{ cartDetail.product.name1 }}<br />{{
                 cartDetail.product.name2
-            }}</span>
+              }}</span
+            >
           </p>
           <p class="s-cart__herb">
             {{
-                pageService.cutText(
-                  20,
-                  "…",
-                  pageService.implode(
-                    "、",
-                    pageService.pluck("name", cartDetail.product.materials)
-                  )
+              pageService.cutText(
+                20,
+                "…",
+                pageService.implode(
+                  "、",
+                  pageService.pluck("name", cartDetail.product.materials)
                 )
+              )
             }}
           </p>
           <div class="s-cart__flex">
             <div class="s-cart__left">
-              <img :src="cartDetail.product.upload_files[0]?.url ?? ''" alt="" />
+              <img
+                :src="cartDetail.product.upload_files[0]?.url ?? ''"
+                alt=""
+              />
             </div>
             <div class="s-cart__right">
               <div class="counter">
-                <div class="counter__left js-counter-down" v-on:click="
-                  countDown(cartDetail.product_price_id, cartDetail.num)
-                ">
+                <div
+                  class="counter__left js-counter-down"
+                  v-on:click="
+                    countDown(cartDetail.product_price_id, cartDetail.num)
+                  "
+                >
                   −
                 </div>
-                <input type="text" name="amount" :value="cartDetail.num" class="counter__amount" v-on:change="
-                  changeProductNum($event, cartDetail.product_price_id)
-                " />
-                <div class="counter__right js-counter-up" v-on:click="
-                  countUp(cartDetail.product_price_id, cartDetail.num)
-                ">
+                <input
+                  type="text"
+                  name="amount"
+                  :value="cartDetail.num"
+                  class="counter__amount"
+                  v-on:change="
+                    changeProductNum($event, cartDetail.product_price_id)
+                  "
+                />
+                <div
+                  class="counter__right js-counter-up"
+                  v-on:click="
+                    countUp(cartDetail.product_price_id, cartDetail.num)
+                  "
+                >
                   ＋
                 </div>
               </div>
@@ -187,21 +299,31 @@
                 <div class="acd-select__head">
                   <p class="acd-select__txt">
                     {{ cartDetail.product_price.capacity }} ¥{{
-                        cartDetail.product_price.price
+                      cartDetail.product_price.price
                     }}
                   </p>
                   <div class="acd-select__taxin js-acdSelect-btn">Tax in</div>
                 </div>
-                <input type="hidden" name="amount" class="acd-select__input" value="" />
+                <input
+                  type="hidden"
+                  name="amount"
+                  class="acd-select__input"
+                  value=""
+                />
                 <ul class="acd-select__list">
-                  <li id="" class="acd-select__item" v-for="price in cartDetail.product.prices" v-bind:key="price.id"
+                  <li
+                    id=""
+                    class="acd-select__item"
+                    v-for="price in cartDetail.product.prices"
+                    v-bind:key="price.id"
                     v-on:click="
                       changeProductPrice(
                         cartDetail.product_price_id,
                         price.id,
                         cartDetail.num
                       )
-                    ">
+                    "
+                  >
                     {{ price.capacity }} ¥{{ price.price }}
                   </li>
                 </ul>
@@ -224,8 +346,16 @@
 
     <div class="search">
       <div class="search__container">
-        <input type="search" name="search" placeholder="" class="search__input" />
-        <button class="search__btn" onclick="window.location.href='/searchresult'"></button>
+        <input
+          type="search"
+          name="search"
+          placeholder=""
+          class="search__input"
+        />
+        <button
+          class="search__btn"
+          onclick="window.location.href='/searchresult'"
+        ></button>
       </div>
       <a href="" class="search__close js-search-close">
         <span class="search__close-bar"></span>
@@ -243,8 +373,8 @@ import { CommonScriptService } from "@/services/CommonScriptService";
 import { firstContentApi } from "@/api/contents";
 
 import // upadteCartDetailProductPriceApi,
-  // destroyCartDetailApi,
-  "@/api/carts";
+// destroyCartDetailApi,
+"@/api/carts";
 import { addProductPriceData, deleteProductPriceData } from "@/utils/cart";
 
 export default defineComponent({
@@ -270,7 +400,7 @@ export default defineComponent({
     };
   },
   components: {},
-  created: async function () { },
+  created: async function () {},
   beforeRouteUpdate: function (to, from, next) {
     next();
     this.closeMenu();
@@ -367,6 +497,15 @@ export default defineComponent({
       var iconImages: any = document.querySelectorAll(".icons__img");
 
       const pathName = window.location.pathname;
+      if (pathName === "/product") {
+        navToggleBars.forEach(function (bar: any) {
+          bar.style.backgroundColor = "#d6ac4e";
+        });
+        headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
+        iconImages[0].setAttribute("src", "/img/common/icon1.svg");
+        iconImages[1].setAttribute("src", "/img/common/icon2.svg");
+        iconImages[2].setAttribute("src", "/img/common/icon3.svg");
+      }
       if (
         pathName === "/diagnose" ||
         pathName === "/diagnose/" ||
@@ -449,6 +588,4 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
