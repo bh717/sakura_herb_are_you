@@ -99,6 +99,7 @@
   display:flex;
   margin-left: 12rem;
   flex-wrap: wrap;
+  width: 350px;
 }
 
 .detail-container__table {
