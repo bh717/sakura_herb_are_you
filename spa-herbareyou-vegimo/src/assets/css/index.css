@@ -396,7 +396,7 @@
 
 @media screen and (max-width: 599px) {
   .trial-img {
-    width: 100%;
+    width: auto;
     height: 350px;
   }
 
