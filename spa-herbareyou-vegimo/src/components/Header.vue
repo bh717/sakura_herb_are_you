@@ -523,12 +523,12 @@ export default defineComponent({
         pathName === "/diagnose-result/"
       ) {
         navToggleBars.forEach(function (bar: any) {
-          bar.style.backgroundColor = "#d6ac4e";
+          bar.style.backgroundColor = "#FFF";
         });
-        headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
-        iconImages[0].setAttribute("src", "/img/common/icon1.svg");
-        iconImages[1].setAttribute("src", "/img/common/icon2.svg");
-        iconImages[2].setAttribute("src", "/img/common/icon3.svg");
+        headerLogoImage.setAttribute("src", "/img/common/logo-w.svg");
+        iconImages[0].setAttribute("src", "/img/common/icon1-w.svg");
+        iconImages[1].setAttribute("src", "/img/common/icon2-w.svg");
+        iconImages[2].setAttribute("src", "/img/common/icon3-w.svg");
         navToggle.addEventListener("click", function () {
           if (header.classList.contains("is-open")) {
             navToggleBars.forEach(function (bar: any) {
@@ -540,7 +540,7 @@ export default defineComponent({
             iconImages[2].setAttribute("src", "/img/common/icon3.svg");
           } else {
             navToggleBars.forEach(function (bar: any) {
-              bar.style.backgroundColor = "#d6ac4e";
+              bar.style.backgroundColor = "#FFF";
             });
             headerLogoImage.setAttribute("src", "/img/common/logo-w.svg");
             iconImages[0].setAttribute("src", "/img/common/icon1-w.svg");
