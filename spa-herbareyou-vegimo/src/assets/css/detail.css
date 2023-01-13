@@ -104,6 +104,7 @@
 .detail-container__table {
   margin-bottom: 4rem;
   line-height: 2;
+  width: 100%;
 }
 
 .detail-container__dt {
@@ -111,12 +112,10 @@
 }
 
 .detail-container__dd {
-  -webkit-text-size-adjust: none;
   cursor: pointer;
 }
 
 .detail-container-hd2__sub {
-  -webkit-text-size-adjust: none;
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
@@ -124,7 +123,6 @@
 }
 
 .detail-container-hd2__title {
-  -webkit-text-size-adjust: none;
   display: block;
   font-size: 2rem;
   font-weight: bold;

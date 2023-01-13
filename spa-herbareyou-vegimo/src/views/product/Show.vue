@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="wrapper">
     <Header :isUpdate="isUpdateHeader" />
@@ -10,84 +12,53 @@
               <p class="detail-container__hd2">
                 <span class="detail-container__hd2-ttl1">
                   <span class="detail-container__hd2-sub">{{
-                    product.category.name
+                      product.category.name
                   }}</span>
-                  <span class="detail-container__hd2-ttl-main1">{{
-                    product.name1
-                  }}</span>
+                  <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span>
                 </span>
                 <span class="detail-container__hd2-ttl">
                   <span class="detail-container__hd2-ttl-num">{{
-                    product.product_no
+                      product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="detail-container__hd2-ttl-main">{{
-                    product.name2
-                  }}</span>
+                  <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
+
                 </span>
               </p>
               <p class="detail-container__txt">
                 {{ product.description }}
               </p>
             </div>
-
+            
             <div class="detail-container__left">
-              <vueper-slides
-                fixed-height="500px"
-                v-if="product.upload_files.length !== 1"
-              >
-                <vueper-slide
-                  v-for="(uploadfile, i) in product.upload_files"
-                  :key="i"
-                  :image="
-                    'https://content.herbareyou.jp/' + uploadfile.file_path
-                  "
-                >
+              <vueper-slides fixed-height="500px" v-if="product.upload_files.length !== 1">
+                <vueper-slide v-for="(uploadfile, i) in product.upload_files" :key="i" :image="'https://content.herbareyou.jp/' + uploadfile.file_path">
                 </vueper-slide>
               </vueper-slides>
-              <img
-                v-if="product.upload_files.length === 1"
-                :src="product.upload_files[0].url"
-                alt=""
-              />
+              <img v-if="product.upload_files.length === 1" :src="product.upload_files[0].url" alt="" />
             </div>
 
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
-                <div>
-                  <dt class="detail-container__dt">こんな症状に</dt>
-                  <div class="customDiv">
-                    <dd
-                      class="detail-container__dd"
-                      v-for="(keyword, index) in product.keywords"
-                    >
-                      <span>{{ keyword.keyword }}</span>
-                    </dd>
-                  </div>
+                <dt class="detail-container__dt">こんな症状に</dt>
+                <div class="customDiv">
+                  <dd class="detail-container__dd" v-for="(keyword, index) in product.keywords">
+                    <span>{{ keyword.keyword }}</span>
+                  </dd>
+                </div>
+                <dt class="detail-container__dt">味の特徴</dt>
+                <div class="customDiv">
+                  <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"
+                    v-on:click="totasteSearch(taste.id)">
+                    <span>#{{ taste.name }}</span>
+                    <span v-if="product.tastes.length - 1 !== index">、 </span>
+                  </dd>
                 </div>
 
-                <div>
-                  <dt class="detail-container__dt">味の特徴</dt>
-                  <div class="customDiv">
-                    <dd
-                      class="detail-container__dd"
-                      v-for="(taste, index) in product.tastes"
-                      v-on:click="totasteSearch(taste.id)"
-                    >
-                      <span>#{{ taste.name }}</span>
-                      <span v-if="product.tastes.length - 1 !== index"
-                        >、
-                      </span>
-                    </dd>
-                  </div>
-                </div>
                 <dt class="detail-container__dt">香りの特徴</dt>
                 <div class="customDiv">
-                  <dd
-                    class="detail-container__dd"
-                    v-for="(flavor, index) in product.flavors"
-                    v-on:click="toflavorSearch(flavor.id)"
-                  >
+                  <dd class="detail-container__dd" v-for="(flavor, index) in product.flavors"
+                    v-on:click="toflavorSearch(flavor.id)">
                     <span>#{{ flavor.name }}</span>
                     <span v-if="product.tastes.length - 1 !== index">、 </span>
                   </dd>
@@ -95,39 +66,25 @@
 
                 <dt class="detail-container__dt">配合</dt>
                 <div class="customDiv">
-                  <dd
-                    class="detail-container__dd"
-                    v-for="(material, index) in product.materials"
-                    v-on:click="tomaterialSearch(material.id)"
-                  >
+                  <dd class="detail-container__dd" v-for="(material, index) in product.materials"
+                    v-on:click="tomaterialSearch(material.id)">
                     <span>#{{ material.name }}</span>
-                    <span v-if="product.materials.length - 1 !== index"
-                      >、
-                    </span>
+                    <span v-if="product.materials.length - 1 !== index">、 </span>
                   </dd>
                 </div>
 
                 <div class="detail-sub-container">
-                  <dt class="detail-container__dt">内容量:</dt>
+                  <dt class="detail-container__dt">
+                    内容量:
+                  </dt>
                   <dd class="detail-container__dd">{{ product.capacity }}</dd>
 
                   <div class="counter">
-                    <div
-                      class="counter__left js-counter-down"
-                      v-on:click="countDown()"
-                    >
+                    <div class="counter__left js-counter-down" v-on:click="countDown()">
                       −
                     </div>
-                    <input
-                      type="text"
-                      name="amount"
-                      v-model="num"
-                      class="counter__amount"
-                    />
-                    <div
-                      class="counter__right js-counter-up"
-                      v-on:click="countUp()"
-                    >
+                    <input type="text" name="amount" v-model="num" class="counter__amount" />
+                    <div class="counter__right js-counter-up" v-on:click="countUp()">
                       ＋
                     </div>
                   </div>
@@ -135,67 +92,41 @@
                     <div class="acd-select__head">
                       <p class="acd-select__txt">
                         {{ product.prices[0].capacity }} ¥{{
-                          product.prices[0].price
+                            product.prices[0].price
                         }}
                       </p>
-                      <div class="acd-select__taxin js-acdSelect-btn">
-                        Tax in
-                      </div>
+                      <div class="acd-select__taxin js-acdSelect-btn">Tax in</div>
                     </div>
-                    <input
-                      type="hidden"
-                      name="amount"
-                      class="acd-select__input"
-                      value=""
-                    />
+                    <input type="hidden" name="amount" class="acd-select__input" value="" />
                     <ul class="acd-select__list">
-                      <li
-                        id=""
-                        class="acd-select__item"
-                        v-for="price in product.prices"
-                        v-bind:key="price.id"
-                        v-on:click="changePrice(price.id)"
-                      >
+                      <li id="" class="acd-select__item" v-for="price in product.prices" v-bind:key="price.id"
+                        v-on:click="changePrice(price.id)">
                         {{ price.capacity }} ¥{{ price.price }}
                       </li>
                     </ul>
                   </div>
 
                   <div class="b-btn">
-                    <button
-                      type="submit"
-                      class="b-btn__btn"
-                      v-on:click="inCart()"
-                    >
+                    <button type="submit" class="b-btn__btn" v-on:click="inCart()">
                       カートに入れる
                     </button>
                   </div>
                 </div>
               </dl>
+
             </div>
           </div>
         </section>
         <section class="sec">
           <div class="sec-container">
             <h3 class="sec-container__hd3">おすすめ</h3>
-            <ul
-              class="product-list clearfix"
-              v-if="recommendProducts.length !== 0"
-            >
-              <li
-                class="product-item"
-                data-anime="fadeup"
-                :data-category="'att-' + String(recommendProduct.id)"
-                v-for="recommendProduct in recommendProducts"
-                :key="recommendProduct.id"
-              >
-                <router-link
-                  :to="{
-                    name: 'ProductShow',
-                    params: { id: recommendProduct.id },
-                  }"
-                  class="product-item__link"
-                >
+            <ul class="product-list clearfix" v-if="recommendProducts.length !== 0">
+              <li class="product-item" data-anime="fadeup" :data-category="'att-' + String(recommendProduct.id)"
+                v-for="recommendProduct in recommendProducts" :key="recommendProduct.id">
+                <router-link :to="{
+                  name: 'ProductShow',
+                  params: { id: recommendProduct.id },
+                }" class="product-item__link">
                   <img :src="recommendProduct.upload_files[0].url" alt="" />
                 </router-link>
                 <p class="product-item__sub">
@@ -206,33 +137,27 @@
                 </p>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
-                    recommendProduct.product_no
+                      recommendProduct.product_no
                   }}</span>
-                  <span class="product-item__ttl-main"
-                    >{{ recommendProduct.name1 }}　¥{{
+                  <span class="product-item__ttl-main">{{ recommendProduct.name1 }}　¥{{
                       recommendProduct.prices[0].price
-                    }}</span
-                  >
+                  }}</span>
                 </p>
-
+                
                 <p class="product-item__material">
                   {{
-                    pageService.cutText(
-                      20,
-                      "…",
-                      pageService.implode(
-                        "、",
-                        pageService.pluck("name", recommendProduct.materials)
+                      pageService.cutText(
+                        20,
+                        "…",
+                        pageService.implode(
+                          "、",
+                          pageService.pluck("name", recommendProduct.materials)
+                        )
                       )
-                    )
                   }}
                 </p>
                 <div class="a-btn">
-                  <a
-                    :href="`/product/${recommendProduct.id}`"
-                    class="a-btn__link"
-                    >詳細を見る</a
-                  >
+                  <a :href="`/product/${recommendProduct.id}`" class="a-btn__link">詳細を見る</a>
                 </div>
               </li>
             </ul>
@@ -252,8 +177,8 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 // import { storeCartDetailApi } from "@/api/carts";
 
 import { indexProductApi } from "@/api/products";
@@ -285,7 +210,7 @@ export default defineComponent({
     VueperSlides,
     VueperSlide,
   },
-  created: async function () {},
+  created: async function () { },
   mounted: async function (): Promise<void> {
     document.body.className = "index";
 
@@ -341,7 +266,7 @@ export default defineComponent({
 
       location.href = query;
     },
-
+    
     toflavorSearch: function (index: number): void {
       // const url = Location.pathname;
       // alert(1);
@@ -419,4 +344,6 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped src="@/assets/css/detail.css"></style>
+<style scoped src="@/assets/css/detail.css">
+
+</style>
