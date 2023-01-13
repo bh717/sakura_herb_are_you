@@ -142,13 +142,15 @@
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-bottom: 5rem;
   }
   .sec-container__form-parts {
-    width: 47%;
+    width: 80%;
     margin-bottom: 3rem;
   }
   .sec-container__form-label {

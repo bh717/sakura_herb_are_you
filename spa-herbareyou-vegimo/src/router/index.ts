@@ -124,6 +124,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/diagnose/Diagnose5.vue"),
   },
   {
+    path: "/diagnose6",
+    name: "Diagnose6",
+    component: () => import("@/views/diagnose/Diagnose6.vue"),
+  },
+  {
     path: "/diagnose-result",
     name: "DiagnoseResult",
     component: () => import("@/views/diagnose/DiagnoseResult.vue"),
@@ -182,6 +187,7 @@ router.beforeEach(async (to, from, next): Promise<void> => {
     to.name !== "Diagnose3" &&
     to.name !== "Diagnose4" &&
     to.name !== "Diagnose5" &&
+    to.name !== "Diagnose6" &&
     to.name !== "DiagnoseResult" &&
     to.name !== "TrialSetIndex" &&
     !store.state.isLogin

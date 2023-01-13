@@ -261,11 +261,11 @@
     </main>
     <Footer :isSct="true" />
   </div>
-  <a href="/diagnose1" class="diagnose-icon">
+  <a href="/diagnose" class="diagnose-icon">
     <img src="@/assets/img/index/diagnose.png" alt="" class="diagnose__img" />
   </a>
 
-  <a href="/diagnose1" class="diagnose-icon1">
+  <a href="/diagnose" class="diagnose-icon1">
     <img src="@/assets/img/index/diagnose1.png" alt="" class="diagnose__img" />
   </a>
 </template>

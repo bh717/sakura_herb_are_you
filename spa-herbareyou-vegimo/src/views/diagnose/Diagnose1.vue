@@ -15,21 +15,43 @@
             </h2>
             <div class="sec-container__form">
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" id="NotGood" :value="1" v-model="condition" />
-                <label for="NotGood" class="sec-container__form-label">Not Good</label>
+                <input
+                  type="radio"
+                  name="condition"
+                  id="NotGood"
+                  :value="1"
+                  v-model="condition"
+                />
+                <label for="NotGood" class="sec-container__form-label"
+                  >Not Good</label
+                >
                 <p class="sec-container__form-txt">
-                  困った症状あり。<br class="sp" />具体的な痛みや不調に向き合いたい。
+                  困った症状あり。<br
+                    class="sp"
+                  />具体的な痛みや不調に向き合いたい。
                 </p>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" id="Soso" :value="2" v-model="condition" />
+                <input
+                  type="radio"
+                  name="condition"
+                  id="Soso"
+                  :value="2"
+                  v-model="condition"
+                />
                 <label for="Soso" class="sec-container__form-label">Soso</label>
                 <p class="sec-container__form-txt">
                   まあまあ。<br class="sp" />なんとなくの不調に備えたい。
                 </p>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" id="Good" :value="3" v-model="condition" />
+                <input
+                  type="radio"
+                  name="condition"
+                  id="Good"
+                  :value="3"
+                  v-model="condition"
+                />
                 <label for="Good" class="sec-container__form-label">Good</label>
                 <p class="sec-container__form-txt">
                   いい気分。<br class="sp" />ハーブティで自分らしくなりたい。
@@ -37,12 +59,19 @@
               </div>
             </div>
             <div class="sec-container__btn">
-              <button type="button" class="sec-container__btn-inner" v-on:click="nextPage()">
+              <button
+                type="button"
+                class="sec-container__btn-inner"
+                v-on:click="nextPage()"
+              >
                 次の質問へ
               </button>
             </div>
             <div class="sec-container__back">
-              <router-link :to="{ name: backPath }" class="sec-container__back-inner">
+              <router-link
+                :to="{ name: backPath }"
+                class="sec-container__back-inner"
+              >
                 前のページへ戻る
               </router-link>
             </div>
@@ -84,7 +113,7 @@ export default defineComponent({
     Footer,
     Header,
   },
-  created: async function () { },
+  created: async function () {},
   mounted: function (): void {
     document.body.className = "diagnose";
     this.init();
@@ -97,17 +126,17 @@ export default defineComponent({
   methods: {
     init: async function (): Promise<any> {
       if (!localStorage.getItem("access_token")) {
-        this.name = "ゲスト様";
-
-        localStorage.setItem(
-          "diagnoseJsonData",
-          JSON.stringify({
-            diagnose0: { name: this.name },
-          })
-        );
-      }
-
-      else {
+        const diagnoseJsonData = localStorage.getItem("diagnoseJsonData");
+        if (!diagnoseJsonData) {
+          this.$router.push({
+            name: "Diagnose0",
+          });
+          return;
+        }
+        const diagnoseData = JSON.parse(diagnoseJsonData);
+        console.log("diagnose:", diagnoseData?.diagnose0?.name);
+        this.name = diagnoseData?.diagnose0?.name;
+      } else {
         this.email = localStorage.getItem("gmail");
         const res = await getName(this.email);
         const response = res.data;
@@ -115,8 +144,6 @@ export default defineComponent({
         this.firstname = response[0].first_name;
         this.lastname = response[0].last_name;
         this.name = this.firstname + " " + this.lastname;
-
-
       }
       // const diagnoseJsonData = localStorage.getItem("diagnoseJsonData");
       // if (!diagnoseJsonData) {
@@ -145,7 +172,7 @@ export default defineComponent({
         "diagnoseJsonData",
         JSON.stringify({
           diagnose0: { name: this.name },
-          diagnose1: {condition: this.condition},
+          diagnose1: { condition: this.condition },
         })
       );
       // localStorage.setItem(
@@ -159,6 +186,4 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped src="@/assets/css/diagnose-1.css">
-
-</style>
+<style scoped src="@/assets/css/diagnose-1.css"></style>

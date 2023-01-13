@@ -5,16 +5,24 @@
       <article id="app" v-if="isShow">
         <section class="sec">
           <div class="sec-container">
+            
+
             <p class="sec-container__name">
               「{{ diagnoseData.diagnose0.name }}」さん
             </p>
+
+            
             <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose1.condition === 1">
-              表示されている中に具体的な症状の悩みがありますか？
+              良かった！
             </h2>
             <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 2">
-              表示されている中に具体的な症状の悩みがありますか？
+              なるほど。
             </h2>
             <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 3">
+              それは大変…
+            </h2>
+            
+            <h2 class="sec-container__hd2" >
               表示されている中に具体的な症状の悩みがありますか？
             </h2>
             <div class="sec-container__form">
@@ -54,7 +62,7 @@
                 <input type="radio" name="condition" :value="17" id="condition17" v-model="condition" />
                 <label for="condition17" class="sec-container__form-label">胃腸</label>
               </div>
-              <div class="sec-container__form-parts" >
+              <!-- <div class="sec-container__form-parts" >
                 <input type="radio" name="condition" :value="1" id="condition1" v-model="condition" />
                 <label for="condition1" class="sec-container__form-label">むくみ</label>
               </div>
@@ -93,7 +101,7 @@
               <div class="sec-container__form-parts">
                 <input type="radio" name="condition" :value="19" id="condition19" v-model="condition" />
                 <label for="condition19" class="sec-container__form-label">ハーブティーを楽しむ</label>
-              </div>
+              </div> -->
               <div class="sec-container__form-parts">
                 <input type="radio" name="condition" :value="20" id="condition20" v-model="condition" />
                 <label for="condition20" class="sec-container__form-label">当てはまる症状がない</label>

@@ -498,7 +498,7 @@ export default defineComponent({
 
       const pathName = window.location.pathname;
       console.log("pathName", pathName);
-      if(pathName === "/product" || pathName==="/product/" || pathName === '/')
+      if(pathName === "/product" || pathName==="/product/" || pathName === '/' || pathName === '/blog' || pathName === '/blog/')
       {
         navToggleBars.forEach(function (bar: any) {
               bar.style.backgroundColor = "#d6ac4e";
@@ -521,6 +521,8 @@ export default defineComponent({
         pathName === "/diagnose3/" ||
         pathName === "/diagnose4" ||
         pathName === "/diagnose4/" ||
+        pathName === "/diagnose6" ||
+        pathName === "/diagnose6/" ||
         pathName === "/diagnose-result" ||
         pathName === "/diagnose-result/"
       ) {

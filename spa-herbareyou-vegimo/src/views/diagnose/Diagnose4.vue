@@ -5,8 +5,8 @@
       <article id="app" v-if="isShow">
         <section class="sec">
           <div class="sec-container">
-            <p class="sec-container__name">山田太郎さん</p>
-            <h2 class="sec-container__hd2">どんな味がお好みですか？</h2>
+            <p class="sec-container__name">「{{ this.name }}」さん</p>
+            <h2 class="sec-container__hd2">ハーブティーに どのような効果を期待しますか？</h2>
             <div class="sec-container__form">
               <div class="sec-container__form-parts">
                 <input type="radio" name="condition" :value="1" id="condition1" v-model="condition" />
@@ -17,35 +17,35 @@
                 <label for="condition2" class="sec-container__form-label">身体をスマートにしたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="3" id="condition3" v-model="condition" />
+                <input type="radio" name="condition" :value="5" id="condition3" v-model="condition" />
                 <label for="condition3" class="sec-container__form-label">ストレスが気になる</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="4" id="condition4" v-model="condition" />
+                <input type="radio" name="condition" :value="6" id="condition4" v-model="condition" />
                 <label for="condition4" class="sec-container__form-label">しっかり眠りたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="5" id="condition5" v-model="condition" />
+                <input type="radio" name="condition" :value="10" id="condition5" v-model="condition" />
                 <label for="condition5" class="sec-container__form-label">美容につなげたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="6" id="condition6" v-model="condition" />
+                <input type="radio" name="condition" :value="11" id="condition6" v-model="condition" />
                 <label for="condition6" class="sec-container__form-label">疲れを取りたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="7" id="condition7" v-model="condition" />
+                <input type="radio" name="condition" :value="12" id="condition7" v-model="condition" />
                 <label for="condition7" class="sec-container__form-label">女性の不調を整えたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="8" id="condition8" v-model="condition" />
+                <input type="radio" name="condition" :value="13" id="condition8" v-model="condition" />
                 <label for="condition8" class="sec-container__form-label">気持ちを前向きにしたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="9" id="condition9" v-model="condition" />
+                <input type="radio" name="condition" :value="18" id="condition9" v-model="condition" />
                 <label for="condition9" class="sec-container__form-label">身体を温めたい</label>
               </div>
               <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="10" id="condition10" v-model="condition" />
+                <input type="radio" name="condition" :value="19" id="condition10" v-model="condition" />
                 <label for="condition10" class="sec-container__form-label">おいしいハーブティーを楽しみたい</label>
               </div>
               <div class="sec-container__form-parts"></div>
@@ -142,9 +142,10 @@ export default defineComponent({
       isShow: true,
       isSecondShow: false,
       condition: 0 as number,
+      name: "" as string,
       condition1: [] as any[],
       condition2: [] as any[],
-      nextPath: "Diagnose3",
+      nextPath: "Diagnose6",
       flavorIds: [] as any[],
       tasteIds: [] as any[],
       flavors: [] as any[],
@@ -171,6 +172,7 @@ export default defineComponent({
       return;
     }
     const diagnoseData = JSON.parse(diagnoseJsonData);
+    this.name = diagnoseData?.diagnose0?.name;
     if (!diagnoseData?.diagnose2) {
       this.$router.push({
         name: this.backPath,
@@ -206,105 +208,126 @@ export default defineComponent({
   methods: {
     nextPage: function () {
       // alert(this.condition);
-      console.log("checkbox:", this.flavorIds);
-      if (this.isShow === true) {
-        let query;
-        switch (this.condition) {
-          case 1:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              1;
-            location.href = location.origin + "/product" + query;
-            break;
+      // console.log("checkbox:", this.flavorIds);
+      // if (this.isShow === true) {
+      //   let query;
+      //   switch (this.condition) {
+      //     case 1:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         1;
+      //       location.href = location.origin + "/product" + query;
+      //       break;
 
-          case 2:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              2;
-            location.href = location.origin + "/product" + query;
-            break;
+      //     case 2:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         2;
+      //       location.href = location.origin + "/product" + query;
+      //       break;
 
-          case 3:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              5;
-            location.href = location.origin + "/product" + query;
-            break;
-          //
-          case 4:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              6;
-            location.href = location.origin + "/product" + query;
+      //     case 3:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         5;
+      //       location.href = location.origin + "/product" + query;
+      //       break;
+      //     //
+      //     case 4:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         6;
+      //       location.href = location.origin + "/product" + query;
 
-          case 5:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              10;
-            location.href = location.origin + "/product" + query;
+      //     case 5:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         10;
+      //       location.href = location.origin + "/product" + query;
 
-          case 6:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              11;
-            location.href = location.origin + "/product" + query;
+      //     case 6:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         11;
+      //       location.href = location.origin + "/product" + query;
 
-          case 7:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              12;
-            location.href = location.origin + "/product" + query;
+      //     case 7:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         12;
+      //       location.href = location.origin + "/product" + query;
 
-          case 8:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              13;
-            location.href = location.origin + "/product" + query;
+      //     case 8:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         13;
+      //       location.href = location.origin + "/product" + query;
 
-          case 9:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              18;
-            location.href = location.origin + "/product" + query;
+      //     case 9:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         18;
+      //       location.href = location.origin + "/product" + query;
 
 
-          case 10:
-            query =
-              "?" +
-              "&symptom_ids=" +
-              19;
-            location.href = location.origin + "/product" + query;
-            break;
-          default:
-            break;
-        }
+      //     case 10:
+      //       query =
+      //         "?" +
+      //         "&symptom_ids=" +
+      //         19;
+      //       location.href = location.origin + "/product" + query;
+      //       break;
+      //     default:
+      //       break;
+      //   }
+      // }
+
+      // if (this.isSecondShow === true) {
+      //   const query: string =
+      //     "?" +
+      //     "taste_ids=" +
+      //     this.tasteIds +
+      //     "&flavor_ids=" +
+      //     this.flavorIds +
+      //     "&material_ids=" +
+      //     "" +
+      //     "&symptom_ids=" +
+      //     "" +
+      //     "&order_by=" +
+      //     "" +
+      //     "&recommendation_kind=" +
+      //     "";
+      //   location.href = location.origin + "/product" + query;
+      // }
+
+      if (this.condition === 0) {
+        return;
       }
-
-      if (this.isSecondShow === true) {
-        const query: string =
-          "?" +
-          "taste_ids=" +
-          this.tasteIds +
-          "&flavor_ids=" +
-          this.flavorIds +
-          "&material_ids=" +
-          "" +
-          "&symptom_ids=" +
-          "" +
-          "&order_by=" +
-          "" +
-          "&recommendation_kind=" +
-          "";
-        location.href = location.origin + "/product" + query;
+      this.diagnoseData.diagnose4 = {
+        condition: this.condition,
+      };
+      localStorage.setItem(
+        "diagnoseJsonData",
+        JSON.stringify(this.diagnoseData)
+      );
+      if(this.condition !== 20)
+      {
+        this.$router.push({
+          name: this.nextPath,
+        });}
+      else{
+        this.$router.push({
+          name: this.nextPath1,
+        });
       }
     },
   },
