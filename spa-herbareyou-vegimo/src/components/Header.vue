@@ -498,9 +498,11 @@ export default defineComponent({
 
       const pathName = window.location.pathname;
       console.log("pathName", pathName);
-      if(pathName === "/product" || pathName==="/product/")
+      if(pathName === "/product" || pathName==="/product/" || pathName === '/')
       {
-        alert("1");
+        navToggleBars.forEach(function (bar: any) {
+              bar.style.backgroundColor = "#d6ac4e";
+            });
         headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
         iconImages[0].setAttribute("src", "/img/common/icon1.svg");
         iconImages[1].setAttribute("src", "/img/common/icon2.svg");
