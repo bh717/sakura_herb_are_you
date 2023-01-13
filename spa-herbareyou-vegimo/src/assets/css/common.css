@@ -934,7 +934,7 @@ nav.is-open {
   }
 }
 .footer {
-  margin: 20rem auto 5rem;
+  margin: 0rem auto 5rem;
   text-align: center;
 }
 
@@ -1252,6 +1252,10 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   }
 }
 @media screen and (max-width: 599px) {
+  .footer {
+    margin: 20rem auto 5rem;
+    text-align: center;
+  }
   .product-list {
     display: block;
     -ms-grid-columns: none;
