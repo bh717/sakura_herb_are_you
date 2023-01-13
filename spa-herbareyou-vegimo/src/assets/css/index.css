@@ -492,19 +492,19 @@
     height: 70%;
     gap: 2px;
     width: 70%;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
 
   .p-gift-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #6e6e6e;
   }
 
   .p-gift-title1 {
-    font-size: 3.1rem;
+    font-size: 2.9rem;
     color: #6e6e6e;
     /* font-weight: bold; */
   }
