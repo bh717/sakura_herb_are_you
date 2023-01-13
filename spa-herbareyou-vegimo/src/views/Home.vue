@@ -111,7 +111,7 @@
               media="(max-width:599px)"
               srcset="@/assets/img/top/banner.jpg"
             />
-            <img src="@/assets/img/top/banner.jpg" alt="" />
+            <img src="@/assets/img/top/banner.jpg" class= "trial-img" alt="" />
           </picture>
 
           <div class="gift-section">
@@ -262,8 +262,11 @@
     <Footer :isSct="true" />
   </div>
   <a href="/diagnose1" class="diagnose-icon">
-    <!-- <img src="@/assets/img/index/diagnose.svg" alt="" class="diagnose__img" /> -->
     <img src="@/assets/img/index/diagnose.png" alt="" class="diagnose__img" />
+  </a>
+
+  <a href="/diagnose1" class="diagnose-icon1">
+    <img src="@/assets/img/index/diagnose1.png" alt="" class="diagnose__img" />
   </a>
 </template>
 

@@ -1978,7 +1978,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
 }
 
 .gift-btn__link {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
   background: #afafaf;
@@ -2157,7 +2157,7 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
   }
   .gift-btn__link {
     padding: 0.5rem 2rem;
-    margin-top: 0rem;
+    margin-top: 1rem;
   } 
 }
 /*-----keyframe-----*/
