@@ -497,10 +497,10 @@ export default defineComponent({
       var iconImages: any = document.querySelectorAll(".icons__img");
 
       const pathName = window.location.pathname;
-      if (pathName === "/product") {
-        navToggleBars.forEach(function (bar: any) {
-          bar.style.backgroundColor = "#d6ac4e";
-        });
+      console.log("pathName", pathName);
+      if(pathName === "/product" || pathName==="/product/")
+      {
+        alert("1");
         headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
         iconImages[0].setAttribute("src", "/img/common/icon1.svg");
         iconImages[1].setAttribute("src", "/img/common/icon2.svg");
@@ -548,15 +548,6 @@ export default defineComponent({
             iconImages[2].setAttribute("src", "/img/common/icon3-w.svg");
           }
         });
-      }
-      else{
-        navToggleBars.forEach(function (bar: any) {
-          bar.style.backgroundColor = "#d6ac4e";
-        });
-        headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
-        iconImages[0].setAttribute("src", "/img/common/icon1.svg");
-        iconImages[1].setAttribute("src", "/img/common/icon2.svg");
-        iconImages[2].setAttribute("src", "/img/common/icon3.svg");
       }
     },
     closeMenu: function () {
