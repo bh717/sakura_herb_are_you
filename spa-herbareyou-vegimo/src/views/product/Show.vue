@@ -40,12 +40,14 @@
 
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
+                
                 <dt class="detail-container__dt">こんな症状に</dt>
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(keyword, index) in product.keywords">
                     <span>{{ keyword.keyword }}</span>
                   </dd>
                 </div>
+
                 <dt class="detail-container__dt">味の特徴</dt>
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"

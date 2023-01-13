@@ -93,6 +93,7 @@
 }
 
 .sec-container__hd2-en {
+  -webkit-text-size-adjust: none;
   font-family: Acme, sans-serif;
   font-size: 1.8rem;
   display: block;
@@ -101,6 +102,7 @@
 }
 
 .sec-container__hd2-ja {
+  -webkit-text-size-adjust: none;
   font-size: 1.2rem;
   font-weight: 400;
   color: #505050;
@@ -259,8 +261,9 @@
 .blog-item-link__hd3 {
   font-size: 1.4rem;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   color: #d6ac4e;
+  margin-left: 300px;
 }
 
 .btnsection {
@@ -290,12 +293,13 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #d6ac4e;
   background: #fff;
-  padding: 1rem 3rem;
+  padding: 1rem 1rem;
   border-radius: 3rem;
+  -webkit-text-size-adjust: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -353,6 +357,7 @@
 
   .blog-item-link__hd3 {
     text-align: center;
+    margin-left: 0px;
   }
 
   .symptom-container {
