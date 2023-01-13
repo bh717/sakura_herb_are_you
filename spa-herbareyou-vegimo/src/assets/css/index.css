@@ -293,7 +293,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #d6ac4e;
   background: #fff;
@@ -305,7 +305,7 @@
 }
 
 .theme-btn__link:hover {
-  opacity: 0.5;
+  /* opacity: 0.5; */
   color: #fff;
   background: #d6ac4e;
 }

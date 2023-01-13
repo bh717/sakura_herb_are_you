@@ -10,6 +10,14 @@
   margin: auto;
   padding: 20rem 0 15rem;
 }
+
+.deco {
+  width: 15%;
+  position: absolute;
+  bottom: 10rem;
+  right: 7rem;
+}
+
 .sec-container__name {
   font-size: 1.4rem;
   font-weight: bold;
@@ -93,7 +101,8 @@
   float: left;
 }
 .detail-container__dd {
-  margin-left: 12rem;
+  /* margin-left: 12rem; */
+  cursor: pointer;
 }
 
 .detail-container-hd2__sub {
@@ -242,6 +251,13 @@
   color: #505050;
 }
 
+.customDiv{
+  display:flex;
+  margin-left: 12rem;
+  flex-wrap: wrap;
+  width: 350px; 
+}
+
 @media screen and (max-width: 768px) {
   .sec-container {
     width: 60%;
@@ -257,6 +273,7 @@
     width: 100%;
     margin-bottom: 3rem;
   }
+  
   .detail-container__right1 {
     float: none;
     width: 100%;
@@ -269,6 +286,11 @@
   }
 }
 @media screen and (max-width: 599px) {
+  .deco {
+    width: 40%;
+    bottom: 40rem;
+    right: 0rem;
+  }
   .sec-container {
     width: 85%;
     margin: auto;
