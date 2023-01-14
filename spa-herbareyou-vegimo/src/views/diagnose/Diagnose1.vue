@@ -6,8 +6,7 @@
         <section class="sec" v-if="isShow">
           <div class="sec-container">
             <p class="sec-container__name">
-              「{{ this.name }}」さん
-              <!-- 「{{ this.firstname }} {{ this.lastname }}」さん -->
+              {{ this.name }}さん
             </p>
             <h2 class="sec-container__hd2">
               <span class="sec-container__hd2-upper">HERB ARE YOU?</span>

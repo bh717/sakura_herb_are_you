@@ -65,6 +65,7 @@
     position: static;
   }
   .blog-item-link__hd3 {
+    margin-top: 0.5rem;
     text-align: left;
   }
 }

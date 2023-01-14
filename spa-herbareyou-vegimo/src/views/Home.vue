@@ -117,7 +117,6 @@
           <div class="gift-section">
             <p class="p-gift-title">飲み比べができるお試しセット</p>
             <p class="p-gift-title1">Assorted Trial Pack</p>
-            <hr class="border-gift" />
             <p class="p-gift-main">7種類のブレンド入り</p>
             <router-link class="gift-btn__link" :to="'/trialset'"
               >もっと詳しく知る</router-link

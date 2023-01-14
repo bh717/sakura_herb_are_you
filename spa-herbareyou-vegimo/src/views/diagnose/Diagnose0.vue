@@ -64,7 +64,7 @@ export default defineComponent({
     init: async function (): Promise<any> {
       localStorage.removeItem("diagnoseJsonData");
       if (!localStorage.getItem("access_token")) {
-        this.name = "ゲスト様";
+        this.name = "ゲスト";
 
         localStorage.setItem(
           "diagnoseJsonData",

@@ -39,9 +39,6 @@
 
 .detail-container__hd2-sub {
   display: block;
-  /* font-size: 1rem; */
-  /* font-weight: bold; */
-  /* margin-bottom: 1rem; */
   padding-right: 1rem;
   font-family: "Acme", sans-serif;
 }
@@ -69,7 +66,7 @@
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   /* font-weight: bold; */
   /* margin-bottom: 2rem; */
 }
@@ -99,7 +96,7 @@
   display:flex;
   margin-left: 12rem;
   flex-wrap: wrap;
-  width: 350px;
+  /* width: 350px; */
 }
 
 .detail-container__table {

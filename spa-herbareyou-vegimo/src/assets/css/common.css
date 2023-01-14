@@ -773,6 +773,10 @@ nav.is-open {
     line-height: 2;
   }
 
+  .js-cart-open{
+    display: none;
+  }
+
   .header-flex {
     padding: 2rem 2.5rem;
   }
@@ -1309,11 +1313,11 @@ input[type=checkbox]:checked + .sort-inner-item__label::after {
 }
 .product-item__ttl-num {
   font-family: "Acme";
-  padding-right: 1rem;
+  padding-right: 0.5rem;
 }
 .product-item__ttl-main {
   font-family: "Acme";
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   text-align: left;
 }
 

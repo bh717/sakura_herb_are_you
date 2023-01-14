@@ -6,23 +6,32 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2">
-              診断が完了しました！<br />山田太郎さんにおすすめの<br
+              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br
                 class="sp"
               />ハーブティはこちらです。
             </h2>
             <div class="detail-container clearfix">
               <div class="detail-container__right1" v-if="product.id">
-                <h2 class="detail-container__hd2">
-                  <span class="detail-container__hd2-sub">美白</span>
+                <p class="detail-container__hd2">
+                  <span class="detail-container__hd2-ttl1">
+                    <span class="detail-container__hd2-sub">{{
+                      product.category.name
+                    }}</span>
+                    <span class="detail-container__hd2-ttl-main1">{{
+                      product.name1
+                    }}</span>
+                  </span>
                   <span class="detail-container__hd2-ttl">
                     <span class="detail-container__hd2-ttl-num">{{
                       product.product_no
                     }}</span>
-                    <span class="detail-container__hd2-ttl-main"
-                      >{{ product.name1 }} {{ product.name2 }}</span
-                    >
+                    <span>|</span>
+                    <span class="detail-container__hd2-ttl-main">{{
+                      product.name2
+                    }}</span>
                   </span>
-                </h2>
+                </p>
+
                 <p class="detail-container__txt">
                   {{ product.description }}
                 </p>
@@ -54,25 +63,38 @@
                     <dd
                       class="detail-container__dd"
                       v-for="(keyword, index) in product.keywords"
-                      v-bind:key="index"
                     >
-                      {{ keyword.keyword }}
+                      <span>{{ keyword.keyword }}</span>
                     </dd>
                   </div>
-                  <br />
-                  
                   <dt class="detail-container__dt">味の特徴</dt>
                   <div class="customDiv">
                     <dd
                       class="detail-container__dd"
                       v-for="(taste, index) in product.tastes"
-                      v-bind:key="index"
+                      v-on:click="totasteSearch(taste.id)"
                     >
-                      {{ taste.name }}
+                      <span>#{{ taste.name }}</span>
+                      <span v-if="product.tastes.length - 1 !== index"
+                        >、
+                      </span>
                     </dd>
                   </div>
 
-                  <br />
+                  <dt class="detail-container__dt">香りの特徴</dt>
+                  <div class="customDiv">
+                    <dd
+                      class="detail-container__dd"
+                      v-for="(flavor, index) in product.flavors"
+                      v-on:click="toflavorSearch(flavor.id)"
+                    >
+                      <span>#{{ flavor.name }}</span>
+                      <span v-if="product.tastes.length - 1 !== index"
+                        >、
+                      </span>
+                    </dd>
+                  </div>
+
                   <dt class="detail-container__dt">配合</dt>
                   <div class="customDiv">
                     <dd
@@ -86,6 +108,7 @@
                       </span>
                     </dd>
                   </div>
+
                   <div class="detail-sub-container">
                     <dt class="detail-container__dt">内容量:</dt>
                     <dd class="detail-container__dd">{{ product.capacity }}</dd>
@@ -190,7 +213,7 @@
                   }}</span>
                   <span>|</span>
                   <span class="product-item__ttl-main1"
-                    >{{ product.name1 }}　¥{{ product.prices.price }}</span
+                    >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
                   >
                 </p>
                 <p class="product-item__material1">
@@ -256,6 +279,9 @@ export default defineComponent({
       imageUrls: [] as any[],
       pageService: new PageService(),
 
+      diagnoseData: {} as any,
+      name: "" as string,
+
       product: {} as any,
       recommendProducts: [] as any[],
       num: 1 as number,
@@ -295,6 +321,8 @@ export default defineComponent({
         return;
       }
       this.diagnoseData = diagnoseData;
+      this.name = diagnoseData?.diagnose0?.name;
+
       console.log("detailedProductID:", this.diagnoseData.diagnose3.condition);
 
       const DetailedSymptomsApiResult = await showDetailedSymptomsProductApi(
@@ -311,11 +339,6 @@ export default defineComponent({
 
       if (this.symptoms.length === 1) {
         this.isShow = true;
-        // console.log("product_id", this.symptoms[0].product_id);
-        // let productShowApiresult = await showProductApi(
-        //   Number(this.symptoms[0].product_id)
-        // );
-        // console.log("productShowApiResult:",productShowApiresult);
       } else {
         this.isSecondShow = true;
         this.isShow = false;

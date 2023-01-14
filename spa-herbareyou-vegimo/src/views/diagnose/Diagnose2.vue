@@ -8,18 +8,18 @@
             
 
             <p class="sec-container__name">
-              「{{ diagnoseData.diagnose0.name }}」さん
+              {{ diagnoseData.diagnose0.name }}さん
             </p>
 
             
             <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose1.condition === 1">
-              良かった！
+              良かった！ ところで、
             </h2>
-            <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 2">
-              なるほど。
+            <h2 class="sec-container__hd1" v-else-if="diagnoseData.diagnose1.condition === 2">
+              なるほど。 少し詳しく教えてください。
             </h2>
             <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 3">
-              それは大変…
+              それは大変..
             </h2>
             
             <h2 class="sec-container__hd2" >
@@ -106,6 +106,13 @@
                 <input type="radio" name="condition" :value="20" id="condition20" v-model="condition" />
                 <label for="condition20" class="sec-container__form-label">当てはまる症状がない</label>
               </div>
+
+              <div class="sec-container__form-parts">
+                <input type="radio" name="condition" :value="21" id="condition21" v-model="condition" />
+                <label for="condition21" class="sec-container__form-label">具体的な症状はない</label>
+              </div>
+
+              
             </div>
 
             <div class="sec-container__btn">
@@ -197,7 +204,7 @@ export default defineComponent({
         "diagnoseJsonData",
         JSON.stringify(this.diagnoseData)
       );
-      if(this.condition !== 20)
+      if(this.condition !== 20 && this.condition !== 21)
       {
         this.$router.push({
           name: this.nextPath,

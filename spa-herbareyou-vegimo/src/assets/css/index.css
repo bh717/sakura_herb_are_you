@@ -153,8 +153,8 @@
 .gift-section {
   position: absolute;
   background-color: white;
-  opacity: 0.8;
-  width: 30%;
+  opacity: 0.9;
+  width: 35%;
 
   justify-content: center;
   display: flex;
@@ -188,7 +188,11 @@
 .p-gift-main {
   font-size: 1.4rem;
   color: #6e6e6e;
+  padding-top: 1rem;
+  border-top: 1px solid;
+  width: 100%;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .border-gift {
@@ -260,10 +264,9 @@
 
 .blog-item-link__hd3 {
   font-size: 1.4rem;
-  font-weight: bold;
   text-align: left;
   color: #d6ac4e;
-  margin-left: 300px;
+  margin-left: 250px;
 }
 
 .btnsection {
@@ -378,6 +381,7 @@
   .p-gift-title {
     font-size: 1.875rem;
     color: #6e6e6e;
+    font-weight: 400;
   }
 
   .p-gift-title1 {
@@ -389,7 +393,6 @@
   .p-gift-main {
     font-size: 0.9375rem;
     color: #6e6e6e;
-    margin-top: 1rem;
   }
 
   .border-gift {
@@ -517,7 +520,6 @@
   .p-gift-main {
     font-size: 1.6rem;
     color: #6e6e6e;
-    margin-top: 0rem;
   }
 }
 

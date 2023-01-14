@@ -37,7 +37,7 @@
 
             <div class="sec-container__btn">
               <button type="button" class="sec-container__btn-inner" v-on:click="nextPage()">
-                次の質問へ
+                なるほど・・・
               </button>
             </div>
 

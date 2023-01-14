@@ -153,10 +153,8 @@
               <a
                 class="nav-list-item__link nav-list-item__link--mb50"
                 tabindex="-1"
-                >ハーブティ診断を受ける<span class="child-list-item__link-span"
-                  >近日公開</span
-                ></a
-              >
+                href="/diagnose"
+                >ハーブティ診断を受ける</a>
             </li>
             <li class="nav-list-item">
               <router-link
