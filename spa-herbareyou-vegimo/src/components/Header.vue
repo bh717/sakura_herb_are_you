@@ -496,7 +496,7 @@ export default defineComponent({
 
       const pathName = window.location.pathname;
       console.log("pathName", pathName);
-      if(pathName === "/product" || pathName==="/product/" || pathName === '/' || pathName === '/blog' || pathName === '/blog/')
+      if(pathName === "/product" || pathName==="/product/" || pathName === '/' || pathName === '/blog' || pathName === '/blog/' || pathName === '/product/:id' || pathName === '/product/:id/')
       {
         navToggleBars.forEach(function (bar: any) {
               bar.style.backgroundColor = "#d6ac4e";
