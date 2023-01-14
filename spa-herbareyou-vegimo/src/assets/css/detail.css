@@ -179,6 +179,10 @@
     width: 100%;
   }
 
+  .customDiv{
+    width: 250px;
+  }
+
   .detail-container__left {
     float: none;
     width: 85%;

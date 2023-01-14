@@ -495,9 +495,10 @@ export default defineComponent({
       var iconImages: any = document.querySelectorAll(".icons__img");
 
       const pathName = window.location.pathname;
-      console.log("pathName", pathName);
+      console.log("pathName", window.location);
       if(pathName === "/product" || pathName==="/product/" || pathName === '/' || pathName === '/blog' || pathName === '/blog/' || pathName === '/product/:id' || pathName === '/product/:id/')
       {
+        alert(1);
         navToggleBars.forEach(function (bar: any) {
               bar.style.backgroundColor = "#d6ac4e";
             });
@@ -506,6 +507,16 @@ export default defineComponent({
         iconImages[1].setAttribute("src", "/img/common/icon2.svg");
         iconImages[2].setAttribute("src", "/img/common/icon3.svg");
       }
+      else{
+        navToggleBars.forEach(function (bar: any) {
+              bar.style.backgroundColor = "#d6ac4e";
+            });
+        headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
+        iconImages[0].setAttribute("src", "/img/common/icon1.svg");
+        iconImages[1].setAttribute("src", "/img/common/icon2.svg");
+        iconImages[2].setAttribute("src", "/img/common/icon3.svg");
+      }
+
       if (
         pathName === "/diagnose" ||
         pathName === "/diagnose/" ||
