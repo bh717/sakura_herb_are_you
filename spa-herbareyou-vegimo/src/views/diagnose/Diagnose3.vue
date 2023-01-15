@@ -110,7 +110,7 @@
         <img src="@/assets/img/diagnose/dogtor.gif" alt="" class="deco__img" />
       </div>
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 <script lang="ts">

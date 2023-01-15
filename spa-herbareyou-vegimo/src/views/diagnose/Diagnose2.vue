@@ -12,13 +12,13 @@
             </p>
 
             
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose1.condition === 1">
+            <h2 class="sec-container__hd3" v-if="diagnoseData.diagnose1.condition === 1">
               良かった！ ところで、
             </h2>
-            <h2 class="sec-container__hd1" v-else-if="diagnoseData.diagnose1.condition === 2">
+            <h2 class="sec-container__hd3" v-else-if="diagnoseData.diagnose1.condition === 2">
               なるほど。 少し詳しく教えてください。
             </h2>
-            <h2 class="sec-container__hd2" v-else-if="diagnoseData.diagnose1.condition === 3">
+            <h2 class="sec-container__hd3" v-else-if="diagnoseData.diagnose1.condition === 3">
               それは大変..
             </h2>
             
@@ -104,7 +104,7 @@
               </div> -->
               <div class="sec-container__form-parts">
                 <input type="radio" name="condition" :value="20" id="condition20" v-model="condition" />
-                <label for="condition20" class="sec-container__form-label">当てはまる症状がない</label>
+                <label for="condition20" class="sec-container__form-label">該当する症状はない</label>
               </div>
 
               <div class="sec-container__form-parts">
@@ -133,7 +133,7 @@
         <img src="@/assets/img/diagnose/dogtor.gif" alt="" class="deco__img" />
       </div>
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 <script lang="ts">

@@ -20,7 +20,7 @@
                   <span class="detail-container__hd2-ttl-num">{{
                       product.product_no
                   }}</span>
-                  <span>|</span>
+                  <span class="vertical-section">|</span>
                   <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
 
                 </span>
@@ -40,7 +40,7 @@
 
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
-                <dt class="detail-container__dt">こんな症状に</dt>
+                <dt class="detail-container__dt">キーワード</dt>
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(keyword, index) in product.keywords">
                     <span>{{ keyword.keyword }}</span>

@@ -20,6 +20,20 @@
             <p class="trial-p">飲み比べて、ぜひあなたのお気に入りをみつけてください。
             </p>
           </div>
+
+          <div class="trial-sec-container1">
+            <p class="trial-p">
+              初めてHerb Are You?を知った方や、</p>
+            <p class="trial-p">ハーブティーをあまり飲んだことがない方へ、</p>
+            <p class="trial-p">アソートパックをご用意しました。</p>
+            <p class="trial-p">飲みやすい美味しいブレンドを</p>
+
+            <p class="trial-p">セレクトしています。</p>
+            <p class="trial-p">飲み比べて、ぜひあなたの</p>
+            <p class="trial-p">お気に入りをみつけてください。</p>
+
+          </div>
+
         </section>
         <section class="sec">
           <div class="sec-container">
@@ -37,6 +51,7 @@
                   <span class="product-item__ttl-num">{{
                       product.product_no
                   }}</span>
+                  <span>|</span>
                   <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
                 </p>
                 <p class="product-item__material">

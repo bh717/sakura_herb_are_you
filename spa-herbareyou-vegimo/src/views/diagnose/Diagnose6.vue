@@ -110,7 +110,7 @@
           <img src="@/assets/img/diagnose/dogtor.gif" alt="" class="deco__img" />
         </div>
       </main>
-      <Footer />
+      <!-- <Footer /> -->
     </div>
   </template>
   <script lang="ts">
@@ -139,7 +139,7 @@
         flavorIds: [] as any[],
         tasteIds: [] as any[],
         // currentPath: 'Diagnose3',
-        nextPath: "DiagnoseResult",
+        nextPath: "Diagnose5",
         nextPath1: "Diagnose4",
   
         condition: 0 as number,
@@ -214,16 +214,16 @@
           if (this.condition === 0) {
             return;
           }
-          this.diagnoseData.diagnose3 = {
-            id: this.diagnoseData.diagnose2.condition,
+          this.diagnoseData.diagnose6 = {
+            id: this.diagnoseData.diagnose4.condition,
             condition: this.condition,
           };
           localStorage.setItem(
             "diagnoseJsonData",
             JSON.stringify(this.diagnoseData)
           );
-          console.log("diagnoseData:::::", this.diagnoseData.diagnose3);
-          if (this.diagnoseData.diagnose3.condition === '当てはまるものがない' || this.diagnoseData.diagnose3.condition === "分からない") {
+          console.log("diagnoseData:::::", this.diagnoseData.diagnose6);
+          if (this.diagnoseData.diagnose6.condition === '当てはまるものがない' || this.diagnoseData.diagnose6.condition === "分からない") {
             this.$router.push({
               name: this.nextPath1,
             });

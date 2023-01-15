@@ -267,6 +267,7 @@
   text-align: left;
   color: #d6ac4e;
   margin-left: 250px;
+  margin-top: 0px;
 }
 
 .btnsection {
@@ -296,11 +297,11 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #d6ac4e;
   background: #fff;
-  padding: 1rem 1rem;
+  padding: 1rem 0.5rem;
   border-radius: 3rem;
   -webkit-text-size-adjust: none;
   -webkit-transition: 0.5s;
@@ -361,6 +362,7 @@
   .blog-item-link__hd3 {
     text-align: center;
     margin-left: 0px;
+    margin-top: 5px;
   }
 
   .symptom-container {
@@ -484,6 +486,7 @@
 
   .blog-item-link__hd3 {
     text-align: left;
+    margin-top: 5px;
   }
 
   .symptom-container {

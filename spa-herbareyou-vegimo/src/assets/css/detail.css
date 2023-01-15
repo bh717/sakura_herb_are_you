@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 .to-product {
   color: #505050;
   position: absolute;
@@ -57,6 +58,10 @@
   margin-bottom: 2rem;
 }
 
+.vertical-section{
+  font-weight: 100;
+}
+
 .detail-container__hd2-ttl1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -66,7 +71,7 @@
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   /* font-weight: bold; */
   /* margin-bottom: 2rem; */
 }

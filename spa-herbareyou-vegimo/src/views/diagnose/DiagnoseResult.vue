@@ -245,7 +245,7 @@
       </div> -->
     </main>
 
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 <script lang="ts">

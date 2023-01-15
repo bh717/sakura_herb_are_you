@@ -91,7 +91,7 @@
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   /* font-weight: bold; */
   /* margin-bottom: 2rem; */
 }
@@ -309,7 +309,7 @@
 @media screen and (max-width: 599px) {
   .deco {
     width: 40%;
-    bottom: 40rem;
+    bottom: 10rem;
     right: 0rem;
   }
   .sec-container {
