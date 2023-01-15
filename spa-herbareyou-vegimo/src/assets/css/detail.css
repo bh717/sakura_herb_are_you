@@ -120,10 +120,12 @@
 
 .detail-container__dt {
   float: left;
+  font-weight: 100;
 }
 
 .detail-container__dd {
   cursor: pointer;
+  font-weight: 100;
 }
 
 .detail-container-hd2__sub {
