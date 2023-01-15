@@ -58,6 +58,13 @@
   margin-bottom: 2rem;
 }
 
+.namestyle{
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.1px;
+  -webkit-text-decoration-line: underline;
+}
+
+
 .vertical-section{
   font-weight: 100;
 }
@@ -102,6 +109,7 @@
   margin-left: 12rem;
   flex-wrap: wrap;
   width: 350px;
+  gap: 4px;
 }
 
 .detail-container__table {

@@ -50,7 +50,7 @@
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"
                     v-on:click="totasteSearch(taste.id)">
-                    <span>#{{ taste.name }}</span>
+                    <span class="namestyle">#{{ taste.name }}</span>
                     <span v-if="product.tastes.length - 1 !== index">、 </span>
                   </dd>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(flavor, index) in product.flavors"
                     v-on:click="toflavorSearch(flavor.id)">
-                    <span>#{{ flavor.name }}</span>
+                    <span class="namestyle">#{{ flavor.name }}</span>
                     <span v-if="product.tastes.length - 1 !== index">、 </span>
                   </dd>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="customDiv">
                   <dd class="detail-container__dd" v-for="(material, index) in product.materials"
                     v-on:click="tomaterialSearch(material.id)">
-                    <span>#{{ material.name }}</span>
+                    <span class="namestyle">#{{ material.name }}</span>
                     <span v-if="product.materials.length - 1 !== index">、 </span>
                   </dd>
                 </div>

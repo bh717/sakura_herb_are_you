@@ -137,6 +137,7 @@
                   <span class="product-item__ttl-num">{{
                       product.product_no
                   }}</span>
+                  <span>|</span>
                   <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
                 </h3>
                 <p class="product-item__name">{{ product.name2 }}</p>

@@ -1355,7 +1355,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   font-family: "koburina";
   font-size: 1rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .product-item__name1 {

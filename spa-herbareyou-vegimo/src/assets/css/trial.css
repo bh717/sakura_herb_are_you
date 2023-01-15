@@ -79,6 +79,8 @@
   text-align: center;
   font-size: 1.3125rem;
   font-weight: 500;
+  color: #505050;
+  line-height: 2.5;
 }
 
 .sec-container {
@@ -145,11 +147,11 @@
     width: 100%;
   }
 
-  .kv__img{
+  .kv__img {
     display: none;
   }
 
-  .kv__img1{
+  .kv__img1 {
     display: block;
     height: auto;
   }
@@ -162,7 +164,7 @@
     display: block;
   }
 
-  .trial-p{
+  .trial-p {
     letter-spacing: 1px;
   }
   .trial-sec-p-section {

@@ -65,19 +65,14 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: start;
-  -ms-flex-pack: justify;
-  justify-content: start;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   margin-bottom: 5rem;
+
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
   column-gap: 40px;
 }
 .sec-container__form-parts {
-  width: 22%;
+  width: 100%;
   margin-bottom: 3rem;
   cursor: pointer;
 }

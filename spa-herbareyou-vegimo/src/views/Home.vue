@@ -201,14 +201,14 @@
                   />
                 </router-link>
                 <p class="product-item__sub">{{ product.category.name }}</p>
-                <p class="product-item__name">{{ product.name2 }}</p>
+                <p class="product-item__name">{{ product.category.series_name }}</p>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                     product.product_no
                   }}</span>
                   <span>|</span>
                   <span class="product-item__ttl-main"
-                    >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
+                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
                   >
                 </p>
                 <p class="product-item__material">
