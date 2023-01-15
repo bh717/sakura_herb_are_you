@@ -12,6 +12,15 @@
   height: 100vh;
   -o-object-fit: cover;
   object-fit: cover;
+  display: block;
+}
+
+.kv__img1 {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: none;
 }
 
 .trial-sec-p-section {
@@ -134,6 +143,15 @@
   .kv {
     margin-top: 14%;
     width: 100%;
+  }
+
+  .kv__img{
+    display: none;
+  }
+
+  .kv__img1{
+    display: block;
+    height: auto;
   }
 
   .trial-sec-container {

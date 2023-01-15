@@ -5,6 +5,8 @@
       <article v-if="isShow">
         <div class="kv">
           <img src="@/assets/img/trialset/trialBackground.png" class="kv__img" />
+          <img src="@/assets/img/trialset/trialBackground1.png" class="kv__img1" />
+
           <div class="trial-sec-p-section">
             <p className="trial-sec-p1">飲み比べができるお試しセット</p>
             <p className="trial-sec-p3">Assorted Trial Pack</p>

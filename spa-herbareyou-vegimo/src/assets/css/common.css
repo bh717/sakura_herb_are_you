@@ -308,6 +308,11 @@ body {
   -webkit-animation: fadeUp 0.7s ease-in-out both;
   animation: fadeUp 0.7s ease-in-out both;
 }
+
+.js-search-open{
+  display: none !important;
+}
+
 .icons__inner {
   display: block;
   width: 2.5rem;
