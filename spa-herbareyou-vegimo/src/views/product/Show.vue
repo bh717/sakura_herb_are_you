@@ -42,7 +42,7 @@
               <dl class="detail-container__table clearfix">
                 <dt class="detail-container__dt">キーワード</dt>
                 <div class="customDiv">
-                  <dd class="detail-container__dd" v-for="(keyword, index) in product.keywords">
+                  <dd class="detail-container__dd1" v-for="(keyword, index) in product.keywords">
                     <span>{{ keyword.keyword }}</span>
                   </dd>
                 </div>

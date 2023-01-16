@@ -108,6 +108,22 @@
   color: #505050;
 }
 
+.sec-container__hd2-en1 {
+  -webkit-text-size-adjust: none;
+  font-family: koburina gothic std ;
+  font-size: 1.8rem;
+  display: block;
+  color: #505050;
+  font-weight: 700;
+}
+
+.sec-container__hd2-ja1 {
+  -webkit-text-size-adjust: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #505050;
+}
+
 .sec-container__txt {
   color: #505050;
   line-height: 2.5;
@@ -256,6 +272,7 @@
 
 .blog-item-link__issue {
   font-weight: normal;
+  font-family: koburina gothic std ;
   position: absolute;
   top: 0;
   left: 0;
@@ -268,6 +285,7 @@
   color: #d6ac4e;
   margin-left: 250px;
   margin-top: 0px;
+  font-family: koburina gothic std ;
 }
 
 .btnsection {

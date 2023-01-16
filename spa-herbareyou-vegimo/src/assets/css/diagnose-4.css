@@ -26,7 +26,7 @@
 
 .sec-container {
   width: 50%;
-  padding: 20rem 0 0;
+  padding: 17rem 0 0;
 }
 .sec-container__name {
   font-size: 1.4rem;
@@ -39,8 +39,17 @@
   font-size: 2rem;
   font-weight: normal;
   color: #fff;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
+
+.sec-container__hd3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 3rem;
+}
+
 .sec-container__form {
   width: 100%;
   display: -webkit-box;
@@ -114,6 +123,10 @@
   position: absolute;
   bottom: 10rem;
   right: 7rem;
+}
+
+.footer-div{
+  margin: 5rem auto 5rem;
 }
 
 @media screen and (max-width: 767px) {

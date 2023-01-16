@@ -40,23 +40,25 @@
   font-size: 2rem;
   font-weight: normal;
   color: #fff;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 .sec-container__form {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  margin-bottom: 5rem;
-
-  display: grid;
-  grid-template-columns: 30% 30% 30% ;
-  column-gap: 40px;
-
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    margin-bottom: 5rem;
+  
+    display: grid;
+    grid-template-columns: 30% 30% 30% ;
+    column-gap: 40px;
 }
 .sec-container__form-parts {
   width: 100%;
   margin-bottom: 3rem;
+}
+.footer-div {
+  margin: 5rem auto 5rem;
 }
 .sec-container__form-label {
   text-align: center;
@@ -114,7 +116,7 @@
   width: 15%;
   position: absolute;
   bottom: 10rem;
-  right: 7rem;
+  right: 6rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -153,8 +155,8 @@
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    column-gap: 0px;
     margin-bottom: 5rem;
+    column-gap: 0px;
   }
   .sec-container__form-parts {
     width: 47%;

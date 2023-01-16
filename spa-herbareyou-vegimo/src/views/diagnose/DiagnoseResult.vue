@@ -58,10 +58,10 @@
 
               <div class="detail-container__right2">
                 <dl class="detail-container__table clearfix">
-                  <dt class="detail-container__dt">こんな症状に</dt>
+                  <dt class="detail-container__dt">キーワード</dt>
                   <div class="customDiv">
                     <dd
-                      class="detail-container__dd"
+                      class="detail-container__dd1"
                       v-for="(keyword, index) in product.keywords"
                     >
                       <span>{{ keyword.keyword }}</span>
@@ -74,10 +74,9 @@
                       v-for="(taste, index) in product.tastes"
                       v-on:click="totasteSearch(taste.id)"
                     >
-                      <span>#{{ taste.name }}</span>
+                      <span class="namestyle">#{{ taste.name }}</span>
                       <span v-if="product.tastes.length - 1 !== index"
-                        >、
-                      </span>
+                        >、 </span>
                     </dd>
                   </div>
 
@@ -88,7 +87,7 @@
                       v-for="(flavor, index) in product.flavors"
                       v-on:click="toflavorSearch(flavor.id)"
                     >
-                      <span>#{{ flavor.name }}</span>
+                      <span class="namestyle">#{{ flavor.name }}</span>
                       <span v-if="product.tastes.length - 1 !== index"
                         >、
                       </span>
@@ -102,7 +101,7 @@
                       v-for="(material, index) in product.materials"
                       v-on:click="tomaterialSearch(material.id)"
                     >
-                      <span>#{{ material.name }}</span>
+                      <span class="namestyle">#{{ material.name }}</span>
                       <span v-if="product.materials.length - 1 !== index"
                         >、
                       </span>
@@ -183,7 +182,7 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2">
-              診断が完了しました！<br />山田太郎さんにおすすめの<br
+              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br
                 class="sp"
               />ハーブティはこちらです。
             </h2>
@@ -206,14 +205,14 @@
                   />
                 </router-link>
                 <p class="product-item__sub1">{{ product.category.name }}</p>
-                <p class="product-item__name1">{{ product.name2 }}</p>
+                <p class="product-item__name1">{{ product.name1 }}</p>
                 <p class="product-item__ttl1">
                   <span class="product-item__ttl-num1">{{
                     product.product_no
                   }}</span>
                   <span>|</span>
                   <span class="product-item__ttl-main1"
-                    >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
+                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
                   >
                 </p>
                 <p class="product-item__material1">

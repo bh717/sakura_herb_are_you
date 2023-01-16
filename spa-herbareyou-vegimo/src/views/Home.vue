@@ -130,8 +130,8 @@
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
-              <span class="sec-container__hd2-en">植物療法士便り</span>
-              <span class="sec-container__hd2-ja"
+              <span class="sec-container__hd2-en1">植物療法士便り</span>
+              <span class="sec-container__hd2-ja1"
                 >植物療法士がお届けする暮らしとハーブのコラムです</span
               >
             </h2>

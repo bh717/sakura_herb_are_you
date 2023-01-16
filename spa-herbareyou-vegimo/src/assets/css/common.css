@@ -1290,7 +1290,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 .product-item__sub {
   color: #707070;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 100;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -1383,6 +1383,12 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 @media screen and (max-width: 599px) {
   .product-item {
     width: 100%;
+  }
+  .js-cart-mypage{
+    display: none;
+  }
+  .js-cart-open{
+    display: block;
   }
 }
 .acd-select {

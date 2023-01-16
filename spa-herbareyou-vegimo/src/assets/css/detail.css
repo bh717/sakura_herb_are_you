@@ -128,6 +128,12 @@
   font-weight: 100;
 }
 
+
+.detail-container__dd1 {
+  /* cursor: pointer; */
+  font-weight: 100;
+}
+
 .detail-container-hd2__sub {
   display: block;
   font-size: 1.5rem;

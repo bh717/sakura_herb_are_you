@@ -46,7 +46,7 @@
         <router-link
           v-on:click="closeMenu()"
           :to="{ name: 'MyPageRegistered' }"
-          class="icons__inner"
+          class="icons__inner js-cart-mypage"
           v-else
         >
           <img class="icons__img" src="@/assets/img/common/icon2.svg" alt="" />

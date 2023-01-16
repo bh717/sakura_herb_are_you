@@ -28,10 +28,11 @@
 .sec-container__hd2 {
   text-align: center;
   font-size: 2rem;
-  font-weight: normal;
+  font-weight: 100;
   color: #fff;
   margin-bottom: 5rem;
   line-height: 2.5;
+
 }
 .sec-container__hd2-upper {
   display: block;
@@ -66,6 +67,7 @@
   display: block;
   padding-right: 1rem;
   font-family: "Acme", sans-serif;
+  font-weight: 100;
 }
 
 .detail-container__hd2-ttl {
@@ -122,9 +124,23 @@
 .detail-container__dt {
   float: left;
 }
+
 .detail-container__dd {
   /* margin-left: 12rem; */
   cursor: pointer;
+  font-weight: 100;
+  
+}
+
+.namestyle{
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}
+
+.detail-container__dd1 {
+  /* margin-left: 12rem; */
+  /* cursor: pointer; */
+  font-weight: 100;
 }
 
 .detail-container-hd2__sub {
@@ -277,6 +293,7 @@
   display:flex;
   margin-left: 12rem;
   flex-wrap: wrap;
+  gap: 3px;
 }
 
 @media screen and (max-width: 768px) {
