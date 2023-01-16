@@ -55,19 +55,15 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   margin-bottom: 5rem;
+
+  display: grid;
+  grid-template-columns: 30% 30% 30% ;
+  column-gap: 40px;
 }
 .sec-container__form-parts {
-  width: 32%;
-  margin-bottom: 3rem;
+width: 100%;
+margin-bottom: 3rem;
 }
 .sec-container__form-label {
   text-align: center;

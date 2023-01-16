@@ -25,7 +25,7 @@
                   >Not Good</label
                 >
                 <p class="sec-container__form-txt">
-                  それは大変・・・
+                  困った症状あり。具体的な痛みや不調に向き合いたい。
                 </p>
               </div>
               <div class="sec-container__form-parts">
@@ -38,7 +38,7 @@
                 />
                 <label for="Soso" class="sec-container__form-label">Soso</label>
                 <p class="sec-container__form-txt">
-                  なるほど。少し詳しく教えてください。
+                  まあまあ。なんとなくの不調に備えたい。
                 </p>
               </div>
               <div class="sec-container__form-parts">
@@ -51,7 +51,7 @@
                 />
                 <label for="Good" class="sec-container__form-label">Good</label>
                 <p class="sec-container__form-txt">
-                  良かった！ところで
+                  いい気分。ハーブティで自分らしくなりたい。
                 </p>
               </div>
             </div>

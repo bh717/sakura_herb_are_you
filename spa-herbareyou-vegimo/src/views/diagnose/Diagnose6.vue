@@ -8,15 +8,6 @@
               <p class="sec-container__name">
                 {{ diagnoseData.diagnose0.name }}さん
               </p>
-              <!-- <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 3">どのような頭痛ですか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 4">ミントを使用しても大丈夫ですか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 7">どのような原因からだと考えられますか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 8">どのような痛みですか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 9">どのようなかぜですか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 14">身体のめぐりを良くしましょう！</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 15">ミントを使用しても大丈夫ですか？</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 16">ミネラルを取り入れましょう！</h2>
-              <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 17">どのような胃腸の悩みがありますか？</h2> -->
               <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose4.condition === 1">水分の巡りを良くしましょう！</h2>
               <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose4.condition === 2">身体を整えてボディフルネスを！</h2>
               <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose4.condition === 5">どのようにストレスを感じていますか？</h2>
@@ -70,16 +61,6 @@
               <h2 class="sec-container__hd2">味と香りの好みを選択してください。（複数可)</h2>
 
               
-              <h2 class="sec-container__hd2">味の特徴</h2>
-              <div class="sec-container__form">
-                <div class="sec-container__form-parts" v-for="taste in tastes" v-bind:key="taste.id">
-                  <input type="checkbox" name="condition1" :value=taste.id :id=String(taste.name) v-model="tasteIds"
-                    :checked="tasteIds.includes(taste.id)" />
-                  <label :for=String(taste.name) class="sec-container__form-label">{{ taste.name }}</label>
-                </div>
-              </div>
-              
-  
               <h2 class="sec-container__hd2">香りの特徴</h2>
               <div class="sec-container__form">
                 <div class="sec-container__form-parts" v-for="flavor in flavors" v-bind:key="flavor.id">
@@ -88,10 +69,19 @@
                   <label :for=String(flavor.name) class="sec-container__form-label">{{ flavor.name }}</label>
                 </div>
               </div>
+
+              <h2 class="sec-container__hd2">味の特徴</h2>
+              <div class="sec-container__form">
+                <div class="sec-container__form-parts" v-for="taste in tastes" v-bind:key="taste.id">
+                  <input type="checkbox" name="condition1" :value=taste.id :id=String(taste.name) v-model="tasteIds"
+                    :checked="tasteIds.includes(taste.id)" />
+                  <label :for=String(taste.name) class="sec-container__form-label">{{ taste.name }}</label>
+                </div>
+              </div>
   
               <div class="sec-container__btn">
                 <button type="button" class="sec-container__btn-inner" v-on:click="nextPage()">
-                  次の質問へ
+                  なるほど…
                 </button>
               </div>
   
@@ -184,7 +174,7 @@
         this.diagnoseData = diagnoseData;
         console.log("detailedSymptomsID:", this.diagnoseData.diagnose4.condition);
   
-        const DetailedSymptomsApiResult = await showDetailedSymptomsApi(Number(this.diagnoseData.diagnose4.condition));
+        const DetailedSymptomsApiResult = await showDetailedSymptomsApi(Number(this.diagnoseData?.diagnose4?.condition));
         console.log("detailedSymptoms:", DetailedSymptomsApiResult);
   
         if (!DetailedSymptomsApiResult.success) {

@@ -27,7 +27,7 @@
 
             <div class="sec-container__btn">
               <button type="button" class="sec-container__btn-inner" v-on:click="nextPage()">
-                なるほど・・・
+                なるほど…
               </button>
             </div>
 

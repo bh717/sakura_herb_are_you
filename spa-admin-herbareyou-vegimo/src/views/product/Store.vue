@@ -257,6 +257,8 @@ export default defineComponent({
     } as any,
     categories: [] as any[],
     materials: [] as any[],
+    sortedmaterials: [] as any[],
+
     symptoms: [] as any[],
     tastes: [] as any[],
     flavors: [] as any[],

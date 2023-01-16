@@ -124,6 +124,11 @@
           <td class="py-2">
             <div>
               <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="is_productStatus" id="is_product" :value="0"
+                  v-model="items.is_productStatus" />
+                <label class="form-check-label" for="is_productStatus"> 独自 </label>
+              </div>
+              <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="is_productStatus" id="is_productStatus" :value="1"
                   v-model="items.is_productStatus" />
                 <label class="form-check-label" for="is_productStatus"> 新着 </label>
@@ -152,8 +157,8 @@
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
             <div class = "imageDiv">
-              <div v-if="items.upload_file_hashs.length !== 0" v-for="imageUrl in imageUrls">
-                <img :src="imageUrl" width="100" height="100" />
+              <div v-if="items.upload_file_hashs.length !== 0" v-for="imageUrl in imageUrls" >
+                <img :src="imageUrl" width="100" height="100" @click=""/>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors['upload_file_hashs.0'] ?? []" />
@@ -259,6 +264,7 @@ export default defineComponent({
     } as any,
     categories: [] as any[],
     materials: [] as any[],
+    sortedmaterials: [] as any[],
     symptoms: [] as any[],
     tastes: [] as any[],
     flavors: [] as any[],
@@ -273,6 +279,7 @@ export default defineComponent({
       return;
     }
     this.categories = result.data;
+
     // 材料
     result = await indexMaterialApi();
     if (!result.success) {
@@ -281,6 +288,13 @@ export default defineComponent({
     }
     this.materials = result.data;
     console.log(result.data);
+
+    this.materials = this.materials.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+
     // 症状
     result = await indexSymptomApi();
     if (!result.success) {

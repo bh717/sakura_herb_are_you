@@ -62,46 +62,7 @@
                 <input type="radio" name="condition" :value="17" id="condition17" v-model="condition" />
                 <label for="condition17" class="sec-container__form-label">胃腸</label>
               </div>
-              <!-- <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="1" id="condition1" v-model="condition" />
-                <label for="condition1" class="sec-container__form-label">むくみ</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="2" id="condition2" v-model="condition" />
-                <label for="condition2" class="sec-container__form-label">ダイエット</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="5" id="condition5" v-model="condition" />
-                <label for="condition5" class="sec-container__form-label">ストレス</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="6" id="condition6" v-model="condition" />
-                <label for="condition6" class="sec-container__form-label">眠り</label>
-              </div>
-              <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="10" id="condition10" v-model="condition" />
-                <label for="condition10" class="sec-container__form-label">美容</label>
-              </div>
-              <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="11" id="condition11" v-model="condition"  />
-                <label for="condition11" class="sec-container__form-label">疲れ</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="12" id="condition12" v-model="condition" />
-                <label for="condition12" class="sec-container__form-label">女性の不調</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="13" id="condition13" v-model="condition" />
-                <label for="condition13" class="sec-container__form-label">前向きな気持ち</label>
-              </div>
-              <div class="sec-container__form-parts" >
-                <input type="radio" name="condition" :value="18" id="condition18" v-model="condition" />
-                <label for="condition18" class="sec-container__form-label">冷え</label>
-              </div>
-              <div class="sec-container__form-parts">
-                <input type="radio" name="condition" :value="19" id="condition19" v-model="condition" />
-                <label for="condition19" class="sec-container__form-label">ハーブティーを楽しむ</label>
-              </div> -->
+              
               <div class="sec-container__form-parts">
                 <input type="radio" name="condition" :value="20" id="condition20" v-model="condition" />
                 <label for="condition20" class="sec-container__form-label">該当する症状はない</label>
