@@ -201,8 +201,11 @@
                 <p class="product-item__sub">
                   {{ product.category.name }}
                 </p>
-                <p class="product-item__name">{{ product.category.series_name }}</p>
-                <p class="product-item__ttl">
+                <p class="product-item__name">
+                  {{ product.category.series_name }}
+                </p>
+                <div class="origin-section">
+                  <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                     product.product_no
                   }}</span>
@@ -211,6 +214,24 @@
                     >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
                   >
                 </p>
+                </div>
+                
+                <div class="xd-section">
+                  <p class="product-item__ttl-xd">
+                    <span class="product-item__ttl-num">{{
+                      product.product_no
+                    }}</span>
+                    <span>|</span>
+                    <span class="product-item__ttl-main"
+                      >{{ product.name2 }}</span
+                    >
+                  </p>
+                  <p class="product-item__ttl">
+                    <span class="product-item__ttl-main"
+                      >¥{{ product.prices[0].price }}</span
+                    >
+                  </p>
+                </div>
                 <p class="product-item__material">
                   {{
                     pageService.cutText(

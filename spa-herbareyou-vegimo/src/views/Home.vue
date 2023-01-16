@@ -111,7 +111,7 @@
               media="(max-width:599px)"
               srcset="@/assets/img/top/banner.jpg"
             />
-            <img src="@/assets/img/top/banner.jpg" class= "trial-img" alt="" />
+            <img src="@/assets/img/top/banner.jpg" class="trial-img" alt="" />
           </picture>
 
           <div class="gift-section">
@@ -201,16 +201,36 @@
                   />
                 </router-link>
                 <p class="product-item__sub">{{ product.category.name }}</p>
-                <p class="product-item__name">{{ product.category.series_name }}</p>
-                <p class="product-item__ttl">
-                  <span class="product-item__ttl-num">{{
-                    product.product_no
-                  }}</span>
-                  <span>|</span>
-                  <span class="product-item__ttl-main"
-                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
-                  >
+                <p class="product-item__name">
+                  {{ product.category.series_name }}
                 </p>
+                <div class="origin-section">
+                  <p class="product-item__ttl">
+                    <span class="product-item__ttl-num">{{
+                      product.product_no
+                    }}</span>
+                    <span>|</span>
+                    <span class="product-item__ttl-main"
+                      >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
+                    >
+                  </p>
+                </div>
+                <div class="xd-section">
+                  <p class="product-item__ttl-xd">
+                    <span class="product-item__ttl-num">{{
+                      product.product_no
+                    }}</span>
+                    <span>|</span>
+                    <span class="product-item__ttl-main"
+                      >{{ product.name2 }}</span
+                    >
+                  </p>
+                  <p class="product-item__ttl">
+                    <span class="product-item__ttl-main"
+                      >¥{{ product.prices[0].price }}</span
+                    >
+                  </p>
+                </div>
                 <p class="product-item__material">
                   {{
                     pageService.cutText(
