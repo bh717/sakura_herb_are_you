@@ -42,6 +42,13 @@
   color: #fff;
   margin-bottom: 3rem;
 }
+.sec-container__hd3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
 .sec-container__form {
     width: 100%;
     display: -webkit-box;

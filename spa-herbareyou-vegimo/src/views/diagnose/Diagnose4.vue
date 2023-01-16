@@ -152,12 +152,7 @@
             <p class="sec-container__name">
               {{ diagnoseData.diagnose0.name }}さん
             </p>
-            <h2
-              class="sec-container__hd2"
-              v-if="diagnoseData.diagnose2.condition === 3"
-            >
-              どのような頭痛ですか？
-            </h2>
+            
             <h2
               class="sec-container__hd2"
               v-if="diagnoseData.diagnose2.condition === 4"
@@ -273,29 +268,6 @@
             <div class="sec-container__form">
               <div
                 class="sec-container__form-parts"
-                v-for="flavor in flavors"
-                v-bind:key="flavor.id"
-              >
-                <input
-                  type="checkbox"
-                  name="condition"
-                  :value="flavor.id"
-                  :id="String(flavor.name)"
-                  v-model="flavorIds"
-                  :checked="flavorIds.includes(flavor.id)"
-                />
-                <label
-                  :for="String(flavor.name)"
-                  class="sec-container__form-label"
-                  >{{ flavor.name }}</label
-                >
-              </div>
-            </div>
-
-            <h2 class="sec-container__hd2">香りの特徴</h2>
-            <div class="sec-container__form">
-              <div
-                class="sec-container__form-parts"
                 v-for="taste in tastes"
                 v-bind:key="taste.id"
               >
@@ -311,6 +283,31 @@
                   :for="String(taste.name)"
                   class="sec-container__form-label"
                   >{{ taste.name }}</label
+                >
+              </div>
+            </div>
+
+            <h2 class="sec-container__hd2">香りの特徴</h2>
+            
+
+            <div class="sec-container__form">
+              <div
+                class="sec-container__form-parts"
+                v-for="flavor in flavors"
+                v-bind:key="flavor.id"
+              >
+                <input
+                  type="checkbox"
+                  name="condition"
+                  :value="flavor.id"
+                  :id="String(flavor.name)"
+                  v-model="flavorIds"
+                  :checked="flavorIds.includes(flavor.id)"
+                />
+                <label
+                  :for="String(flavor.name)"
+                  class="sec-container__form-label"
+                  >{{ flavor.name }}</label
                 >
               </div>
             </div>
