@@ -224,7 +224,14 @@
           }
         }
         if (this.isSecondShow === true) {
-          if (this.condition === 0) {
+          // alert(1);
+          // alert(this.condition);
+          // if (this.condition === 0) {
+          //   return;
+          // }
+          // alert(2);
+          if(this.tasteIds.length === 0 && this.flavorIds.length === 0)
+          {
             return;
           }
           const query: string =
