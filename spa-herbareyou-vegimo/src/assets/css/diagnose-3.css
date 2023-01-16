@@ -58,6 +58,9 @@
   width: 100%;
   margin-bottom: 3rem;
 }
+.footer-div{
+  margin: 5rem auto 5rem;
+}
 .sec-container__form-label {
   text-align: center;
   padding: 1rem 1rem;

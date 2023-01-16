@@ -61,23 +61,52 @@
               <h2 class="sec-container__hd2">味と香りの好みを選択してください。（複数可)</h2>
 
               
-              <h2 class="sec-container__hd2">香りの特徴</h2>
-              <div class="sec-container__form">
-                <div class="sec-container__form-parts" v-for="flavor in flavors" v-bind:key="flavor.id">
-                  <input type="checkbox" name="condition" :value=flavor.id :id=String(flavor.name) v-model="flavorIds"
-                    :checked="flavorIds.includes(flavor.id)" />
-                  <label :for=String(flavor.name) class="sec-container__form-label">{{ flavor.name }}</label>
-                </div>
-              </div>
-
               <h2 class="sec-container__hd2">味の特徴</h2>
-              <div class="sec-container__form">
-                <div class="sec-container__form-parts" v-for="taste in tastes" v-bind:key="taste.id">
-                  <input type="checkbox" name="condition1" :value=taste.id :id=String(taste.name) v-model="tasteIds"
-                    :checked="tasteIds.includes(taste.id)" />
-                  <label :for=String(taste.name) class="sec-container__form-label">{{ taste.name }}</label>
-                </div>
+            <div class="sec-container__form">
+              <div
+                class="sec-container__form-parts"
+                v-for="taste in tastes"
+                v-bind:key="taste.id"
+              >
+                <input
+                  type="checkbox"
+                  name="condition1"
+                  :value="taste.id"
+                  :id="String(taste.name)"
+                  v-model="tasteIds"
+                  :checked="tasteIds.includes(taste.id)"
+                />
+                <label
+                  :for="String(taste.name)"
+                  class="sec-container__form-label"
+                  >{{ taste.name }}</label
+                >
               </div>
+            </div>
+
+            
+            <h2 class="sec-container__hd2">香りの特徴</h2>
+            <div class="sec-container__form">
+              <div
+                class="sec-container__form-parts"
+                v-for="flavor in flavors"
+                v-bind:key="flavor.id"
+              >
+                <input
+                  type="checkbox"
+                  name="condition"
+                  :value="flavor.id"
+                  :id="String(flavor.name)"
+                  v-model="flavorIds"
+                  :checked="flavorIds.includes(flavor.id)"
+                />
+                <label
+                  :for="String(flavor.name)"
+                  class="sec-container__form-label"
+                  >{{ flavor.name }}</label
+                >
+              </div>
+            </div>
   
               <div class="sec-container__btn">
                 <button type="button" class="sec-container__btn-inner" v-on:click="nextPage()">

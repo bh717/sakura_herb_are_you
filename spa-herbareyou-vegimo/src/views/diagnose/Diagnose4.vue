@@ -266,8 +266,7 @@
               味と香りの好みを選択してください。(複数可)
             </h2>
 
-            <h2 class="sec-container__hd2">香りの特徴</h2>
-
+            <h2 class="sec-container__hd2">味の特徴</h2>
             <div class="sec-container__form">
               <div
                 class="sec-container__form-parts"
@@ -290,8 +289,8 @@
               </div>
             </div>
 
-            <h2 class="sec-container__hd2">味の特徴</h2>
-
+            
+            <h2 class="sec-container__hd2">香りの特徴</h2>
             <div class="sec-container__form">
               <div
                 class="sec-container__form-parts"
@@ -313,7 +312,6 @@
                 >
               </div>
             </div>
-            
 
             <div class="sec-container__btn">
               <button
@@ -321,7 +319,7 @@
                 class="sec-container__btn-inner"
                 v-on:click="nextPage()"
               >
-              なるほど…
+                なるほど…
               </button>
             </div>
 
@@ -401,7 +399,11 @@ export default defineComponent({
     this.diagnoseData = diagnoseData;
     console.log("detailedSymptomsID:", this.diagnoseData.diagnose2.condition);
 
-    if (
+      if (this.diagnoseData.diagnose2.condition === 20 || this.diagnoseData.diagnos2.condition === 21) {
+        this.isSecondShow = false;
+        this.isShow = true;
+      } else {
+        if (
       this.diagnoseData.diagnose3.condition === "当てはまるものがない" ||
       this.diagnoseData.diagnose3.condition === "分からない"
     ) {
@@ -415,15 +417,9 @@ export default defineComponent({
       this.tastes = result1.data;
 
       this.isSecondShow = true;
-    } else {
-      if (this.diagnoseData.diagnose2.condition === 20) {
-        this.isSecondShow = false;
-        this.isShow = true;
-      } else {
-        this.isShow = true;
-        this.isSecondShow = false;
-      }
     }
+      }
+    
   },
   beforeDestroy: function (): void {},
   methods: {
