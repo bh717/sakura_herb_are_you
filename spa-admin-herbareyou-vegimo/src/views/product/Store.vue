@@ -155,8 +155,8 @@
             </div>
             <div v-bind:style="{ 'display': `flex`, 'gap': `10px`, 'overflow-x': `auto`, 'width': `30rem` }"
               v-if="items.upload_file_hashs.length !== 0">
-              <div v-for="imageUrl in imageUrls">
-                <img :src="imageUrl" width="100" height="100" />
+              <div v-for="(imageUrl, index) in imageUrls">
+                <img :src="imageUrl" width="100" height="100" @click="deleteImage(index)"/>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors['upload_file_hashs.0']" />
@@ -346,6 +346,24 @@ export default defineComponent({
         sort_order: this.items.prices.length + 1,
       });
     },
+    deleteImage:function (index: number) {
+      let imageArray: any[] = [];
+      for (let i = 0; i < this.imageUrls.length; i++) {
+        if (i !== index) {
+          imageArray.push(this.imageUrls[i]);
+        }
+      }
+      this.imageUrls = imageArray;
+
+      let imageHashArray: any[] = [];
+
+      for (let i = 0; i < this.imageUrlsHash.length; i++) {
+        if (i !== index) {
+          imageHashArray.push(this.imageUrlsHash[i]);
+        }
+      }
+      this.imageUrlsHash = imageHashArray;
+    },
     deletePrice: function (index: number) {
       let priceArray: any[] = [];
       for (let i = 0; i < this.items.prices.length; i++) {
@@ -374,6 +392,7 @@ export default defineComponent({
     setUploadFile: function (uploadFile: any) {
       console.log(uploadFile);
       this.items.upload_file_hashs[this.count] = uploadFile.hash;
+      this.imageUrlsHash[this.count] = uploadFile.hash;
       this.imageUrls[this.count] = uploadFile.url;
       console.log(this.imageUrls);
       this.count++;

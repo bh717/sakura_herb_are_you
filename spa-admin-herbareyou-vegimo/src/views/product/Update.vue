@@ -157,8 +157,9 @@
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
             <div class = "imageDiv">
-              <div v-if="items.upload_file_hashs.length !== 0" v-for="imageUrl in imageUrls" >
-                <img :src="imageUrl" width="100" height="100" @click=""/>
+              <!-- v-for="(price, index) in items.prices" -->
+              <div v-if="items.upload_file_hashs.length !== 0" v-for="(imageUrl, index) in imageUrls" >
+                <img :src="imageUrl" width="100" height="100" @click="deleteImage(index)"/>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors['upload_file_hashs.0'] ?? []" />
@@ -270,6 +271,7 @@ export default defineComponent({
     flavors: [] as any[],
     product: {} as any,
     imageUrls: [] as string[],
+    imageUrlsHash: [] as string[],
   }),
   mounted: async function () {
     // カテゴリ
@@ -367,9 +369,10 @@ export default defineComponent({
 
       for (let i = 0; i < this.product.upload_files.length; i++) {
         this.items.upload_file_hashs[i] = this.product.upload_files[i].hash;
+        this.imageUrlsHash[i] = this.product.upload_files[i].hash;
       }
       console.log("image urls:", this.product.upload_files);
-
+      
       this.product.upload_files.forEach((item: {
         [x: string]: string; url: any;
       }, index: string | number) => {
@@ -386,6 +389,25 @@ export default defineComponent({
         sort_order: this.items.prices.length + 1,
       });
     },
+    deleteImage:function (index: number) {
+      let imageArray: any[] = [];
+      for (let i = 0; i < this.imageUrls.length; i++) {
+        if (i !== index) {
+          imageArray.push(this.imageUrls[i]);
+        }
+      }
+      this.imageUrls = imageArray;
+
+      let imageHashArray: any[] = [];
+
+      for (let i = 0; i < this.imageUrlsHash.length; i++) {
+        if (i !== index) {
+          imageHashArray.push(this.imageUrlsHash[i]);
+        }
+      }
+      this.imageUrlsHash = imageHashArray;
+    },
+
     deletePrice: function (index: number) {
       let priceArray: any[] = [];
       for (let i = 0; i < this.items.prices.length; i++) {
@@ -401,6 +423,8 @@ export default defineComponent({
       this.message = "";
       this.submitDisable = true;
       console.log("updated Data:", this.items);
+      this.items.upload_file_hashs = this.imageUrlsHash;
+
       const result = await updateProductApi(this.$route.params.id, this.items);
       this.submitDisable = false;
       if (!result.success) {
@@ -418,6 +442,7 @@ export default defineComponent({
 
       console.log(uploadFile);
       this.items.upload_file_hashs[this.count] = uploadFile.hash;
+      this.imageUrlsHash[this.count] = uploadFile.hash;
       this.imageUrls[this.count] = uploadFile.url;
       console.log(this.imageUrls);
       this.count ++;
