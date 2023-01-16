@@ -13,13 +13,13 @@
 
             
             <h2 class="sec-container__hd3" v-if="diagnoseData.diagnose1.condition === 1">
-              良かった！ ところで、
+              それは大変..、
             </h2>
             <h2 class="sec-container__hd3" v-else-if="diagnoseData.diagnose1.condition === 2">
               なるほど。 少し詳しく教えてください。
             </h2>
             <h2 class="sec-container__hd3" v-else-if="diagnoseData.diagnose1.condition === 3">
-              それは大変..
+              良かった！ ところで、
             </h2>
             
             <h2 class="sec-container__hd2" >
