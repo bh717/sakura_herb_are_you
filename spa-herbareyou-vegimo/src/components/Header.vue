@@ -533,6 +533,8 @@ export default defineComponent({
         pathName === "/diagnose5/" ||
         pathName === "/diagnose6" ||
         pathName === "/diagnose6/" ||
+        pathName === "/diagnoseproduct" ||
+        pathName === "/diagnoseproduct/" ||
         pathName === "/diagnose-result" ||
         pathName === "/diagnose-result/"
       ) {

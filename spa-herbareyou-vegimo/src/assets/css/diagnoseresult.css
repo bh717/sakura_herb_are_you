@@ -20,7 +20,7 @@
 
 .sec-container__name {
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   color: #fff;
   margin-bottom: 5rem;
@@ -67,7 +67,7 @@
   display: block;
   padding-right: 1rem;
   font-family: "Acme", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .detail-container__hd2-ttl {

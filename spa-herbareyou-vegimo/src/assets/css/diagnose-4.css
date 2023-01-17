@@ -26,10 +26,11 @@
 
 .sec-container {
   width: 50%;
-  padding: 17rem 0 0;
+  padding: 20rem 0 0;
 }
 .sec-container__name {
   font-size: 1.4rem;
+  font-weight: normal;
   text-align: center;
   color: #fff;
   margin-bottom: 5rem;

@@ -418,7 +418,7 @@ export default defineComponent({
     tomaterialSearch: function (index: number): void {
       // const url = Location.pathname;
       const query: string =
-        "/product?" +
+        "/diagnose?" +
         "taste_ids=" +
         "" +
         "&flavor_ids=" +
@@ -439,7 +439,7 @@ export default defineComponent({
     totasteSearch: function (index: number): void {
       // const url = Location.pathname;
       const query: string =
-        "/product?" +
+        "/diagnoseproduct?" +
         "taste_ids=" +
         index +
         "&flavor_ids=" +

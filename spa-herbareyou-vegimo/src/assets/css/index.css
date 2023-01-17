@@ -276,6 +276,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  -webkit-font-smoothing: subpixel-antialiased !important;
   color: #d6ac4e;
 }
 
@@ -287,6 +288,8 @@
   margin-top: 0px;
   font-family: koburina gothic std ;
   font-weight: normal;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+
 }
 
 .btnsection {

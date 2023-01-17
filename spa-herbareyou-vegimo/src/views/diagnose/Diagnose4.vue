@@ -5,7 +5,7 @@
       <article id="app" v-if="isShow">
         <section class="sec">
           <div class="sec-container">
-            <p class="sec-container__name">「{{ this.name }}」さん</p>
+            <p class="sec-container__name">{{ this.name }}さん</p>
             <h2 class="sec-container__hd3">
               ハーブティーに どのような効果を期待しますか？
             </h2>

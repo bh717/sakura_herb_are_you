@@ -277,7 +277,7 @@
             "" +
             "&recommendation_kind=" +
             "";
-          location.href = location.origin + "/product" + query;
+          location.href = location.origin + "/diagnoseproduct" + query;
         }
         // else {
         //   console.log(this.diagnoseData.diagnose2.condition);

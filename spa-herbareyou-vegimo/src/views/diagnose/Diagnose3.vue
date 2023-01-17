@@ -281,15 +281,6 @@ export default defineComponent({
           "";
         location.href = location.origin + "/product" + query;
       }
-      // else {
-      //   console.log(this.diagnoseData.diagnose2.condition);
-      //   const query: string =
-      //     "?" +
-      //     "&symptom_ids=" +
-      //     this.diagnoseData.diagnose2.condition;
-      //   location.href = location.origin + "/product" + query;
-      //   console.log("filepath:", location);
-      // }
     },
   },
 });

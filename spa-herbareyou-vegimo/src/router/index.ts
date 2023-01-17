@@ -54,6 +54,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/product/Index.vue"),
   },
   {
+    path: "/diagnoseproduct",
+    name: "DiagnoseIndex",
+    component: () => import("@/views/product/diagnose.vue"),
+  },
+  {
     path: "/product/symptom",
     name: "SymptomIndex",
     component: () => import("@/views/product/Symptoms.vue"),
