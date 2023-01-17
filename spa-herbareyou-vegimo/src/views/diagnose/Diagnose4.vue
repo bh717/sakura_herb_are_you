@@ -289,7 +289,6 @@
               </div>
             </div>
 
-            
             <h2 class="sec-container__hd2">香りの特徴</h2>
             <div class="sec-container__form">
               <div
@@ -398,28 +397,35 @@ export default defineComponent({
     }
     this.diagnoseData = diagnoseData;
     console.log("detailedSymptomsID:", this.diagnoseData.diagnose2.condition);
+    alert(4);
 
-      if (this.diagnoseData.diagnose2.condition === 20 || this.diagnoseData.diagnos2.condition === 21) {
-        this.isSecondShow = false;
-        this.isShow = true;
-      } else {
-        if (
-      this.diagnoseData.diagnose3.condition === "当てはまるものがない" ||
-      this.diagnoseData.diagnose3.condition === "分からない"
+    if (
+      this.diagnoseData.diagnose2.condition === 20 ||
+      this.diagnoseData.diagnose2.condition === 21
     ) {
-      this.isShow = false;
-      const result = await showDetailedFlavorsApi(3);
-      console.log("data:", result);
-      this.flavors = result.data;
+      this.isSecondShow = false;
+      this.isShow = true;
+    } 
+    if (
+      this.diagnoseData.diagnose2.condition !== 20 &&
+      this.diagnoseData.diagnose2.condition !== 21
+    ) {
+      if (
+        this.diagnoseData.diagnose3.condition === "当てはまるものがない" ||
+        this.diagnoseData.diagnose3.condition === "分からない"
+      ) {
+        this.isShow = false;
+        const result = await showDetailedFlavorsApi(3);
+        console.log("data:", result);
+        this.flavors = result.data;
 
-      const result1 = await showDetailedTastesApi(3);
-      console.log("data:", result1);
-      this.tastes = result1.data;
+        const result1 = await showDetailedTastesApi(3);
+        console.log("data:", result1);
+        this.tastes = result1.data;
 
-      this.isSecondShow = true;
-    }
+        this.isSecondShow = true;
       }
-    
+    }
   },
   beforeDestroy: function (): void {},
   methods: {
