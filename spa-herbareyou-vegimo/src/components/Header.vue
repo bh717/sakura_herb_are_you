@@ -34,10 +34,11 @@
         <router-link class="icons__inner js-search-open" to="">
           <img class="icons__img" src="@/assets/img/common/icon1.svg" alt="" />
         </router-link>
+
         <router-link
           v-on:click="closeMenu()"
           :to="{ name: 'MyPageLogin' }"
-          class="icons__inner"
+          class="icons__inner js-cart-mypage"
           v-if="!$store.state.isLogin"
         >
           <img class="icons__img" src="@/assets/img/common/icon2.svg" alt="" />
