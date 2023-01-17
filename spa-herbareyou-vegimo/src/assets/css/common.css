@@ -825,7 +825,7 @@ nav.is-open {
   .header.is-open .icons {
     z-index: 1000;
   }
-  .header.is-open .js-search-open {
+  .header.is-open .js-cart-mypage{
     display: block !important;
     visibility: visible;
   }
