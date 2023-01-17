@@ -397,7 +397,6 @@ export default defineComponent({
     }
     this.diagnoseData = diagnoseData;
     console.log("detailedSymptomsID:", this.diagnoseData.diagnose2.condition);
-    alert(4);
 
     if (
       this.diagnoseData.diagnose2.condition === 20 ||
@@ -405,7 +404,7 @@ export default defineComponent({
     ) {
       this.isSecondShow = false;
       this.isShow = true;
-    } 
+    }
     if (
       this.diagnoseData.diagnose2.condition !== 20 &&
       this.diagnoseData.diagnose2.condition !== 21
@@ -430,24 +429,53 @@ export default defineComponent({
   beforeDestroy: function (): void {},
   methods: {
     nextPage: function () {
-      if (this.condition === 0) {
-        return;
+      // alert(this.condition);
+      if (this.isShow === true) {
+        if (this.condition === 0) {
+          return;
+        }
+        this.diagnoseData.diagnose4 = {
+          condition: this.condition,
+        };
+        localStorage.setItem(
+          "diagnoseJsonData",
+          JSON.stringify(this.diagnoseData)
+        );
+        if (this.condition !== 20) {
+          this.$router.push({
+            name: this.nextPath,
+          });
+        } else {
+          this.$router.push({
+            name: this.nextPath1,
+          });
+        }
       }
-      this.diagnoseData.diagnose4 = {
-        condition: this.condition,
-      };
-      localStorage.setItem(
-        "diagnoseJsonData",
-        JSON.stringify(this.diagnoseData)
-      );
-      if (this.condition !== 20) {
-        this.$router.push({
-          name: this.nextPath,
-        });
-      } else {
-        this.$router.push({
-          name: this.nextPath1,
-        });
+      if (this.isSecondShow === true) {
+        // alert(1);
+        // alert(this.condition);
+        // if (this.condition === 0) {
+        //   return;
+        // }
+        // alert(2);
+        if (this.tasteIds.length === 0 && this.flavorIds.length === 0) {
+          return;
+        }
+        const query: string =
+          "?" +
+          "taste_ids=" +
+          this.tasteIds +
+          "&flavor_ids=" +
+          this.flavorIds +
+          "&material_ids=" +
+          "" +
+          "&symptom_ids=" +
+          "" +
+          "&order_by=" +
+          "" +
+          "&recommendation_kind=" +
+          "";
+        location.href = location.origin + "/diagnoseproduct" + query;
       }
     },
   },
