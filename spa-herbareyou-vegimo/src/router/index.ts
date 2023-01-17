@@ -193,6 +193,7 @@ router.beforeEach(async (to, from, next): Promise<void> => {
     to.name !== "Diagnose4" &&
     to.name !== "Diagnose5" &&
     to.name !== "Diagnose6" &&
+    to.name !== "DiagnoseIndex" &&
     to.name !== "DiagnoseResult" &&
     to.name !== "TrialSetIndex" &&
     to.name !== "SymptomIndex" &&

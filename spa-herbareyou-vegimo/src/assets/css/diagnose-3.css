@@ -24,6 +24,14 @@
   align-items: center;
 }
 
+.sec-container__hd3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 3rem;
+}
+
 .sec-container {
   width: 65%;
   padding: 20rem 0 0;

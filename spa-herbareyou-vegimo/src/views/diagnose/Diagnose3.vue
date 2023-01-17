@@ -66,6 +66,10 @@
             <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 18">ハーブティーで身体をポカポカ温めよう</h2>
             <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 19">おいしいハーブティーで素敵な毎日を</h2>
 
+            <h2 class="sec-container__hd3">
+              味と香りの好みを選択してください。(複数可)
+            </h2>
+            
             <h2 class="sec-container__hd2">味の特徴</h2>
 
             <div class="sec-container__form">

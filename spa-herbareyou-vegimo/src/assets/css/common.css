@@ -822,12 +822,15 @@ nav.is-open {
   .icons.is-fixed {
     visibility: hidden;
   }
-
   .header.is-open .icons {
     z-index: 1000;
   }
+  .header.is-open .js-search-open {
+    display: block !important;
+    visibility: visible;
+  }
   .header.is-open .icons__inner {
-    display: block;
+    display: block ;
     visibility: visible;
   }
   .header.is-open .icons__inner:nth-of-type(3) {
