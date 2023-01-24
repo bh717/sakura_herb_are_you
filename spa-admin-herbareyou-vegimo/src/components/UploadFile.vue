@@ -54,19 +54,25 @@ export default defineComponent({
       console.log(preSignedUrlResult);
       if (!preSignedUrlResult.success) {
         this.message = "アップロードに失敗しました";
+        // this.message="preSignedUrlResult";
         return;
       }
+      console.log("url:", preSignedUrlResult.data.pre_signed_url);
       const uploadResult = await upload(
         preSignedUrlResult.data.pre_signed_url,
         file
       );
+      console.log("success");
       if (!uploadResult.success) {
         this.message = "アップロードに失敗しました";
+        // this.message="upload";
         return;
       }
       const confirmResult = await confirmApi(preSignedUrlResult.data.hash);
       if (!confirmResult.success) {
         this.message = "アップロードに失敗しました";
+        // this.message="confirmApi";
+
         return;
       }
       // this.message = "成功しました";

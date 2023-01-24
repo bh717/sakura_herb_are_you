@@ -258,6 +258,7 @@ export default defineComponent({
     categories: [] as any[],
     materials: [] as any[],
     sortedmaterials: [] as any[],
+    imageUrlsHash: [] as string[],
 
     symptoms: [] as any[],
     tastes: [] as any[],

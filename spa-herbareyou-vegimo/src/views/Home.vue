@@ -352,6 +352,7 @@ export default defineComponent({
       per_page: -1,
       recommendation_kind: 4,
     });
+    console.log("product", productApiresult);
     if (!productApiresult.success) {
       this.commonError(productApiresult);
       this.isShow = true;
