@@ -12,6 +12,7 @@ service.interceptors.request.use(
     const accessToken = localStorage.getItem("access_token");
     if (accessToken !== undefined && config.headers) {
       config.headers["Authorization"] = "Bearer " + accessToken;
+      config.headers['Access-Control-Allow-Origin'] = '*';
     }
     return config;
   },
