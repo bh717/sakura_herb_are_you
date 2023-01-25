@@ -13,6 +13,7 @@ service.interceptors.request.use(
     if (accessToken !== undefined && config.headers) {
       config.headers["Authorization"] = "Bearer " + accessToken;
       config.headers['Access-Control-Allow-Origin'] = '*';
+      config.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,PATCH,OPTIONS';
     }
     return config;
   },
