@@ -355,7 +355,7 @@ export default defineComponent({
       console.log(this.symptoms[0].product_id);
 
       if (DetailedSymptomsApiResult.data.length === 1) {
-        alert(this.symptoms[0].product_id);
+        // alert(this.symptoms[0].product_id);
         const SymptomProductApiResult = await showSymptomProduct(
           this.symptoms[0].product_id
         );
