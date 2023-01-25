@@ -55,7 +55,7 @@ AWS_CLOUDFRONT_DOMAIN=https://content.herbareyou.jp/
 # AWS_S3_PATH=herbareyou/furuya/
 # AWS_CLOUDFRONT_DOMAIN=https://local-content.herbareyou.jp/
 
-# ユーザー側、管理側のそれぞれのドメイン
+# ユーザー側、管理側のそれぞれのドメインg
 API_ADMIN_DOMAIN=api-admin.herbareyou.jp
 API_DOMAIN=api.herbareyou.jp
 

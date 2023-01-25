@@ -32,7 +32,7 @@
             
             <div class="detail-container__left">
               <vueper-slides fixed-height="500px" v-if="product.upload_files.length !== 1">
-                <vueper-slide v-for="(uploadfile, i) in product.upload_files" :key="i" :image="'https://content.herbareyou.jp/' + uploadfile.file_path">
+                <vueper-slide v-for="(uploadfile, i) in product.upload_files" :key="i" :image="'https://d1jw4m1s7z1xyc.cloudfront.net/' + uploadfile.file_path">
                 </vueper-slide>
               </vueper-slides>
               <img v-if="product.upload_files.length === 1" :src="product.upload_files[0].url" alt="" />

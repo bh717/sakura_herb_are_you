@@ -270,7 +270,7 @@ export default defineComponent({
       }
       if (this.isSecondShow === true) {
         const query: string =
-          "?" +
+          "/diagnoseproduct?" +
           "taste_ids=" +
           this.tasteIds +
           "&flavor_ids=" +
@@ -283,7 +283,7 @@ export default defineComponent({
           "" +
           "&recommendation_kind=" +
           "";
-        location.href = location.origin + "/product" + query;
+        location.href = query;
       }
     },
   },

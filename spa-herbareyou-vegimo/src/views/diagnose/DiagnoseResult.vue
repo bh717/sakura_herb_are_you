@@ -45,13 +45,13 @@
                   <vueper-slide
                     v-for="(imageUrl, i) in imageUrls"
                     :key="i"
-                    :image="'https://content.herbareyou.jp/' + imageUrl"
+                    :image="'https://d1jw4m1s7z1xyc.cloudfront.net/' + imageUrl"
                   >
                   </vueper-slide>
                 </vueper-slides>
                 <img
                   v-if="imageUrls.length === 1"
-                  :src="'https://content.herbareyou.jp/' + imageUrls[0]"
+                  :src="'https://d1jw4m1s7z1xyc.cloudfront.net/' + imageUrls[0]"
                   alt=""
                 />
               </div>

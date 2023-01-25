@@ -81,8 +81,8 @@ export default defineComponent({
         console.log("resData:", res.data);
         this.firstname = response[0].first_name;
         this.lastname = response[0].last_name;
-        this.name = this.firstname + " " + this.lastname;
-        this.nextPage();
+        this.name = this.lastname + " " + this.firstname;
+        // this.nextPage();
       }
     },
     nextPage: function () {

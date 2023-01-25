@@ -45,13 +45,13 @@
                   <vueper-slide
                     v-for="(imageUrl, i) in imageUrls"
                     :key="i"
-                    :image="'https://content.herbareyou.jp/' + imageUrl"
+                    :image="'https://d1jw4m1s7z1xyc.cloudfront.net/' + imageUrl"
                   >
                   </vueper-slide>
                 </vueper-slides>
                 <img
                   v-if="imageUrls.length === 1"
-                  :src="'https://content.herbareyou.jp/' + imageUrls[0]"
+                  :src="'https://d1jw4m1s7z1xyc.cloudfront.net/' + imageUrls[0]"
                   alt=""
                 />
               </div>
@@ -183,7 +183,7 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2">
-              診断が完了しました！<br />山田太郎さんにおすすめの<br
+              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br
                 class="sp"
               />ハーブティはこちらです。
             </h2>
@@ -355,9 +355,12 @@ export default defineComponent({
       console.log(this.symptoms[0].product_id);
 
       if (DetailedSymptomsApiResult.data.length === 1) {
+        alert(this.symptoms[0].product_id);
         const SymptomProductApiResult = await showSymptomProduct(
           this.symptoms[0].product_id
         );
+
+        console.log("symptomProduct:", SymptomProductApiResult);
 
         this.products = SymptomProductApiResult.data.product_data;
         this.tastes = SymptomProductApiResult.data.tastes;

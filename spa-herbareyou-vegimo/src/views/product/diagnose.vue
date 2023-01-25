@@ -99,6 +99,7 @@ export default defineComponent({
       flavorIds: [] as number[],
       materialIds: [] as number[],
       symptomIds: [] as number[],
+      searchsymptomIds: [] as number[],
       sortOrder: "" as string,
       commonScriptService: new CommonScriptService(),
       pageService: new PageService(),
@@ -171,6 +172,7 @@ export default defineComponent({
         return;
       }
       this.diagnoseData = diagnoseData;
+      this.searchsymptomIds = diagnoseData.diagnose2.condition;
       this.name = diagnoseData?.diagnose0?.name;
       console.log("name:",this.name);
     },
@@ -217,7 +219,7 @@ export default defineComponent({
         : [];
       this.symptomIds = queryParams.symptom_ids
         ? queryParams.symptom_ids.split(",")
-        : [];
+        : [this.searchsymptomIds];
       this.sortOrder = queryParams.order_by ?? "";
     },
 
