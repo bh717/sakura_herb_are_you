@@ -318,7 +318,6 @@ export default defineComponent({
 
   methods: {
     storeOrder: async function (event: any) {
-      alert(2);
       event.preventDefault();
       if (!this.deliveryLocation.last_name) {
         alert("お届け先情報を登録してください");
