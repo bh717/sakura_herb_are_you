@@ -329,7 +329,7 @@ export default defineComponent({
         cartData.product_prices,
         cartData.coupon_code
       );
-      console.log(storeOrderResult);
+      console.log("storeOrderResult", storeOrderResult);
       if (storeOrderResult.success === 422) {
         alert("入力に間違いがあります");
         return;
