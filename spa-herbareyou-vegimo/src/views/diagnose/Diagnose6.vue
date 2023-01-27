@@ -253,12 +253,6 @@
           }
         }
         if (this.isSecondShow === true) {
-          // alert(1);
-          // alert(this.condition);
-          // if (this.condition === 0) {
-          //   return;
-          // }
-          // alert(2);
           if(this.tasteIds.length === 0 && this.flavorIds.length === 0)
           {
             return;
@@ -279,19 +273,11 @@
             "";
           location.href = location.origin + "/diagnoseproduct" + query;
         }
-        // else {
-        //   console.log(this.diagnoseData.diagnose2.condition);
-        //   const query: string =
-        //     "?" +
-        //     "&symptom_ids=" +
-        //     this.diagnoseData.diagnose2.condition;
-        //   location.href = location.origin + "/product" + query;
-        //   console.log("filepath:", location);
-        // }
       },
     },
   });
   </script>
+  
   <style scoped src="@/assets/css/diagnose-6.css">
   
   </style>

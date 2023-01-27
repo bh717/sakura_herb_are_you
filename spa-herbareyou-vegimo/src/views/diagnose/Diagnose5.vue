@@ -349,7 +349,7 @@ export default defineComponent({
       if (this.symptoms[0].product_id === "all") {
         const query: string =
           "?" + "&symptom_ids=" + this.symptoms[0].symptom_id;
-        location.href = location.origin + "/product" + query;
+        location.href = location.origin + "/diagnoseproduct" + query;
       }
 
       console.log(this.symptoms[0].product_id);
@@ -422,7 +422,7 @@ export default defineComponent({
     tomaterialSearch: function (index: number): void {
       // const url = Location.pathname;
       const query: string =
-        "/product?" +
+        "/diagnoseproduct?" +
         "taste_ids=" +
         "" +
         "&flavor_ids=" +
@@ -443,7 +443,7 @@ export default defineComponent({
     totasteSearch: function (index: number): void {
       // const url = Location.pathname;
       const query: string =
-        "/product?" +
+        "/diagnoseproduct?" +
         "taste_ids=" +
         index +
         "&flavor_ids=" +
@@ -466,7 +466,7 @@ export default defineComponent({
       // const url = Location.pathname;
       // alert(1);
       const query: string =
-        "/product?" +
+        "/diagnoseproduct?" +
         "taste_ids=" +
         "" +
         "&flavor_ids=" +

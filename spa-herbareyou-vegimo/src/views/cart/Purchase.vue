@@ -325,10 +325,12 @@ export default defineComponent({
       }
       this.submitDisable = true;
       const cartData = getCartData();
+      console.log("deliverdAt", this.deliveryLocation);
       const storeOrderResult = await storeOrderApi(
         cartData.product_prices,
         cartData.coupon_code
       );
+      alert(storeOrderResult);
       console.log("storeOrderResult", storeOrderResult);
       if (storeOrderResult.success === 422) {
         alert("入力に間違いがあります");
