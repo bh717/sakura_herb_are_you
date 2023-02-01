@@ -1,7 +1,7 @@
 @include('Mails.User.Bases.header')
 {{$user->last_name}}{{$user->first_name}}　様
 
-こんにちは。Herb Are You？ オンラインショップです。
+こんにちは。Herb Are You オンラインショップです。
 
 ご注文いただきましたハーブティーの発送が完了いたしました。
 商品がお手元に届くまで、今しばらくお待ちくださいませ。

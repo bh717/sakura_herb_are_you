@@ -1,7 +1,7 @@
 @include('Mails.User.Bases.header')
 {{$inquiry->name}}　様
 
-こんにちは。Herb Are You？ オンラインショップです。
+こんにちは。Herb Are You オンラインショップです。
 以下の通り、お問い合わせを受け付けいたしました。
 
 ---------------------------------------------------------
@@ -12,6 +12,6 @@
 
 順番にご返信いたしますので、今しばらくお待ちくださいませ。
 
-今後ともHerb Are You？をよろしくお願いいたします。
+今後ともHerb Are Youをよろしくお願いいたします。
 
 @include('Mails.User.Bases.footer')
