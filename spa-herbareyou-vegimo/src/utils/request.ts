@@ -41,7 +41,7 @@ service.interceptors.response.use(
       success: false,
       message: '',
     };
-    if (resultData.status >= 500 || resultData.status === 404) {
+    if (resultData.status >= 500 || resultData.status === 404 || resultData.status === "net::ERR_SSL_PROTOCOL_ERROR") {
       vm.$router.push({
         name: 'Error500'
       })

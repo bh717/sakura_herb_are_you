@@ -330,7 +330,6 @@ export default defineComponent({
         cartData.product_prices,
         cartData.coupon_code
       );
-      alert(storeOrderResult);
       console.log("storeOrderResult", storeOrderResult);
       if (storeOrderResult.success === 422) {
         alert("入力に間違いがあります");
