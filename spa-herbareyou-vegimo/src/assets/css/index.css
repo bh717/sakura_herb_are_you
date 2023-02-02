@@ -184,8 +184,8 @@
 }
 
 .diagnose__img {
-  /* width: 240px; */
-  /* height: 200px; */
+  /* display: block;
+  background: url('/assets/img/index/diagnose.svg'); */
 }
 
 .p-gift-title {
@@ -336,14 +336,21 @@
   background: #d6ac4e;
 }
 
-.product_icon {
+.product_icon1 {
   margin: 0 0;
-  width: 8rem;
+  height: 50px;
+  width: auto;
 }
 
-.product_icon1 {
-  margin: 0 auto;
-  width: 13rem;
+.product_icon2 {
+  margin: 0 0;
+  height: 60px;
+  width: auto;
+}
+
+.product_icon3 {
+  height: 45px;
+  width: auto;
 }
 
 .product_img {
@@ -353,14 +360,15 @@
 .product_div {
   position: fixed;
   width: 100%;
-  top: -25px;
+  top: -15px;
   left: -15px;
 }
 
 .product_div1 {
   position: fixed;
   width: 100%;
-  top: -25px;
+  top: 10px;
+  left: 5px;
 }
 
 @media screen and (max-width: 768px) {

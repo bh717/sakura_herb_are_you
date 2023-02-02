@@ -255,25 +255,25 @@
 
                 <div class="product_div">
                   <img
-                    src="@/assets/img/icon/New.png"
+                    src="@/assets/img/icon/New.svg"
                     alt=""
                     v-if="product.is_productStatus === 1"
-                    class="product_icon"
+                    class="product_icon1"
                   />
+                  
                   <img
-                    src="@/assets/img/icon/SoldOut.png"
-                    alt=""
-                    v-if="product.is_productStatus === 2"
-                    class="product_icon"
-                  />
-                </div>
-
-                <div class="product_div1">
-                  <img
-                    src="@/assets/img/icon/Recommend.png"
+                    src="@/assets/img/icon/Recommend.svg"
                     alt=""
                     v-if="product.is_productStatus === 3"
-                    class="product_icon1"
+                    class="product_icon2"
+                  />
+                </div>
+                <div class="product_div1">
+                  <img
+                    src="@/assets/img/icon/SoldOut.svg"
+                    alt=""
+                    v-if="product.is_productStatus === 2"
+                    class="product_icon3"
                   />
                 </div>
               </li>

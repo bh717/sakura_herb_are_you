@@ -252,24 +252,25 @@
                 </div>
                 <div class="product_div">
                   <img
-                    src="@/assets/img/icon/New.png"
+                    src="@/assets/img/icon/New.svg"
                     alt=""
                     v-if="product.is_productStatus === 1"
-                    class="product_icon"
+                    class="product_icon1"
                   />
+                  
                   <img
-                    src="@/assets/img/icon/SoldOut.png"
+                    src="@/assets/img/icon/Recommend.svg"
                     alt=""
-                    v-if="product.is_productStatus === 2"
-                    class="product_icon"
+                    v-if="product.is_productStatus === 3"
+                    class="product_icon2"
                   />
                 </div>
                 <div class="product_div1">
                   <img
-                    src="@/assets/img/icon/Recommend.png"
+                    src="@/assets/img/icon/SoldOut.svg"
                     alt=""
-                    v-if="product.is_productStatus === 3"
-                    class="product_icon1"
+                    v-if="product.is_productStatus === 2"
+                    class="product_icon3"
                   />
                 </div>
               </li>
@@ -281,11 +282,11 @@
     <Footer :isSct="true" />
   </div>
   <a href="/diagnose" class="diagnose-icon">
-    <img src="@/assets/img/index/diagnose.png" alt="" class="diagnose__img" />
+    <img :src="this.diagnoseimageup" alt="" class="diagnose__img" @mouseover="mouseOver" @mouseleave="mouseDown"/>
   </a>
 
   <a href="/diagnose" class="diagnose-icon1">
-    <img src="@/assets/img/index/diagnose1.png" alt="" class="diagnose__img" />
+    <img :src="this.spdiagnoseimageup" alt="" class="diagnose__img1" @mouseover="spmouseOver" @mouseleave="spmouseDown"/>
   </a>
 </template>
 
@@ -326,6 +327,15 @@ export default defineComponent({
       commonScriptService: new CommonScriptService(),
       pageService: new PageService(),
       dateTime: Date.now(),
+      uphere: false,
+      downhere: false,
+      diagnoseimageup: "/img/index/diagnose.svg",
+      diagnoseimagedown: "/img/index/diagnose-hover.svg",
+
+      spuphere: false,
+      spdownhere: false,
+      spdiagnoseimageup: "/img/index/spdiagnose.svg",
+      spdiagnoseimagedown: "/img/index/spdiagnose-hover.svg",
     };
   },
   created: function () {},
@@ -376,6 +386,66 @@ export default defineComponent({
     });
   },
   methods: {
+
+    mouseOver:function(){
+      this.uphere = !this.uphere;
+      var iconImages: any = document.querySelectorAll(".diagnose__img");
+
+      if(this.uphere === false)
+      {
+        iconImages[0].setAttribute("src", "/img/index/diagnose.svg");
+      }
+      else if(this.uphere === true)
+      {
+        iconImages[0].setAttribute("src", "/img/index/diagnose-hover.svg");
+      }
+    },
+
+    mouseDown:function(){
+      this.uphere = !this.uphere;
+      var iconImages: any = document.querySelectorAll(".diagnose__img");
+
+      if(this.uphere === false)
+      {
+        iconImages[0].setAttribute("src", "/img/index/diagnose.svg");
+      }
+      else if(this.uphere === true)
+      {
+        iconImages[0].setAttribute("src", "/img/index/diagnose-hover.svg");
+
+      }
+    },
+
+
+    spmouseOver:function(){
+      this.spuphere = !this.spuphere;
+      var iconImages: any = document.querySelectorAll(".diagnose__img1");
+
+      if(this.spuphere === false)
+      {
+        iconImages[0].setAttribute("src", "/img/index/spdiagnose.svg");
+      }
+      else if(this.spuphere === true)
+      {
+        iconImages[0].setAttribute("src", "/img/index/spdiagnose-hover.svg");
+      }
+    },
+
+    spmouseDown:function(){
+      this.spuphere = !this.spuphere;
+      var iconImages: any = document.querySelectorAll(".diagnose__img1");
+
+      if(this.spuphere === false)
+      {
+        iconImages[0].setAttribute("src", "/img/index/spdiagnose.svg");
+      }
+      else if(this.spuphere === true)
+      {
+        iconImages[0].setAttribute("src", "/img/index/spdiagnose-hover.svg");
+
+      }
+    },
+
     showMore(): void {
       // if (this.blogcount < this.blogtotalcount)
       //   this.blogcount++;
