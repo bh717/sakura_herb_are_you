@@ -27,7 +27,7 @@
               </p>
               <div class="subproduct-container">
                 <div
-                    class = "subproduct-subcontainer"
+                  class="subproduct-subcontainer"
                   v-for="(subproduct, index) in subProducts"
                   v-bind:key="index"
                 >
@@ -40,6 +40,14 @@
                       <span class="detail-container__hd2-ttl-main">{{
                         subproduct.name2
                       }}</span>
+                        &emsp;&ensp;
+
+                        <span class="mult-symbol" v-if="this.subproductdata[index].sub_product_count !== 1">*</span>
+                      <span class="detail-container__hd2-ttl-main" v-if="this.subproductdata[index].sub_product_count !== 1">
+                        {{
+                        this.subproductdata[index].sub_product_count
+                      }}</span>
+                      <!-- subproductdata -->
                     </span>
                   </p>
 
@@ -277,7 +285,7 @@ export default defineComponent({
       kind: "" as string,
       recommendProducts: [] as any[],
       subProducts: [] as any[],
-
+      subproductdata: [] as any[],
       num: 1 as number,
       selectPriceId: 0 as number,
       isUpdateHeader: false,
@@ -411,11 +419,11 @@ export default defineComponent({
       let subproduct = await indexSubItem(this.product.id);
       console.log("subproduct:", subproduct);
 
-      let subproductdata = subproduct.data;
+      this.subproductdata = subproduct.data;
 
-      for (let i = 0; i < subproductdata.length; i++) {
+      for (let i = 0; i < this.subproductdata.length; i++) {
         let apiresult = await showSubProductApi(
-          subproductdata[i].sub_product_id
+          this.subproductdata[i].sub_product_id
         );
         this.subProducts.push(apiresult.data);
         console.log("apiresult", apiresult);
