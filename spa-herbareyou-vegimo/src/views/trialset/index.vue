@@ -56,18 +56,6 @@
                   <span>|</span>
                   <span class="product-item__ttl-main">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
                 </p>
-                <!-- <p class="product-item__material">
-                  {{
-                      pageService.cutText(
-                        20,
-                        "…",
-                        pageService.implode(
-                          "、",
-                          pageService.pluck("name", product.materials)
-                        )
-                      )
-                  }}
-                </p> -->
                 <div class="a-btn">
                   <router-link :to="'/trialproduct/' + String(product.id)" class="a-btn__link">
                     詳細を見る

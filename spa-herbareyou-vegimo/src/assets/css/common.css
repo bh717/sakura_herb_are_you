@@ -1326,7 +1326,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 }
 .product-item__ttl {
   color: #5d5d5d;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-size: 1.6rem;
   display: -webkit-box;
   display: -webkit-flex;

@@ -42,7 +42,7 @@
                       }}</span>
                         &emsp;&ensp;
 
-                        <span class="mult-symbol" v-if="this.subproductdata[index].sub_product_count !== 1">*</span>
+                        <span class="mult-symbol" v-if="this.subproductdata[index].sub_product_count !== 1">X</span>
                       <span class="detail-container__hd2-ttl-main" v-if="this.subproductdata[index].sub_product_count !== 1">
                         {{
                         this.subproductdata[index].sub_product_count
@@ -52,7 +52,7 @@
                   </p>
 
                   <p class="detail-container__txt">
-                    {{ subproduct.category.name }}
+                    #{{ subproduct.category.name }}
                   </p>
                 </div>
               </div>
