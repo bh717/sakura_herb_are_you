@@ -69,6 +69,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/product/Show.vue"),
   },
   {
+    path: "/trialproduct/:id",
+    name: "TrialProductShow",
+    component: () => import("@/views/trialset/show.vue"),
+  },
+  {
     path: "/cart",
     name: "CartIndex",
     component: () => import("@/views/cart/Index.vue"),
@@ -196,6 +201,7 @@ router.beforeEach(async (to, from, next): Promise<void> => {
     to.name !== "DiagnoseIndex" &&
     to.name !== "DiagnoseResult" &&
     to.name !== "TrialSetIndex" &&
+    to.name !== "TrialProductShow" &&
     to.name !== "SymptomIndex" &&
     !store.state.isLogin
   ) {

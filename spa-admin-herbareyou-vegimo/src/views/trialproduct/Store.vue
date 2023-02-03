@@ -1,5 +1,5 @@
 <template>
-  <h2 class="mb-3">商品更新</h2>
+  <h2 class="mb-3">商品作成</h2>
   <ErrorMessage :message="message" />
   <div id="app" v-if="isShow">
     <div>
@@ -52,7 +52,7 @@
                 <input class="form-check-input" type="checkbox" :id="'materialCheckbox' + String(material.id)"
                   :value="material.id" v-model="items.material_ids" />
                 <label class="form-check-label" :for="'materialCheckbox' + String(material.id)">{{ material.name
-                }}</label>
+}}</label>
               </div>
             </div>
             <ValidateError :errorMessages="validateErrors.material_ids" />
@@ -86,7 +86,7 @@
         </tr>
 
         <tr>
-          <th>香りの特徴</th>
+          <th>味の特徴</th>
           <td class="py-2">
             <div>
               <div class="form-check form-check-inline" v-for="flavor in flavors" :key="flavor.id">
@@ -100,7 +100,7 @@
         </tr>
 
         <tr>
-          <th>公開/非公開</th>
+          <th>状態</th>
           <td class="py-2">
             <div>
               <div class="form-check form-check-inline">
@@ -119,15 +119,11 @@
             <ValidateError :errorMessages="validateErrors.is_public" />
           </td>
         </tr>
+
         <tr>
           <th>状態</th>
           <td class="py-2">
             <div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_productStatus" id="is_product" :value="0"
-                  v-model="items.is_productStatus" />
-                <label class="form-check-label" for="is_productStatus"> 独自 </label>
-              </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="is_productStatus" id="is_productStatus" :value="1"
                   v-model="items.is_productStatus" />
@@ -150,19 +146,20 @@
             </div>
           </td>
         </tr>
+
         <tr>
           <th>画像</th>
           <td class="py-2">
             <div>
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
-            <div class = "imageDiv">
-              <!-- v-for="(price, index) in items.prices" -->
-              <div v-if="items.upload_file_hashs.length !== 0" v-for="(imageUrl, index) in imageUrls" >
+            <div v-bind:style="{ 'display': `flex`, 'gap': `10px`, 'overflow-x': `auto`, 'width': `30rem` }"
+              v-if="items.upload_file_hashs.length !== 0">
+              <div v-for="(imageUrl, index) in imageUrls">
                 <img :src="imageUrl" width="100" height="100" @click="deleteImage(index)"/>
               </div>
             </div>
-            <ValidateError :errorMessages="validateErrors['upload_file_hashs.0'] ?? []" />
+            <ValidateError :errorMessages="validateErrors['upload_file_hashs.0']" />
           </td>
         </tr>
         <tr>
@@ -197,8 +194,8 @@
                 </button>
               </div>
               <ValidateError :errorMessages="
-                validateErrors[`prices.${index}.capacity`] ?? []
-              " />
+  validateErrors[`prices.${index}.capacity`] ?? []
+" />
               <ValidateError :errorMessages="validateErrors[`prices.${index}.price`] ?? []" />
             </div>
           </td>
@@ -206,18 +203,13 @@
       </table>
       <div class="d-flex justify-content-center">
         <div class="px-2">
-          <button type="button" class="btn btn-primary" v-on:click="update()" :disabled="submitDisable">
-            編集する
+          <button type="button" class="btn btn-primary" v-on:click="create()" :disabled="submitDisable">
+            作成する
           </button>
         </div>
         <div class="px-2">
           <button type="button" class="btn btn-primary" v-on:click="addPrice()" :disabled="submitDisable">
             packを追加する
-          </button>
-        </div>
-        <div class="px-2">
-          <button type="button" class="btn btn-danger" v-on:click="destroy()" :disabled="submitDisable">
-            削除する
           </button>
         </div>
       </div>
@@ -235,15 +227,11 @@ import { indexSymptomApi } from "@/api/mst-symptoms";
 import { indexTasteApi } from "@/api/mst-tastes";
 import { indexFlavorApi } from "@/api/mst-flavors";
 
-import {
-  showProductApi,
-  updateProductApi,
-  destroyProductApi,
-} from "@/api/products";
+import { storeProductApi } from "@/api/trialproducts";
 import UploadFile from "@/components/UploadFile.vue";
 
 export default defineComponent({
-  name: "ProductUpdate",
+  name: "TrialProductStore",
   components: {
     ErrorMessage,
     ValidateError,
@@ -251,27 +239,31 @@ export default defineComponent({
   },
   data: () => ({
     isShow: false,
+    count: 0,
     message: "",
-    count : 0,
     submitDisable: false,
-    validateErrors: {} as any,
+    validateErrors: {
+      upload_file_urls: [] as any[],
+    } as any,
     items: {
       material_ids: [] as number[],
       symptom_ids: [] as number[],
       taste_ids: [] as number[],
       flavor_ids: [] as number[],
       prices: [] as any[],
+      is_public: 0,
+      is_productStatus:0,
       upload_file_hashs: [] as string[],
     } as any,
     categories: [] as any[],
     materials: [] as any[],
     sortedmaterials: [] as any[],
+    imageUrlsHash: [] as string[],
+
     symptoms: [] as any[],
     tastes: [] as any[],
     flavors: [] as any[],
-    product: {} as any,
     imageUrls: [] as string[],
-    imageUrlsHash: [] as string[],
   }),
   mounted: async function () {
     // カテゴリ
@@ -281,7 +273,6 @@ export default defineComponent({
       return;
     }
     this.categories = result.data;
-
     // 材料
     result = await indexMaterialApi();
     if (!result.success) {
@@ -291,10 +282,10 @@ export default defineComponent({
     this.materials = result.data;
     console.log(result.data);
 
-    this.materials = this.materials.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
+    this.materials.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
     });
 
     // 症状
@@ -304,6 +295,13 @@ export default defineComponent({
       return;
     }
     this.symptoms = result.data;
+
+    this.symptoms.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
+
     // 味
     result = await indexTasteApi();
     if (!result.success) {
@@ -311,6 +309,11 @@ export default defineComponent({
       return;
     }
     this.tastes = result.data;
+    this.tastes.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
 
     result = await indexFlavorApi();
     if (!result.success) {
@@ -318,8 +321,13 @@ export default defineComponent({
       return;
     }
     this.flavors = result.data;
+    this.flavors.sort((a, b) => {
+      if (a.name < b.name) return -1
+      if (a.name > b.name) return 1
+      return 0
+    });
 
-    await this.setInitData();
+    this.addPrice();
     this.isShow = true;
   },
   methods: {
@@ -327,59 +335,9 @@ export default defineComponent({
       if (result.status === 422) {
         this.validateErrors = result.data;
       }
-      if (result.message && result.message !== "") {
+      if (result.message !== "") {
         this.message = result.message;
       }
-    },
-    setInitData: async function () {
-      // 商品
-      let result = await showProductApi(this.$route.params.id);
-      if (!result.success) {
-        this.commonError(result);
-        return;
-      }
-      this.product = result.data;
-      console.log("asdfa:", this.product);
-
-      this.items.product_category_id = this.product.product_category_id;
-      this.items.product_no = this.product.product_no;
-      this.items.name1 = this.product.name1;
-      this.items.name2 = this.product.name2;
-      this.items.description = this.product.description;
-      this.items.is_public = this.product.is_public ?? 0;
-      this.items.is_productStatus = this.product.is_productStatus ?? 0;
-
-      this.items.material_ids = this.product.material_ids;
-      this.items.symptom_ids = this.product.symptom_ids;
-      this.items.taste_ids = this.product.taste_ids;
-      this.items.flavor_ids = this.product.flavor_ids;
-      this.items.keyword_csv = this.product.keyword_csv;
-      this.items.capacity = this.product.capacity;
-      this.items.prices = [];
-      for (const price of this.product.prices) {
-        const p: any = price; // TODO ここいい感じにならないか
-        this.items.prices.push({
-          id: p.id,
-          capacity: p.capacity,
-          price: p.price,
-          sort_order: p.sort_order,
-        });
-      }
-      // this.items.upload_file_hashs[0] = this.product.upload_files[0].hash;
-
-      for (let i = 0; i < this.product.upload_files.length; i++) {
-        this.items.upload_file_hashs[i] = this.product.upload_files[i].hash;
-        this.imageUrlsHash[i] = this.product.upload_files[i].hash;
-      }
-      console.log("image urls:", this.product.upload_files);
-      
-      this.product.upload_files.forEach((item: {
-        [x: string]: string; url: any;
-      }, index: string | number) => {
-        this.imageUrls[index] = "https://content.herbareyou.jp/" + item?.file_path;
-        console.log(this.imageUrls[index]);
-      })
-
     },
     addPrice: function () {
       this.items.prices.push({
@@ -407,7 +365,6 @@ export default defineComponent({
       }
       this.imageUrlsHash = imageHashArray;
     },
-
     deletePrice: function (index: number) {
       let priceArray: any[] = [];
       for (let i = 0; i < this.items.prices.length; i++) {
@@ -417,61 +374,34 @@ export default defineComponent({
       }
       this.items.prices = priceArray;
     },
-
-    update: async function () {
-      this.validateErrors = {};
-      this.message = "";
+    create: async function () {
       this.submitDisable = true;
-      console.log("updated Data:", this.items);
-      this.items.upload_file_hashs = this.imageUrlsHash;
-      // console.log(typeof this.$route.params.id);
-
-      const result = await updateProductApi(this.$route.params.id, this.items);
-      this.submitDisable = false;
+      console.log("store data:", this.items);
+      const result = await storeProductApi(this.items);
       if (!result.success) {
         this.commonError(result);
+        this.submitDisable = false;
         return;
       }
-      alert("更新しました");
-      await this.setInitData();
+      alert("作成しました");
+      this.$router.push({
+        name: "ProductUpdate",
+        params: { id: result.data.id },
+      });
     },
-    setUploadFile: function (uploadFile: any) {
-      // console.log(uploadFile);
-      // this.items.upload_file_hashs[0] = uploadFile.hash;
-      // this.imageUrls[0] = uploadFile.url;
-      // console.log(this.imageUrls);
 
+    setUploadFile: function (uploadFile: any) {
       console.log(uploadFile);
       this.items.upload_file_hashs[this.count] = uploadFile.hash;
       this.imageUrlsHash[this.count] = uploadFile.hash;
       this.imageUrls[this.count] = uploadFile.url;
       console.log(this.imageUrls);
-      this.count ++;
+      this.count++;
       console.log("count:", this.count);
-    },
-    destroy: async function () {
-      if (!confirm("削除します。よろしいですか？")) {
-        return;
-      }
-      this.submitDisable = true;
-      const result = await destroyProductApi(this.$route.params.id);
-      this.submitDisable = false;
-      if (!result.success) {
-        this.commonError(result);
-        return;
-      }
-      alert("削除しました");
-      this.$router.push({
-        name: "ProductIndex",
-      });
     },
   },
 });
 </script>
 <style lang="scss" scoped>
-.imageDiv{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+
 </style>

@@ -153,6 +153,20 @@
                 <li>
                   <router-link
                     class="dropdown-item"
+                    :to="{ name: 'TrialProductIndex' }"
+                    >試験商品一覧</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    class="dropdown-item"
+                    :to="{ name: 'TrialProductStore' }"
+                    >試験製品の作成</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    class="dropdown-item"
                     :to="{
                       name: 'ProductRecommendationIndex',
                       params: { kind: 2 },

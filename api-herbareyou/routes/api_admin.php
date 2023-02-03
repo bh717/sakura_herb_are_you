@@ -24,7 +24,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::middleware(['multiauth:admin',])->post('users/mail-magazine', 'Api\Adminer\UserController@mailMagazine');
     Route::middleware(['multiauth:admin',])->resource('users', 'Api\Adminer\UserController');
     Route::middleware(['multiauth:admin',])->resource('products', 'Api\Adminer\ProductController');
-
+    Route::middleware(['multiauth:admin',])->resource('trialproducts', 'Api\Adminer\TrialProductController');
 
     Route::middleware(['multiauth:admin',])->resource('symptoms', 'Api\Adminer\SymptomController');
     Route::middleware(['multiauth:admin',])->resource('flavors', 'Api\Adminer\FlavorController');

@@ -42,7 +42,7 @@
             <ul class="product-list clearfix" v-if="products.length !== 0">
               <li class="product-item" data-anime="fadeup" :data-category="'att-' + String(product.id)"
                 v-for="(product, index) in products" v-bind:key="index">
-                <router-link :to="'/product/' + String(product.id)" class="product-item__link">
+                <router-link :to="'/trialproduct/' + String(product.id)" class="product-item__link">
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
                 <p class="product-item__sub">
@@ -69,7 +69,7 @@
                   }}
                 </p>
                 <div class="a-btn">
-                  <router-link :to="'/product/' + String(product.id)" class="a-btn__link">
+                  <router-link :to="'/trialproduct/' + String(product.id)" class="a-btn__link">
                     詳細を見る
                   </router-link>
                 </div>
@@ -90,8 +90,8 @@ import { PageService } from "@/services/PageService";
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
-import { indexProductApi } from "@/api/products";
-import { indexCategoriesApi } from "@/api/products";
+import { indexProductApi } from "@/api/trialproducts";
+import { indexCategoriesApi } from "@/api/trialproducts";
 
 export default defineComponent({
   name: "TrialSetIndex",
@@ -126,6 +126,8 @@ export default defineComponent({
     this.setSearch(this.pageService.getQueryObjectForUrl());
     // 選択するカテゴリの取得
     let ProductCategoriesApiresult = await indexCategoriesApi();
+    console.log("productCategr",ProductCategoriesApiresult);
+
     if (!ProductCategoriesApiresult.success) {
       this.commonError(ProductCategoriesApiresult);
       return;
@@ -133,12 +135,14 @@ export default defineComponent({
     this.tastes = ProductCategoriesApiresult.data.tastes;
     this.materials = ProductCategoriesApiresult.data.materials;
     this.symptoms = ProductCategoriesApiresult.data.symptoms;
+    // alert(1);
     // 商品の検索を行う
     let productApiresult = await indexProductApi(this.getSearchData());
     if (!productApiresult.success) {
       this.commonError(productApiresult);
       return;
     }
+    console.log("productApiresult", productApiresult);
     this.products = productApiresult.data;
     this.isShow = true;
     this.$nextTick(function () {

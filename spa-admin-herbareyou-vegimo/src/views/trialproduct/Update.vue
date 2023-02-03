@@ -1,5 +1,5 @@
 <template>
-  <h2 class="mb-3">商品更新</h2>
+  <h2 class="mb-3">試験製品の更新</h2>
   <ErrorMessage :message="message" />
   <div id="app" v-if="isShow">
     <div>
@@ -44,7 +44,7 @@
             <ValidateError :errorMessages="validateErrors.capacity" />
           </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <th>材料</th>
           <td class="py-2">
             <div>
@@ -97,7 +97,7 @@
             </div>
             <ValidateError :errorMessages="validateErrors.flavor_ids" />
           </td>
-        </tr>
+        </tr> -->
 
         <tr>
           <th>公開/非公開</th>
@@ -173,14 +173,14 @@
             <ValidateError :errorMessages="validateErrors.description" />
           </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <th>キーワード(カンマ区切りで入力してください)</th>
           <td class="py-2">
             <textarea class="form-control" placeholder="キーワード(カンマ区切りで入力してください)" id="floatingTextarea"
               v-model="items.keyword_csv"></textarea>
             <ValidateError :errorMessages="validateErrors.keyword_csv" />
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <th>packs</th>
           <td class="py-2">
@@ -239,11 +239,11 @@ import {
   showProductApi,
   updateProductApi,
   destroyProductApi,
-} from "@/api/products";
+} from "@/api/trialproducts";
 import UploadFile from "@/components/UploadFile.vue";
 
 export default defineComponent({
-  name: "ProductUpdate",
+  name: "TrialProductUpdate",
   components: {
     ErrorMessage,
     ValidateError,
@@ -419,14 +419,13 @@ export default defineComponent({
     },
 
     update: async function () {
-      this.validateErrors = {};
+      // this.validateErrors = {};
       this.message = "";
       this.submitDisable = true;
       console.log("updated Data:", this.items);
       this.items.upload_file_hashs = this.imageUrlsHash;
-      // console.log(typeof this.$route.params.id);
 
-      const result = await updateProductApi(this.$route.params.id, this.items);
+      const result = await updateProductApi(Number(this.$route.params.id), this.items);
       this.submitDisable = false;
       if (!result.success) {
         this.commonError(result);

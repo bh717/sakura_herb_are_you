@@ -40,6 +40,15 @@ Route::group(['prefix' => 'v1'], function () {
     Route::middleware([])->get('products/categories', 'Api\User\ProductController@categories');
     Route::middleware([])->resource('products', 'Api\User\ProductController');
 
+    Route::middleware([])->get('trialproducts/categories', 'Api\User\TrialProductController@categories');
+    Route::get('trialproducts/kind/{id}', 'Api\User\TrialProductController@getKind');
+    Route::get('trialproducts/subitem/{id}', 'Api\User\TrialProductController@getSubItem');
+
+
+    Route::middleware([])->resource('trialproducts', 'Api\User\TrialProductController');
+
+
+
     Route::middleware(['multiauth:api',])->post('order/confirm', 'Api\User\OrderController@confirm');
     Route::middleware(['multiauth:api',])->get('orders/getDeliveredAtList', 'Api\User\OrderController@getDeliveredAtList');
     Route::middleware(['multiauth:api',])->resource('orders', 'Api\User\OrderController');
