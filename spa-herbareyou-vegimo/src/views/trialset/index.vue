@@ -48,15 +48,15 @@
                 <p class="product-item__sub">
                   {{ product.category.name }}
                 </p>
-                <p class="product-item__name">{{ product.name2 }}</p>
+                <p class="product-item__name">{{ product.name1 }}</p>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                       product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="product-item__ttl-main">{{ product.name1 }}　¥{{ product.prices[0].price }}</span>
+                  <span class="product-item__ttl-main">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
                 </p>
-                <p class="product-item__material">
+                <!-- <p class="product-item__material">
                   {{
                       pageService.cutText(
                         20,
@@ -67,7 +67,7 @@
                         )
                       )
                   }}
-                </p>
+                </p> -->
                 <div class="a-btn">
                   <router-link :to="'/trialproduct/' + String(product.id)" class="a-btn__link">
                     詳細を見る
