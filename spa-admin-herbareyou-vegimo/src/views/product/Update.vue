@@ -376,7 +376,7 @@ export default defineComponent({
       this.product.upload_files.forEach((item: {
         [x: string]: string; url: any;
       }, index: string | number) => {
-        this.imageUrls[index] = "https://content.herbareyou.jp/" + item?.file_path;
+        this.imageUrls[index] = "https://d1jw4m1s7z1xyc.cloudfront.net/" + item?.file_path;
         console.log(this.imageUrls[index]);
       })
 
