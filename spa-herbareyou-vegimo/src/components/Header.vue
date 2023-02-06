@@ -2,7 +2,6 @@
   <header class="header">
     <div
       class="news"
-      style="display: block"
       v-if="news && isShowDisplayNewsToPage()"
     >
       <p class="news__txt">
