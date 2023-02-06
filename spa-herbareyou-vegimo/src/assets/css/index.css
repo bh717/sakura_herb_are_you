@@ -110,7 +110,7 @@
 
 .sec-container__hd2-en1 {
   -webkit-text-size-adjust: none;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Bold" ;
   font-size: 1.8rem;
   display: block;
   color: #505050;
@@ -190,10 +190,9 @@
 
 .p-gift-title {
   font-size: 1.8rem;
-  font-weight: 700;
   color: #6e6e6e;
   -webkit-text-size-adjust: none;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Bold" ;
 }
 
 .p-gift-title1 {
@@ -212,7 +211,7 @@
   margin-top: 1rem;
   text-align: center;
   -webkit-text-size-adjust: none;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Medium" ;
   font-weight: 700;
 }
 
@@ -278,7 +277,7 @@
 .blog-item-link__issue {
   font-weight: 700;
   -webkit-text-size-adjust: none;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Bold" ;
   position: absolute;
   top: 0;
   left: 0;

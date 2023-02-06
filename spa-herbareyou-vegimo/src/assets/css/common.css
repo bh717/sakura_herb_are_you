@@ -13,6 +13,16 @@
   src: local("koburina"), url(../font/koburina/koburina.otf) format("opentype");
 }
 
+@font-face {
+  font-family: "Gothic Bold";
+  src: local("Gothic Bold"), url(../font/Gothic/ZenKakuGothicNew-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Gothic Medium";
+  src: local("Gothic Medium"), url(../font/Gothic/ZenKakuGothicNew-Medium.ttf) format("truetype");
+}
+
 *,
 *::before,
 *::after {
