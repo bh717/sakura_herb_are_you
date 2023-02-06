@@ -73,12 +73,15 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
+  -webkit-text-size-adjust: none;
+  font-family: koburina gothic std ;
   display: flex;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
   font-size: 1.2rem;
+  font-weight: 700;
   /* font-weight: bold; */
   /* margin-bottom: 2rem; */
 }

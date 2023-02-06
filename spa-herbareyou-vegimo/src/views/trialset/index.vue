@@ -8,6 +8,7 @@
           <img src="@/assets/img/trialset/trialBackground1.png" class="kv__img1" />
 
           <div class="trial-sec-p-section">
+            
             <p className="trial-sec-p1">飲み比べができるお試しセット</p>
             <p className="trial-sec-p3">Assorted Trial Pack</p>
             <p className="trial-sec-p2">7種類のブレンド入り</p>
@@ -15,11 +16,11 @@
         </div>
         <section class="sec">
           <div class="trial-sec-container">
-            <p class="trial-p">
-              初めてご利用する方や、ハーブティーをあまり飲んだことが</p>
-            <p class="trial-p">ない方のために、お試しセットをご用意しました。</p>
-            <p class="trial-p">飲みやすいブレンドを7つセレクトしています。</p>
-            <p class="trial-p">飲み比べて、ぜひあなたのお気に入りをみつけてください。
+            <p class="sec-container__txt">
+              初めてご利用する方や、ハーブティーをあまり飲んだことが<br />
+              ない方のために、お試しセットをご用意しました。<br />
+              飲みやすいブレンドを7つセレクトしています。<br />
+              飲み比べて、ぜひあなたのお気に入りをみつけてください。
             </p>
           </div>
 

@@ -589,10 +589,12 @@ nav.is-open {
   display: flex;
 }
 .s-cart__ttl-num {
+  -webkit-text-size-adjust: none;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
 }
 .s-cart__ttl-main {
+  -webkit-text-size-adjust: none;
   font-family: "Acme", sans-serif;
   padding-left: 1rem;
 }
@@ -621,6 +623,7 @@ nav.is-open {
   width: 45%;
 }
 .s-cart__footer {
+  -webkit-text-size-adjust: none;
   font-family: "Acme", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -22,7 +22,6 @@
                   }}</span>
                   <span class="vertical-section">|</span>
                   <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
-
                 </span>
               </p>
               <p class="detail-container__txt">

@@ -42,9 +42,9 @@
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
-              <span class="sec-container__hd2-en">Serching by the THEME</span>
+              <span class="sec-container__hd2-en">Serching by the Symptoms</span>
               <span class="sec-container__hd2-ja"
-                >具体的な症状・テーマからハーブティを探す</span
+                >具体的な症状・テーマから探す</span
               >
             </h2>
             <!-- <div class="symptom-section" data-anime="fadeup"> -->
@@ -70,7 +70,7 @@
                 >Serching by the category</span
               >
               <span class="sec-container__hd2-ja"
-                >今の自分の気分に合ったハーブティを3つのカテゴリーから探す</span
+                >今の気分に合わせて探す</span
               >
             </h2>
             <div class="illust-container" data-anime="fadeup">

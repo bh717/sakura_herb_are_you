@@ -94,7 +94,7 @@
 
 .sec-container__hd2-en {
   -webkit-text-size-adjust: none;
-  font-family: Acme, sans-serif;
+  font-family: koburina gothic std ;
   font-size: 1.8rem;
   display: block;
   color: #505050;
@@ -189,9 +189,11 @@
 }
 
 .p-gift-title {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #6e6e6e;
-  font-family: "Acme", sans-serif;
+  -webkit-text-size-adjust: none;
+  font-family: koburina gothic std ;
 }
 
 .p-gift-title1 {
@@ -209,6 +211,9 @@
   width: 100%;
   margin-top: 1rem;
   text-align: center;
+  -webkit-text-size-adjust: none;
+  font-family: koburina gothic std ;
+  font-weight: 700;
 }
 
 .border-gift {
@@ -271,7 +276,8 @@
 }
 
 .blog-item-link__issue {
-  font-weight: normal;
+  font-weight: 700;
+  -webkit-text-size-adjust: none;
   font-family: koburina gothic std ;
   position: absolute;
   top: 0;
@@ -302,7 +308,7 @@
 .blog-btn {
   opacity: 1;
   border: 1px solid #505050;
-  width: 200px;
+  width: 137px;
   height: 60px;
   cursor: pointer;
   align-items: center;
