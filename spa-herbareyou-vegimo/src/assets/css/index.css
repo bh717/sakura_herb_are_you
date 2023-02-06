@@ -114,7 +114,7 @@
   font-size: 1.8rem;
   display: block;
   color: #505050;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .sec-container__hd2-ja1 {
@@ -275,7 +275,7 @@
 }
 
 .blog-item-link__issue {
-  font-weight: 700;
+  /* font-weight: 700; */
   -webkit-text-size-adjust: none;
   font-family: "Gothic Bold" ;
   position: absolute;
