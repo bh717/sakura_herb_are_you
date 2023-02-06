@@ -98,7 +98,7 @@
   font-size: 1.8rem;
   display: block;
   color: #505050;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .sec-container__hd2-ja {
@@ -211,8 +211,8 @@
   margin-top: 1rem;
   text-align: center;
   -webkit-text-size-adjust: none;
-  font-family: "Gothic Medium" ;
-  font-weight: 700;
+  font-family: "Gothic Bold" ;
+  /* font-weight: 700; */
 }
 
 .border-gift {
