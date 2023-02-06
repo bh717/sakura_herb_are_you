@@ -126,7 +126,7 @@
 
         <section class="sec sec--gray">
           <div class="sec-sub-container">
-            <h2
+            <p
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
@@ -134,7 +134,7 @@
               <span class="sec-container__hd2-ja1"
                 >植物療法士がお届けする暮らしとハーブのコラムです</span
               >
-            </h2>
+          </p>
             <ul class="blog-list">
               <li
                 class="blog-item is-active"
