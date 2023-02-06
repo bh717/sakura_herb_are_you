@@ -92,6 +92,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   color: #505050;
+  font-family: "Gothic Medium";
   line-height: 2.5;
 }
 
@@ -133,7 +134,7 @@
   }
 
   .trial-sec-p1 {
-    font-family: "Acme", sans-serif;
+    /* font-family: "Acme", sans-serif; */
     color: white;
     font-size: 1.8rem;
     padding: 0.5rem;
@@ -194,7 +195,7 @@
   }
 
   .trial-sec-p1 {
-    font-family: "Acme", sans-serif;
+    /* font-family: "Acme", sans-serif */
     color: white;
     font-size: 1.8rem;
     padding: 0.5rem;
