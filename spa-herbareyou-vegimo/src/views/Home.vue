@@ -42,7 +42,7 @@
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
-              <span class="sec-container__hd2-en">Serching by the Symptoms</span>
+              <span class="sec-container__hd2-en">Serching by the symptoms</span>
               <span class="sec-container__hd2-ja"
                 >具体的な症状・テーマから探す</span
               >

@@ -1309,7 +1309,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   font-weight: 100;
   margin-bottom: 0.5rem;
   text-align: center;
-  font-family: "koburina";
+  font-family: "Gothic Medium";
 }
 
 .product-item__sub1 {
@@ -1386,7 +1386,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 }
 
 .product-item__name {
-  font-family: "koburina";
+  font-family: "Gothic Medium";
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 1rem;
@@ -1394,7 +1394,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 
 .product-item__name1 {
   color: white;
-  font-family: "koburina";
+  font-family: "Gothic Medium";
   font-size: 1rem;
   text-align: center;
   margin-bottom: 1rem;

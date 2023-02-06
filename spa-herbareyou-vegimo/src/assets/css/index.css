@@ -94,7 +94,7 @@
 
 .sec-container__hd2-en {
   -webkit-text-size-adjust: none;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Bold" ;
   font-size: 1.8rem;
   display: block;
   color: #505050;
@@ -291,7 +291,7 @@
   color: #d6ac4e;
   margin-left: 250px;
   margin-top: 0px;
-  font-family: koburina gothic std ;
+  font-family: "Gothic Medium" ;
   font-weight: normal;
   -webkit-font-smoothing: subpixel-antialiased !important;
 
