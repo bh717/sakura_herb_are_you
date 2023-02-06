@@ -46,6 +46,7 @@ export class CommonScriptService {
       var scroll = window.pageYOffset;
       if (scroll >= newsHeight) {
         headerFlex.classList.add("is-fixed");
+        news.classList.add("is-fixed");
       } else if (scroll === 0) {
         headerFlex.classList.remove("is-fixed");
       }
@@ -313,6 +314,8 @@ export class CommonScriptService {
   df13(): void {
     // var nav = document.querySelector('.nav');
     var headerFlex: any = document.querySelector('.header-flex');
+    var newsFlex: any = document.querySelector('.news');
+
       if (!headerFlex) {
         return;
       }
@@ -324,6 +327,7 @@ export class CommonScriptService {
     window.addEventListener("scroll", function () {
       isScrolling = 1;
       headerFlex.style.opacity = 0;
+      newsFlex.style.opacity = 0;
       clearTimeout(timeoutId);
       timeoutId = setTimeout(function () {
         isScrolling = 0;
