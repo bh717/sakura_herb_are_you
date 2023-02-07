@@ -247,10 +247,10 @@ body {
   z-index: 999;
 }
 
-.news.icons.is-fixed{
+.news.is-fixed{
   position: fixed;
   top: 0;
-  /* opacity: 0; */
+  opacity: 0;
   display: none !important;
   z-index: 999;
 }
