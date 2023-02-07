@@ -132,13 +132,14 @@
                   {{ recommendProduct.category.name }}
                 </p>
                 <p class="product-item__name">
-                  {{ recommendProduct.name2 }}
+                  {{ recommendProduct.category.series_name }}
                 </p>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                       recommendProduct.product_no
                   }}</span>
-                  <span class="product-item__ttl-main">{{ recommendProduct.name1 }}　¥{{
+                  <span>|</span>
+                  <span class="product-item__ttl-main">{{ recommendProduct.name2 }}　¥{{
                       recommendProduct.prices[0].price
                   }}</span>
                 </p>

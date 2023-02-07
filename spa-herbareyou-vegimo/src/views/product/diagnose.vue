@@ -6,28 +6,14 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2">
-              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br
-                class="sp"
-              />ハーブティはこちらです。
+              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br class="sp" />ハーブティはこちらです。
             </h2>
 
             <ul class="product-list clearfix">
-              <li
-                class="product-item is-active"
-                data-anime="fadeup"
-                :data-category="'att-' + index"
-                v-for="(product, index) in products"
-                v-bind:key="product.id"
-              >
-                <router-link
-                  class="product-item__link"
-                  :to="{ name: 'ProductShow', params: { id: product.id } }"
-                >
-                  <img
-                    :src="product.upload_files[0].url"
-                    alt=""
-                    class="product_img"
-                  />
+              <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
+                v-for="(product, index) in products" v-bind:key="product.id">
+                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id } }">
+                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
                 </router-link>
                 <p class="product-item__sub1">{{ product.category.name }}</p>
                 <p class="product-item__name1">{{ product.name1 }}</p>
@@ -36,9 +22,7 @@
                     product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="product-item__ttl-main1"
-                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
-                  >
+                  <span class="product-item__ttl-main1">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
                 </p>
                 <p class="product-item__material1">
                   {{
@@ -53,11 +37,7 @@
                   }}
                 </p>
                 <div class="a-btn">
-                  <router-link
-                    class="a-btn__link1"
-                    :to="'/product/' + String(product.id)"
-                    >詳細を見る</router-link
-                  >
+                  <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
                 </div>
               </li>
             </ul>
@@ -110,7 +90,7 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: async function () {},
+  created: async function () { },
   mounted: async function (): Promise<void> {
     document.body.className = "index";
     this.init();
@@ -173,8 +153,12 @@ export default defineComponent({
       }
       this.diagnoseData = diagnoseData;
       this.searchsymptomIds = diagnoseData.diagnose2.condition;
+      console.log(typeof diagnoseData.diagnose2.condition);
+      if(diagnoseData.diagnose2.condition === 20){
+        this.searchsymptomIds = '';
+      }
       this.name = diagnoseData?.diagnose0?.name;
-      console.log("name:",this.name);
+      console.log("name:", this.name);
     },
     sortedItems: function () {
       let searchString = this.searchString;
@@ -234,6 +218,7 @@ export default defineComponent({
     },
     // 商品検索用のデータを取得する
     getSearchData(): any {
+      console.log("symptomIds:", this.symptomsIds);
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
         flavor_ids: this.pageService.implode(",", this.flavorIds),
@@ -269,4 +254,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped src="@/assets/css/diagnoseresult.css"></style>
+<style scoped src="@/assets/css/diagnoseresult.css">
+
+</style>
