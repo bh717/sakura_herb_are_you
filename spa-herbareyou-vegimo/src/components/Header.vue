@@ -207,7 +207,7 @@
               <router-link
                 class="nav-list-item__link nav-list-item__link--mb50"
                 v-on:click="closeMenu()"
-                :to="{ name: 'Diagnose0' }"
+                :to="{ name: 'SiteAbout' }"
                 >お問合せ</router-link
               >
             </li>
