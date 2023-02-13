@@ -20,7 +20,6 @@
       <h1 class="header-logo">
         <router-link
           class="header-logo__inner"
-          v-on:click="closeMenu()"
           :to="{ name: 'Home' }"
         >
           <img
