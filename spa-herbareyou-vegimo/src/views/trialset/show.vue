@@ -431,7 +431,7 @@ export default defineComponent({
 
       console.log("totalSubProducts", this.subProducts);
 
-      this.selectPriceId = this.product.prices[0].id;
+      this.selectPriceId = this.product.prices[0].id + 1000;
       // おすすめ一覧
       let productIndexApiResult = await indexProductApi({
         // not_product_ids: this.product.id,

@@ -11,7 +11,7 @@
 
             <ul class="product-list clearfix">
               <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
-                v-for="(product, index) in products" v-bind:key="product.id">
+                v-for="(product, index) in flavorproducts" v-bind:key="product.id">
                 <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id } }">
                   <img :src="product.upload_files[0].url" alt="" class="product_img" />
                 </router-link>
@@ -40,6 +40,39 @@
                   <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
                 </div>
               </li>
+
+              <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
+                v-for="(product, index) in tasteproducts" v-bind:key="product.id">
+                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id } }">
+                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
+                </router-link>
+                <p class="product-item__sub1">{{ product.category.name }}</p>
+                <p class="product-item__name1">{{ product.name1 }}</p>
+                <p class="product-item__ttl1">
+                  <span class="product-item__ttl-num1">{{
+                    product.product_no
+                  }}</span>
+                  <span>|</span>
+                  <span class="product-item__ttl-main1">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
+                </p>
+                <p class="product-item__material1">
+                  {{
+                    pageService.cutText(
+                      20,
+                      "…",
+                      pageService.implode(
+                        "、",
+                        pageService.pluck("name", product.materials)
+                      )
+                    )
+                  }}
+                </p>
+                <div class="a-btn">
+                  <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
+                </div>
+              </li>
+
+
             </ul>
           </div>
         </section>
@@ -74,7 +107,9 @@ export default defineComponent({
       materials: [] as any[],
       sortedmaterials: [] as any[],
       symptoms: [] as any[],
-      products: [] as any[],
+      tasteproducts: [] as any[],
+      flavorproducts: [] as any[],
+
       tasteIds: [] as number[],
       flavorIds: [] as number[],
       materialIds: [] as number[],
@@ -119,15 +154,31 @@ export default defineComponent({
 
     this.symptoms = ProductCategoriesApiresult.data.symptoms;
     // 商品の検索を行う
-    console.log("searchData:", this.getSearchData());
+    console.log("searchData:", this.getTasteSearchData());
 
-    let productApiresult = await indexProductApi(this.getSearchData());
-    if (!productApiresult.success) {
-      this.commonError(productApiresult);
+    let tasteproductApiresult = await indexProductApi(this.getTasteSearchData());
+    if (!tasteproductApiresult.success) {
+      this.commonError(tasteproductApiresult);
       return;
     }
-    this.products = productApiresult.data;
-    console.log("product list:", this.products);
+
+    let flavorproductApiresult = await indexProductApi(this.getFlavorSearchData());
+    if (!flavorproductApiresult.success) {
+      this.commonError(flavorproductApiresult);
+      return;
+    }
+
+
+    this.flavorproducts = flavorproductApiresult.data;
+    this.tasteproducts = tasteproductApiresult.data;
+
+    // this.products = tasteproductApiresult.data + flavorproductApiresult.data ;
+
+    console.log("taste product list:", tasteproductApiresult.data);
+    console.log("flavor product list:", flavorproductApiresult.data);
+    console.log("flavor product list:", tasteproductApiresult.data + flavorproductApiresult.data);
+
+
     this.isShow = true;
     this.$nextTick(function () {
       this.commonScriptService.execute();
@@ -217,12 +268,24 @@ export default defineComponent({
       location.href = location.pathname;
     },
     // 商品検索用のデータを取得する
-    getSearchData(): any {
+    getTasteSearchData(): any {
       console.log("symptomIds:", this.symptomsIds);
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
+        flavor_ids: this.pageService.implode(",", ""),
+        material_ids: this.pageService.implode(",", ""),
+        symptom_ids: this.pageService.implode(",", this.symptomIds),
+        per_page: -1,
+        order_by: this.sortOrder,
+      };
+    },
+
+    getFlavorSearchData(): any {
+      console.log("symptomIds:", this.symptomsIds);
+      return {
+        taste_ids: this.pageService.implode(",", ""),
         flavor_ids: this.pageService.implode(",", this.flavorIds),
-        material_ids: this.pageService.implode(",", this.materialIds),
+        material_ids: this.pageService.implode(",", ""),
         symptom_ids: this.pageService.implode(",", this.symptomIds),
         per_page: -1,
         order_by: this.sortOrder,

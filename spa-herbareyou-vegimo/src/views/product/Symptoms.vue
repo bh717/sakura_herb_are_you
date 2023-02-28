@@ -181,7 +181,7 @@
                       product.product_no
                     }}</span>
                     <span class="product-item__ttl-main"
-                      >{{ product.name1 }}　¥{{ product.prices[0].price }}</span
+                      >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
                     >
                   </p>
                 </div>

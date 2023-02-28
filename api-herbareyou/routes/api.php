@@ -54,6 +54,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::middleware(['multiauth:api',])->resource('orders', 'Api\User\OrderController');
     Route::middleware(['multiauth:api',])->resource('order-details', 'Api\User\OrderDetailController');
     Route::post('carts/mine', 'Api\User\CartController@mine');
+    Route::post('carts/testmine', 'Api\User\TestCartController@mine');
+
 
     Route::post('coupons/effectiveness', 'Api\User\CouponController@effectiveness');
 

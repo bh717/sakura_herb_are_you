@@ -2,7 +2,13 @@ import { createStore } from "vuex";
 // import { showCartApi } from "@/api/carts";
 
 import { getMyDataApi } from "@/api/auth";
-import { getCartData, setProductPrice, setCouponCode, allDeleteProductPriceData, deleteCouponCode } from "@/utils/cart";
+import {
+  getCartData,
+  setProductPrice,
+  setCouponCode,
+  allDeleteProductPriceData,
+  deleteCouponCode,
+} from "@/utils/cart";
 import { showCartMineApi } from "@/api/carts";
 
 // import { getCart } from "@/utils/cart";
@@ -58,8 +64,11 @@ export default createStore({
     },
     setCartData: async ({ commit, state }): Promise<void> => {
       const productPriceData = getCartData();
-      console.log("data",productPriceData);
+
+      console.log("GetCardData:", productPriceData);
+      
       const apiResult = await showCartMineApi(productPriceData);
+
       if (!apiResult.success) {
         // alert('カートの更新に失敗しましたので、カート情報がリセットされました。');
         allDeleteProductPriceData();
@@ -70,7 +79,7 @@ export default createStore({
       setProductPrice(apiResult.data.cart_in_product_prices.product_prices);
       setCouponCode(apiResult.data.cart.coupon_code);
       if (apiResult?.data?.cart?.is_delete_product_price) {
-        alert('商品が削除されていたため、カートが更新されました。');
+        alert("商品が削除されていたため、カートが更新されました。");
       }
       return apiResult.data;
     },

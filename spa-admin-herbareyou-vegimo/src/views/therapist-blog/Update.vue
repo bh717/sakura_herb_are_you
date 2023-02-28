@@ -22,7 +22,7 @@
           <td class="py-2">
             <div class="p-2">
               <!-- <example-modal v-if="open" @close="open = false" v-show="showModal" /> -->
-              <example-modal v-show="showModal" />
+              <!-- <example-modal v-show="showModal" /> -->
 
               <button type="button" v-on:click="showHyperlinkDialog">
                 リンクを設定する

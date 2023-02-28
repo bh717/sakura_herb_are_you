@@ -115,9 +115,9 @@
           </picture>
 
           <div class="gift-section">
-            <p class="p-gift-title">飲み比べができるお試しセット</p>
+            <h1 class="p-gift-title">飲み比べができるお試しセット</h1>
             <p class="p-gift-title1">Assorted Trial Pack</p>
-            <p class="p-gift-main">7種類のブレンド入り</p>
+            <h1 class="p-gift-main">7種類のブレンド入り</h1>
             <router-link class="gift-btn__link" :to="'/trialset'"
               >もっと詳しく知る</router-link
             >
@@ -130,10 +130,9 @@
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
-              <span class="sec-container__hd2-en1">植物療法士便り</span>
-              <span class="sec-container__hd2-ja1"
-                >植物療法士がお届けする暮らしとハーブのコラムです</span
-              >
+              <h1 class="sec-container__hd2-en1">植物療法士便り</h1>
+              <p class="sec-container__hd2-ja1"
+                >植物療法士がお届けする暮らしとハーブのコラムです</p>
           </p>
             <ul class="blog-list">
               <li
@@ -149,10 +148,10 @@
                   }"
                   class="blog-item-link"
                 >
-                  <span class="blog-item-link__issue"
+                  <h1 class="blog-item-link__issue"
                     >植物療法士便り #{{
                       pageService.get0Padding(blog.id, 2)
-                    }}</span
+                    }}</h1
                   >
                   <h3 class="blog-item-link__hd3">{{ blog.title }}</h3>
                 </router-link>

@@ -44,7 +44,7 @@
           </div>
         </section>
 
-        <section class="sec">
+        <section class="sec" ref="targetElement">
           <div class="sec-container-form" data-anime="fadeup">
             <h2 class="sec-container-form__hd2">お問い合わせフォーム</h2>
             <div class="form-container">
@@ -114,6 +114,7 @@
         </section>
       </article>
     </main>
+
     <Footer :isSct="true" />
   </div>
 </template>
@@ -131,7 +132,7 @@ export default defineComponent({
   name: "SiteAbout",
   data() {
     return {
-      isShow: false,
+      isShow: true,
       submitDisable: false,
       message: "",
       validateErrors: {} as any,
@@ -148,8 +149,12 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: function (): void {},
+  created: function (): void {
+    // console.log("asdf");
+  },
   mounted: async function (): Promise<void> {
+    // console.log("target:", this.$refs.targetelement);
+
     document.body.className = "index";
     const result = await indexContentAboutApi();
     if (!result.success) {
@@ -159,9 +164,17 @@ export default defineComponent({
       return;
     }
     this.aboutContents = result.data;
-    this.isShow = true;
+    // this.isShow = true;
+
     this.$nextTick(function () {
       this.commonScriptService.execute();
+
+      const targetElement = this.$refs.targetElement;
+
+      if (targetElement) {
+        console.log("target:", this.$refs.targetelement);
+        window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+      }
     });
   },
 

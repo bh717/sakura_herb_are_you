@@ -9,9 +9,9 @@
 
           <div class="trial-sec-p-section">
             
-            <p className="trial-sec-p1">飲み比べができるお試しセット</p>
+            <h1 className="trial-sec-p1">飲み比べができるお試しセット</h1>
             <p className="trial-sec-p3">Assorted Trial Pack</p>
-            <p className="trial-sec-p2">7種類のブレンド入り</p>
+            <h1 className="trial-sec-p2">7種類のブレンド入り</h1>
           </div>
         </div>
         <section class="sec">

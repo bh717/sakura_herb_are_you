@@ -47,7 +47,7 @@
 
 .trial-sec-p1 {
   -webkit-text-size-adjust: none;
-  font-family: "Gothic Bold" ;
+  /* font-family: "Gothic Bold" ; */
   color: white;
   font-size: 1.8rem;
   padding: 0.1rem;
@@ -57,7 +57,7 @@
 .trial-sec-p2 {
   color: white;
   font-size: 1.5rem;
-  font-family: "Gothic Bold" ;
+  /* font-family: "Gothic Bold" ; */
 
   border-top: solid 1px;
   border-bottom: solid 1px;
@@ -92,7 +92,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   color: #505050;
-  font-family: "Gothic Medium";
+  /* font-family: "Gothic Medium"; */
   line-height: 2.5;
 }
 

@@ -74,6 +74,9 @@ export function addProductPriceData(
   num: number
 ): void {
   let cartData = getCartData();
+
+  console.log("started:", productPriceId);
+  
   cartData.product_prices.push({
     id: productPriceId,
     num: num,
