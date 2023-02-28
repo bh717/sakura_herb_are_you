@@ -6,14 +6,28 @@
         <section class="sec">
           <div class="sec-container">
             <h2 class="sec-container__hd2">
-              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br class="sp" />ハーブティはこちらです。
+              診断が完了しました！<br />{{ this.name }}さんにおすすめの<br
+                class="sp"
+              />ハーブティはこちらです。
             </h2>
 
             <ul class="product-list clearfix">
-              <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
-                v-for="(product, index) in flavorproducts" v-bind:key="product.id">
-                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id } }">
-                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
+              <li
+                class="product-item is-active"
+                data-anime="fadeup"
+                :data-category="'att-' + index"
+                v-for="(product, index) in flavorproducts"
+                v-bind:key="product.id"
+              >
+                <router-link
+                  class="product-item__link"
+                  :to="{ name: 'ProductShow', params: { id: product.id } }"
+                >
+                  <img
+                    :src="product.upload_files[0].url"
+                    alt=""
+                    class="product_img"
+                  />
                 </router-link>
                 <p class="product-item__sub1">{{ product.category.name }}</p>
                 <p class="product-item__name1">{{ product.name1 }}</p>
@@ -22,7 +36,9 @@
                     product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="product-item__ttl-main1">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
+                  <span class="product-item__ttl-main1"
+                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
+                  >
                 </p>
                 <p class="product-item__material1">
                   {{
@@ -37,14 +53,30 @@
                   }}
                 </p>
                 <div class="a-btn">
-                  <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
+                  <router-link
+                    class="a-btn__link1"
+                    :to="'/product/' + String(product.id)"
+                    >詳細を見る</router-link
+                  >
                 </div>
               </li>
 
-              <li class="product-item is-active" data-anime="fadeup" :data-category="'att-' + index"
-                v-for="(product, index) in tasteproducts" v-bind:key="product.id">
-                <router-link class="product-item__link" :to="{ name: 'ProductShow', params: { id: product.id } }">
-                  <img :src="product.upload_files[0].url" alt="" class="product_img" />
+              <li
+                class="product-item is-active"
+                data-anime="fadeup"
+                :data-category="'att-' + index"
+                v-for="(product, index) in tasteproducts"
+                v-bind:key="product.id"
+              >
+                <router-link
+                  class="product-item__link"
+                  :to="{ name: 'ProductShow', params: { id: product.id } }"
+                >
+                  <img
+                    :src="product.upload_files[0].url"
+                    alt=""
+                    class="product_img"
+                  />
                 </router-link>
                 <p class="product-item__sub1">{{ product.category.name }}</p>
                 <p class="product-item__name1">{{ product.name1 }}</p>
@@ -53,7 +85,9 @@
                     product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="product-item__ttl-main1">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
+                  <span class="product-item__ttl-main1"
+                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
+                  >
                 </p>
                 <p class="product-item__material1">
                   {{
@@ -68,11 +102,13 @@
                   }}
                 </p>
                 <div class="a-btn">
-                  <router-link class="a-btn__link1" :to="'/product/' + String(product.id)">詳細を見る</router-link>
+                  <router-link
+                    class="a-btn__link1"
+                    :to="'/product/' + String(product.id)"
+                    >詳細を見る</router-link
+                  >
                 </div>
               </li>
-
-
             </ul>
           </div>
         </section>
@@ -125,7 +161,7 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: async function () { },
+  created: async function () {},
   mounted: async function (): Promise<void> {
     document.body.className = "index";
     this.init();
@@ -156,28 +192,30 @@ export default defineComponent({
     // 商品の検索を行う
     console.log("searchData:", this.getTasteSearchData());
 
-    let tasteproductApiresult = await indexProductApi(this.getTasteSearchData());
-    if (!tasteproductApiresult.success) {
-      this.commonError(tasteproductApiresult);
-      return;
+    let tasteproductApiresult, flavorproductApiresult;
+
+    if (this.tasteIds.length != 0) {
+      tasteproductApiresult = await indexProductApi(this.getTasteSearchData());
+      if (!tasteproductApiresult.success) {
+        this.commonError(tasteproductApiresult);
+        return;
+      }
+      this.tasteproducts = tasteproductApiresult.data;
     }
 
-    let flavorproductApiresult = await indexProductApi(this.getFlavorSearchData());
-    if (!flavorproductApiresult.success) {
-      this.commonError(flavorproductApiresult);
-      return;
+    if (this.flavorIds.length != 0) {
+      flavorproductApiresult = await indexProductApi(
+        this.getFlavorSearchData()
+      );
+      if (!flavorproductApiresult.success) {
+        this.commonError(flavorproductApiresult);
+        return;
+      }
+      this.flavorproducts = flavorproductApiresult.data;
     }
 
-
-    this.flavorproducts = flavorproductApiresult.data;
-    this.tasteproducts = tasteproductApiresult.data;
-
-    // this.products = tasteproductApiresult.data + flavorproductApiresult.data ;
-
-    console.log("taste product list:", tasteproductApiresult.data);
-    console.log("flavor product list:", flavorproductApiresult.data);
-    console.log("flavor product list:", tasteproductApiresult.data + flavorproductApiresult.data);
-
+    // console.log("taste product list:", tasteproductApiresult.data);
+    // console.log("flavor product list:", flavorproductApiresult.data);
 
     this.isShow = true;
     this.$nextTick(function () {
@@ -205,8 +243,8 @@ export default defineComponent({
       this.diagnoseData = diagnoseData;
       this.searchsymptomIds = diagnoseData.diagnose2.condition;
       console.log(typeof diagnoseData.diagnose2.condition);
-      if(diagnoseData.diagnose2.condition === 20){
-        this.searchsymptomIds = '';
+      if (diagnoseData.diagnose2.condition === 20) {
+        this.searchsymptomIds = "";
       }
       this.name = diagnoseData?.diagnose0?.name;
       console.log("name:", this.name);
@@ -269,7 +307,7 @@ export default defineComponent({
     },
     // 商品検索用のデータを取得する
     getTasteSearchData(): any {
-      console.log("symptomIds:", this.symptomsIds);
+      console.log("tasteIds:", this.tasteIds);
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
         flavor_ids: this.pageService.implode(",", ""),
@@ -281,7 +319,7 @@ export default defineComponent({
     },
 
     getFlavorSearchData(): any {
-      console.log("symptomIds:", this.symptomsIds);
+      console.log("flavorIds:", this.flavorIds);
       return {
         taste_ids: this.pageService.implode(",", ""),
         flavor_ids: this.pageService.implode(",", this.flavorIds),
@@ -317,6 +355,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped src="@/assets/css/diagnoseresult.css">
-
-</style>
+<style scoped src="@/assets/css/diagnoseresult.css"></style>

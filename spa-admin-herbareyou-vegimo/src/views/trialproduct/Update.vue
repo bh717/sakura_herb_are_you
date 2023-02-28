@@ -263,6 +263,16 @@ export default defineComponent({
       prices: [] as any[],
       upload_file_hashs: [] as string[],
     } as any,
+
+    updateData: {
+      material_ids: [] as number[],
+      symptom_ids: [] as number[],
+      taste_ids: [] as number[],
+      flavor_ids: [] as number[],
+      prices: [] as any[],
+      upload_file_hashs: [] as string[],
+    } as any,
+
     categories: [] as any[],
     materials: [] as any[],
     sortedmaterials: [] as any[],
@@ -341,7 +351,7 @@ export default defineComponent({
       this.product = result.data;
       console.log("asdfa:", this.product);
 
-      this.items.product_category_id = this.product.product_category_id;
+      this.items.product_category_id = this.product.product_category_id-1000;
       this.items.product_no = this.product.product_no;
       this.items.name1 = this.product.name1;
       this.items.name2 = this.product.name2;
@@ -349,10 +359,10 @@ export default defineComponent({
       this.items.is_public = this.product.is_public ?? 0;
       this.items.is_productStatus = this.product.is_productStatus ?? 0;
 
-      this.items.material_ids = this.product.material_ids;
-      this.items.symptom_ids = this.product.symptom_ids;
-      this.items.taste_ids = this.product.taste_ids;
-      this.items.flavor_ids = this.product.flavor_ids;
+      this.items.material_ids = [1];
+      this.items.symptom_ids = [1];
+      this.items.taste_ids = [1];
+      this.items.flavor_ids = [1];
       this.items.keyword_csv = this.product.keyword_csv;
       this.items.capacity = this.product.capacity;
       this.items.prices = [];
@@ -422,10 +432,17 @@ export default defineComponent({
       // this.validateErrors = {};
       this.message = "";
       this.submitDisable = true;
-      console.log("updated Data:", this.items);
+      // console.log("updated Data:", this.items);
       this.items.upload_file_hashs = this.imageUrlsHash;
+      // this.items.product_category_id = this.items.product_category_id+1000;
 
-      const result = await updateProductApi(Number(this.$route.params.id), this.items);
+      this.updateData = this.items;
+      this.updateData.product_category_id = this.updateData.product_category_id + 1000;
+
+      console.log("update data:", this.updateData);
+
+      // var updatedID = Number(this.$route.params.id) + 1000;
+      const result = await updateProductApi(Number(this.$route.params.id), this.updateData);
       this.submitDisable = false;
       if (!result.success) {
         this.commonError(result);

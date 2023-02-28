@@ -94,7 +94,7 @@ class TrialProductUpdateRequest extends BaseApiRequest
             'product_category_id' => [
                 'required',
                 'integer',
-                'exists:product_categories,id'
+                'exists:trialproduct_categories,id'
             ],
             'keyword_csv' => [
                 'present',
