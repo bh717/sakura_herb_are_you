@@ -389,6 +389,7 @@ export default defineComponent({
     },
     setPageData: async function (): Promise<boolean> {
       // 詳細
+      // let searchId = Number(this.$route.params.id) + 1000;
       let productShowApiresult = await showProductApi(
         Number(this.$route.params.id)
       );
@@ -399,7 +400,7 @@ export default defineComponent({
       console.log("product:", productShowApiresult.data);
       this.product = productShowApiresult.data;
 
-      let productkind = await indexKindApi(this.product.id);
+      let productkind = await indexKindApi(this.product.product_category_id);
 
       let productkinddata = productkind.data;
       console.log("productkind:", productkind);
@@ -416,7 +417,7 @@ export default defineComponent({
         this.kind = "MAINTENANCE";
       }
 
-      let subproduct = await indexSubItem(this.product.id);
+      let subproduct = await indexSubItem(this.product.product_category_id);
       console.log("subproduct:", subproduct);
 
       this.subproductdata = subproduct.data;
@@ -431,7 +432,7 @@ export default defineComponent({
 
       console.log("totalSubProducts", this.subProducts);
 
-      this.selectPriceId = this.product.prices[0].id + 1000;
+      this.selectPriceId = this.product.prices[0].id + 316;
       // おすすめ一覧
       let productIndexApiResult = await indexProductApi({
         // not_product_ids: this.product.id,
