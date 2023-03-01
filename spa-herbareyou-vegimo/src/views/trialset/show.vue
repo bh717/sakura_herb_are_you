@@ -12,14 +12,18 @@
                   <span class="detail-container__hd2-sub">{{
                     product.category.name
                   }}</span>
-                  <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span>
+                  <span class="detail-container__hd2-ttl-main1">{{
+                    product.name1
+                  }}</span>
                 </span>
                 <span class="detail-container__hd2-ttl">
                   <span class="detail-container__hd2-ttl-num">{{
                     product.product_no
                   }}</span>
                   <span class="vertical-section">|</span>
-                  <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
+                  <span class="detail-container__hd2-ttl-main">{{
+                    product.name2
+                  }}</span>
                 </span>
               </p>
               <p class="detail-container__txt">
@@ -82,37 +86,52 @@
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
                 <dt class="detail-container__dt">キーワード</dt>
-                  <div class="customDiv">
-                    <dd class="detail-container__dd1" v-for="(keyword, index) in product.keywords">
-                      <span>{{ keyword.keyword }}</span>
-                    </dd>
-                  </div> -->
+                <div class="customDiv">
+                  <dd
+                    class="detail-container__dd1"
+                    v-for="(keyword, index) in product.keywords"
+                  >
+                    <span>{{ keyword.keyword }}</span>
+                  </dd>
+                </div>
+                
                 <dt class="detail-container__dt">味の特徴</dt>
-                  <div class="customDiv">
-                    <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"
-                      v-on:click="totasteSearch(taste.id)">
-                      <span class="namestyle">#{{ taste.name }}</span>
-                      <span v-if="product.tastes.length - 1 !== index">、 </span>
-                    </dd>
-                  </div>
-  
-                  <dt class="detail-container__dt">香りの特徴</dt>
-                  <div class="customDiv">
-                    <dd class="detail-container__dd" v-for="(flavor, index) in product.flavors"
-                      v-on:click="toflavorSearch(flavor.id)">
-                      <span class="namestyle">#{{ flavor.name }}</span>
-                      <span v-if="product.tastes.length - 1 !== index">、 </span>
-                    </dd>
-                  </div>
-  
-                  <dt class="detail-container__dt">配合</dt>
-                  <div class="customDiv">
-                    <dd class="detail-container__dd" v-for="(material, index) in product.materials"
-                      v-on:click="tomaterialSearch(material.id)">
-                      <span class="namestyle">#{{ material.name }}</span>
-                      <span v-if="product.materials.length - 1 !== index">、 </span>
-                    </dd>
-                  </div>
+                <div class="customDiv">
+                  <dd
+                    class="detail-container__dd"
+                    v-for="(taste, index) in product.tastes"
+                    v-on:click="totasteSearch(taste.id)"
+                  >
+                    <span class="namestyle">#{{ taste.name }}</span>
+                    <span v-if="product.tastes.length - 1 !== index">、 </span>
+                  </dd>
+                </div>
+
+                <dt class="detail-container__dt">香りの特徴</dt>
+                <div class="customDiv">
+                  <dd
+                    class="detail-container__dd"
+                    v-for="(flavor, index) in product.flavors"
+                    v-on:click="toflavorSearch(flavor.id)"
+                  >
+                    <span class="namestyle">#{{ flavor.name }}</span>
+                    <span v-if="product.tastes.length - 1 !== index">、 </span>
+                  </dd>
+                </div>
+
+                <dt class="detail-container__dt">配合</dt>
+                <div class="customDiv">
+                  <dd
+                    class="detail-container__dd"
+                    v-for="(material, index) in product.materials"
+                    v-on:click="tomaterialSearch(material.id)"
+                  >
+                    <span class="namestyle">#{{ material.name }}</span>
+                    <span v-if="product.materials.length - 1 !== index"
+                      >、
+                    </span>
+                  </dd>
+                </div>
 
                 <div class="detail-sub-container">
                   <dt class="detail-container__dt">内容量:</dt>
@@ -272,7 +291,6 @@ import { showSubProductApi } from "@/api/trialproducts";
 import { showTrialProductApi } from "@/api/trialproducts";
 import { showProductApi } from "@/api/products";
 
-
 import { addProductPriceData } from "@/utils/cart";
 
 export default defineComponent({
@@ -403,7 +421,9 @@ export default defineComponent({
 
       this.product = productShowApiresult.data;
 
-      let testproductShowApiresult = await showProductApi(Number(this.product.category.id));
+      let testproductShowApiresult = await showProductApi(
+        Number(this.product.category.id)
+      );
 
       if (!testproductShowApiresult.success) {
         this.commonError(testproductShowApiresult);
@@ -411,7 +431,6 @@ export default defineComponent({
       }
 
       this.product = testproductShowApiresult.data;
-
 
       // let productkind = await indexKindApi(this.product.product_category_id-1000);
 
