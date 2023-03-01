@@ -172,19 +172,18 @@ export default defineComponent({
     // this.isShow = true;
 
     this.$nextTick(function () {
-      this.commonScriptService.execute();
       // alert(this.$route.params.id);
 
       console.log(typeof this.$route.params.id);
 
-      // if (this.$route.params.id === "1") {
-      //   const targetElement = this.$refs.beforeTargetElement;
+      if (this.$route.params.id === "1") {
+        const targetElement = this.$refs.beforeTargetElement;
 
-      //   if (targetElement) {
-      //     console.log("target:", this.$refs.beforeTargetElement);
-      //     window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
-      //   }
-      // }
+        if (targetElement) {
+          console.log("target:", this.$refs.beforeTargetElement);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
 
       if (this.$route.params.id === "2") {
         // alert(23434);
@@ -196,6 +195,9 @@ export default defineComponent({
           window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
         }
       }
+
+      this.commonScriptService.execute();
+
     });
   },
 
