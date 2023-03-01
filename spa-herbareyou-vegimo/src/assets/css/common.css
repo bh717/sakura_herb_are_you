@@ -45,17 +45,6 @@ dd {
   margin: 0;
 }
 
-h1{
-  font-family: "Gothic Bold" ;
-}
-
-p{
-  font-family: "Gothic Medium" ;
-}
-
-h3{
-  font-family: "Gothic Medium" ;
-}
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
