@@ -7,7 +7,7 @@ export const indexProductApi = (search: any = {}): Promise<any> =>
     params: search,
   });
 
-export const showProductApi = (id: number): Promise<any> =>
+export const showTrialProductApi = (id: number): Promise<any> =>
   request({
     url: `/trialproducts/${id}`,
     method: "get",

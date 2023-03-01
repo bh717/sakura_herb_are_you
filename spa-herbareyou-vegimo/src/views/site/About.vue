@@ -3,7 +3,11 @@
     <Header />
     <main class="main">
       <article v-if="isShow">
-        <section class="sec" v-for="num in [1, 2, 3, 4, 5]">
+        <section
+          class="sec"
+          v-for="num in [1, 2, 3, 4, 5]"
+          ref="beforeTargetElement"
+        >
           <div
             :class="
               'sec-container' +
@@ -130,6 +134,7 @@ import { indexContentAboutApi } from "@/api/contents";
 
 export default defineComponent({
   name: "SiteAbout",
+  watch: {},
   data() {
     return {
       isShow: true,
@@ -168,12 +173,28 @@ export default defineComponent({
 
     this.$nextTick(function () {
       this.commonScriptService.execute();
+      // alert(this.$route.params.id);
 
-      const targetElement = this.$refs.targetElement;
+      console.log(typeof this.$route.params.id);
 
-      if (targetElement) {
-        console.log("target:", this.$refs.targetelement);
-        window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+      // if (this.$route.params.id === "1") {
+      //   const targetElement = this.$refs.beforeTargetElement;
+
+      //   if (targetElement) {
+      //     console.log("target:", this.$refs.beforeTargetElement);
+      //     window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+      //   }
+      // }
+
+      if (this.$route.params.id === "2") {
+        // alert(23434);
+
+        const targetElement = this.$refs.targetElement;
+
+        if (targetElement) {
+          console.log("target:", this.$refs.targetelement);
+          window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+        }
       }
     });
   },

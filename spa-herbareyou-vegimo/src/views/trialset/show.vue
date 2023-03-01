@@ -10,7 +10,7 @@
               <p class="detail-container__hd2">
                 <span class="detail-container__hd2-ttl1">
                   <span class="detail-container__hd2-sub">{{
-                    product.category.series_name
+                    product.category.name
                   }}</span>
                   <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span>
                 </span>
@@ -25,7 +25,7 @@
               <p class="detail-container__txt">
                 {{ product.description }}
               </p>
-              <div class="subproduct-container">
+              <!-- <div class="subproduct-container">
                 <div
                   class="subproduct-subcontainer"
                   v-for="(subproduct, index) in subProducts"
@@ -47,7 +47,6 @@
                         {{
                         this.subproductdata[index].sub_product_count
                       }}</span>
-                      <!-- subproductdata -->
                     </span>
                   </p>
 
@@ -55,7 +54,7 @@
                     #{{ subproduct.category.name }}
                   </p>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="detail-container__left">
@@ -82,13 +81,13 @@
 
             <div class="detail-container__right2">
               <dl class="detail-container__table clearfix">
-                <!-- <dt class="detail-container__dt">キーワード</dt>
+                <dt class="detail-container__dt">キーワード</dt>
                   <div class="customDiv">
                     <dd class="detail-container__dd1" v-for="(keyword, index) in product.keywords">
                       <span>{{ keyword.keyword }}</span>
                     </dd>
                   </div> -->
-                <!-- <dt class="detail-container__dt">味の特徴</dt>
+                <dt class="detail-container__dt">味の特徴</dt>
                   <div class="customDiv">
                     <dd class="detail-container__dd" v-for="(taste, index) in product.tastes"
                       v-on:click="totasteSearch(taste.id)">
@@ -113,7 +112,7 @@
                       <span class="namestyle">#{{ material.name }}</span>
                       <span v-if="product.materials.length - 1 !== index">、 </span>
                     </dd>
-                  </div> -->
+                  </div>
 
                 <div class="detail-sub-container">
                   <dt class="detail-container__dt">内容量:</dt>
@@ -183,7 +182,7 @@
             </div>
           </div>
         </section>
-        <section class="sec">
+        <!-- <section class="sec">
           <div class="sec-container">
             <h3 class="sec-container__hd3">おすすめ</h3>
             <ul
@@ -245,7 +244,7 @@
               </li>
             </ul>
           </div>
-        </section>
+        </section> -->
       </article>
     </main>
     <Footer />
@@ -270,7 +269,10 @@ import { indexSubItem } from "@/api/trialproducts";
 
 import { showSubProductApi } from "@/api/trialproducts";
 
-import { showProductApi } from "@/api/trialproducts";
+import { showTrialProductApi } from "@/api/trialproducts";
+import { showProductApi } from "@/api/products";
+
+
 import { addProductPriceData } from "@/utils/cart";
 
 export default defineComponent({
@@ -390,7 +392,7 @@ export default defineComponent({
     setPageData: async function (): Promise<boolean> {
       // 詳細
       // let searchId = Number(this.$route.params.id) + 1000;
-      let productShowApiresult = await showProductApi(
+      let productShowApiresult = await showTrialProductApi(
         Number(this.$route.params.id)
       );
       if (!productShowApiresult.success) {
@@ -398,55 +400,66 @@ export default defineComponent({
         return false;
       }
       console.log("product:", productShowApiresult.data);
+
       this.product = productShowApiresult.data;
 
-      let productkind = await indexKindApi(this.product.product_category_id);
+      let testproductShowApiresult = await showProductApi(Number(this.product.category.id));
 
-      let productkinddata = productkind.data;
-      console.log("productkind:", productkind);
-
-      if (productkinddata[0].kind === 2) {
-        this.kind = "INSPIRATION";
+      if (!testproductShowApiresult.success) {
+        this.commonError(testproductShowApiresult);
+        return false;
       }
 
-      if (productkinddata[0].kind === 1) {
-        this.kind = "HEALING";
-      }
+      this.product = testproductShowApiresult.data;
 
-      if (productkinddata[0].kind === 3) {
-        this.kind = "MAINTENANCE";
-      }
 
-      let subproduct = await indexSubItem(this.product.product_category_id);
-      console.log("subproduct:", subproduct);
+      // let productkind = await indexKindApi(this.product.product_category_id-1000);
 
-      this.subproductdata = subproduct.data;
+      // let productkinddata = productkind.data;
+      // console.log("productkind:", productkind);
 
-      for (let i = 0; i < this.subproductdata.length; i++) {
-        let apiresult = await showSubProductApi(
-          this.subproductdata[i].sub_product_id
-        );
-        this.subProducts.push(apiresult.data);
-        console.log("apiresult", apiresult);
-      }
+      // if (productkinddata[0].kind === 2) {
+      //   this.kind = "INSPIRATION";
+      // }
 
-      console.log("totalSubProducts", this.subProducts);
+      // if (productkinddata[0].kind === 1) {
+      //   this.kind = "HEALING";
+      // }
 
-      this.selectPriceId = this.product.prices[0].id + 316;
+      // if (productkinddata[0].kind === 3) {
+      //   this.kind = "MAINTENANCE";
+      // }
+
+      // let subproduct = await indexSubItem(this.product.product_category_id);
+      // console.log("subproduct:", subproduct);
+
+      // this.subproductdata = subproduct.data;
+
+      // for (let i = 0; i < this.subproductdata.length; i++) {
+      //   let apiresult = await showSubProductApi(
+      //     this.subproductdata[i].sub_product_id
+      //   );
+      //   this.subProducts.push(apiresult.data);
+      //   console.log("apiresult", apiresult);
+      // }
+
+      // console.log("totalSubProducts", this.subProducts);
+
+      // this.selectPriceId = this.product.prices[0].id + 316;
       // おすすめ一覧
-      let productIndexApiResult = await indexProductApi({
-        // not_product_ids: this.product.id,
-        recommendation_kind: productkinddata[0].kind,
-        per_page: -1,
-      });
+      // let productIndexApiResult = await indexProductApi({
+      //   // not_product_ids: this.product.id,
+      //   recommendation_kind: productkinddata[0].kind,
+      //   per_page: -1,
+      // });
 
       // console.log(productIndexApiResult);
 
-      if (!productIndexApiResult.success) {
-        this.commonError(productIndexApiResult);
-        return false;
-      }
-      this.recommendProducts = productIndexApiResult.data;
+      // if (!productIndexApiResult.success) {
+      //   this.commonError(productIndexApiResult);
+      //   return false;
+      // }
+      // this.recommendProducts = productIndexApiResult.data;
       console.log("recommendProduct:", this.recommendProducts);
       return true;
     },

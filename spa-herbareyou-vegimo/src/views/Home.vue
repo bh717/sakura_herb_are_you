@@ -19,9 +19,15 @@
             </span>
 
             <div class="a-btn">
-              <a class="a-btn__link" href="/about">
+              <!-- <a class="a-btn__link" href="/about">
                 HERB ARE YOUについてもっと詳しく知る
-              </a>
+              </a> -->
+
+              <router-link :to="{
+                name: 'SiteAbout',
+                params: { id: Number(1) },
+              }" class="a-btn__link" >HERB ARE YOUについてもっと詳しく知る</router-link>
+
             </div>
           </div>
         </section>

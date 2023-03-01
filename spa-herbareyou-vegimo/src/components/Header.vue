@@ -170,7 +170,10 @@
               <router-link
                 class="nav-list-item__link nav-list-item__link--mb50"
                 v-on:click="closeMenu()"
-                to="/about/"
+                :to="{
+                name: 'SiteAbout',
+                params: { id: Number(2) },
+              }"
               >
                 HERB ARE YOU?について</router-link
               >
@@ -206,7 +209,10 @@
               <router-link
                 class="nav-list-item__link nav-list-item__link--mb50"
                 v-on:click="closeMenu()"
-                :to="{ name: 'SiteAbout' }"
+                :to="{
+                name: 'SiteAbout',
+                params: { id: Number(2) },
+              }"
                 >お問合せ</router-link
               >
             </li>
