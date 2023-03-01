@@ -12,14 +12,14 @@
                   <span class="detail-container__hd2-sub">{{
                     product.category.series_name
                   }}</span>
-                  <!-- <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span> -->
+                  <span class="detail-container__hd2-ttl-main1">{{ product.name1 }}</span>
                 </span>
                 <span class="detail-container__hd2-ttl">
                   <span class="detail-container__hd2-ttl-num">{{
-                    this.kind
+                    product.product_no
                   }}</span>
-                  <!-- <span class="vertical-section">|</span> -->
-                  <span class="detail-container__hd2-ttl-main">Set</span>
+                  <span class="vertical-section">|</span>
+                  <span class="detail-container__hd2-ttl-main">{{ product.name2 }}</span>
                 </span>
               </p>
               <p class="detail-container__txt">
