@@ -172,6 +172,7 @@
                 <p class="product-item__sub">
                   {{ product.category.name }}
                 </p>
+                <br/>
                 <p class="product-item__name">
                   {{ product.category.series_name }}
                 </p>
