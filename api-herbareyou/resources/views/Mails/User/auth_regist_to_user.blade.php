@@ -7,7 +7,7 @@
 ご登録ありがとうございます。
 
 【ログインはこちらから】
-{{ config('consts.BASE_APP_URL') }}auth/login
+{{ config('consts.BASE_APP_URL') }}mypage/login
 
 商品やサービスに関してのご意見ご質問等ございましたら、
 お気軽にお問合せフォームよりご連絡ください。
