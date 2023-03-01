@@ -37,6 +37,7 @@ h2,
 h3,
 h4,
 p,
+span,
 figure,
 blockquote,
 dl,
@@ -1313,6 +1314,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
 .product-item {
   opacity: 0;
   margin-bottom: 7rem;
+  text-align: center;
   /* position:absolute; */
 }
 .product-item__date {
@@ -1329,6 +1331,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   font-weight: 100;
   margin-bottom: 0.5rem;
   text-align: center;
+  display: inline-block;
 }
 
 .product-item__sub1 {
@@ -1369,6 +1372,22 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
+
+.product-item__ttl-trial {
+  color: #5d5d5d;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .product-item__ttl-num {
   font-family: "Acme";
   padding-right: 0.5rem;
@@ -1408,6 +1427,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   font-family: "Gothic Medium";
   font-size: 1.2rem;
   text-align: center;
+  display: inline-block;
   margin-bottom: 1rem;
 }
 
@@ -1424,6 +1444,7 @@ input[type="checkbox"]:checked + .sort-inner-item__label::after {
   color: #505050;
   margin-bottom: 3rem;
   text-align: center;
+  display: inline-block;
 }
 
 .product-item__material1 {

@@ -198,12 +198,14 @@
                 >
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
-                <p class="product-item__sub">
+                <span class="product-item__sub">
                   {{ product.category.name }}
-                </p>
-                <p class="product-item__name">
+                </span>
+                <br/>
+                <span class="product-item__name">
                   {{ product.category.series_name }}
-                </p>
+                  <br/>
+                </span>
                 <div class="origin-section">
                   <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
@@ -232,7 +234,7 @@
                     >
                   </p>
                 </div>
-                <p class="product-item__material">
+                <span class="product-item__material">
                   {{
                     pageService.cutText(
                       20,
@@ -243,7 +245,7 @@
                       )
                     )
                   }}
-                </p>
+                </span>
                 <div class="a-btn">
                   <router-link
                     :to="'/product/' + String(product.id)"

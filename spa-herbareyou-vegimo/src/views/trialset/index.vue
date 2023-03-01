@@ -4,11 +4,16 @@
     <main class="main">
       <article v-if="isShow">
         <div class="kv">
-          <img src="@/assets/img/trialset/trialBackground.png" class="kv__img" />
-          <img src="@/assets/img/trialset/trialBackground1.png" class="kv__img1" />
+          <img
+            src="@/assets/img/trialset/trialBackground.png"
+            class="kv__img"
+          />
+          <img
+            src="@/assets/img/trialset/trialBackground1.png"
+            class="kv__img1"
+          />
 
           <div class="trial-sec-p-section">
-            
             <h1 className="trial-sec-p1">飲み比べができるお試しセット</h1>
             <p className="trial-sec-p3">Assorted Trial Pack</p>
             <h1 className="trial-sec-p2">7種類のブレンド入り</h1>
@@ -25,8 +30,7 @@
           </div>
 
           <div class="trial-sec-container1">
-            <p class="trial-p">
-              初めてHerb Are You?を知った方や、</p>
+            <p class="trial-p">初めてHerb Are You?を知った方や、</p>
             <p class="trial-p">ハーブティーをあまり飲んだことがない方へ、</p>
             <p class="trial-p">アソートパックをご用意しました。</p>
             <p class="trial-p">飲みやすい美味しいブレンドを</p>
@@ -34,31 +38,45 @@
             <p class="trial-p">セレクトしています。</p>
             <p class="trial-p">飲み比べて、ぜひあなたの</p>
             <p class="trial-p">お気に入りをみつけてください。</p>
-
           </div>
-
         </section>
         <section class="sec">
           <div class="sec-container">
             <ul class="product-list clearfix" v-if="products.length !== 0">
-              <li class="product-item" data-anime="fadeup" :data-category="'att-' + String(product.id)"
-                v-for="(product, index) in products" v-bind:key="index">
-                <router-link :to="'/trialproduct/' + String(product.id)" class="product-item__link">
+              <li
+                class="product-item"
+                data-anime="fadeup"
+                :data-category="'att-' + String(product.id)"
+                v-for="(product, index) in products"
+                v-bind:key="index"
+              >
+                <router-link
+                  :to="'/trialproduct/' + String(product.id)"
+                  class="product-item__link"
+                >
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
-                <p class="product-item__sub">
+                <span class="product-item__sub">
                   {{ product.category.name }}
-                </p>
-                <p class="product-item__name">{{ product.name1 }}</p>
-                <p class="product-item__ttl">
+                </span>
+                <br />
+                <span class="product-item__name">{{ product.name1 }}</span>
+
+                <p class="product-item__ttl-trial">
                   <span class="product-item__ttl-num">{{
-                      product.product_no
+                    product.product_no
                   }}</span>
                   <span>|</span>
-                  <span class="product-item__ttl-main">{{ product.name2 }}　¥{{ product.prices[0].price }}</span>
+                  <span class="product-item__ttl-main"
+                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
+                  >
                 </p>
+
                 <div class="a-btn">
-                  <router-link :to="'/trialproduct/' + String(product.id)" class="a-btn__link">
+                  <router-link
+                    :to="'/trialproduct/' + String(product.id)"
+                    class="a-btn__link"
+                  >
                     詳細を見る
                   </router-link>
                 </div>
@@ -71,7 +89,7 @@
     <Footer />
   </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CommonScriptService } from "@/services/CommonScriptService";
@@ -107,7 +125,7 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: async function () { },
+  created: async function () {},
   mounted: async function (): Promise<void> {
     document.body.className = "index";
 
@@ -115,7 +133,7 @@ export default defineComponent({
     this.setSearch(this.pageService.getQueryObjectForUrl());
     // 選択するカテゴリの取得
     let ProductCategoriesApiresult = await indexCategoriesApi();
-    console.log("productCategr",ProductCategoriesApiresult);
+    console.log("productCategr", ProductCategoriesApiresult);
 
     if (!ProductCategoriesApiresult.success) {
       this.commonError(ProductCategoriesApiresult);
@@ -200,7 +218,4 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped src="@/assets/css/trial.css">
-
-</style>
-  
+<style scoped src="@/assets/css/trial.css"></style>

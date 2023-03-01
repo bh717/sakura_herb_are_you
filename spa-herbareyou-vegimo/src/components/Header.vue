@@ -5,9 +5,9 @@
       style="display: block"
       v-if="news && isShowDisplayNewsToPage()"
     >
-      <p class="news__txt">
+      <span class="news__txt">
         {{ news }}
-      </p>
+      </span>
     </div>
     <div class="header-flex">
       <div class="nav-toggle">

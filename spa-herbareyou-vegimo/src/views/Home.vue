@@ -9,14 +9,15 @@
         <section class="sec">
           <div class="sec-container" data-anime="fadeup">
             <h2 class="sec-container__hd2">
-              HERB ARE YOU?<br />元気ですか？気分はどう？
+              HERB ARE YOU?<br />元気ですか？気分はどう？<br/>
             </h2>
-            <p class="sec-container__txt">
+            <span class="sec-container__txt">
               体調や気分にあわせてパーソナライズされた<br />
               ハーブティがポストに届きます。<br />
               野菜以上、お薬未満の心づよさで<br />
-              それぞれの日々に、植物のエールを。
-            </p>
+              それぞれの日々に、植物のエールを。<br/>
+            </span>
+
             <div class="a-btn">
               <a class="a-btn__link" href="/about">
                 HERB ARE YOUについてもっと詳しく知る
@@ -130,9 +131,9 @@
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
               data-anime="fadeup"
             >
-              <h1 class="sec-container__hd2-en1">植物療法士便り</h1>
-              <p class="sec-container__hd2-ja1"
-                >植物療法士がお届けする暮らしとハーブのコラムです</p>
+              <span class="sec-container__hd2-en1">植物療法士便り</span>
+              <span class="sec-container__hd2-ja1"
+                >植物療法士がお届けする暮らしとハーブのコラムです</span>
           </p>
             <ul class="blog-list">
               <li
@@ -148,12 +149,12 @@
                   }"
                   class="blog-item-link"
                 >
-                  <h1 class="blog-item-link__issue"
+                  <span class="blog-item-link__issue"
                     >植物療法士便り #{{
                       pageService.get0Padding(blog.id, 2)
-                    }}</h1
+                    }}</span
                   >
-                  <h3 class="blog-item-link__hd3">{{ blog.title }}</h3>
+                  <span class="blog-item-link__hd3">{{ blog.title }}</span>
                 </router-link>
               </li>
             </ul>
