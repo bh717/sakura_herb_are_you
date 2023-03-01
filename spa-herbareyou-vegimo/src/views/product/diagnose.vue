@@ -16,56 +16,7 @@
                 class="product-item is-active"
                 data-anime="fadeup"
                 :data-category="'att-' + index"
-                v-for="(product, index) in flavorproducts"
-                v-bind:key="product.id"
-              >
-                <router-link
-                  class="product-item__link"
-                  :to="{ name: 'ProductShow', params: { id: product.id } }"
-                >
-                  <img
-                    :src="product.upload_files[0].url"
-                    alt=""
-                    class="product_img"
-                  />
-                </router-link>
-                <p class="product-item__sub1">{{ product.category.name }}</p>
-                <p class="product-item__name1">{{ product.name1 }}</p>
-                <p class="product-item__ttl1">
-                  <span class="product-item__ttl-num1">{{
-                    product.product_no
-                  }}</span>
-                  <span>|</span>
-                  <span class="product-item__ttl-main1"
-                    >{{ product.name2 }}　¥{{ product.prices[0].price }}</span
-                  >
-                </p>
-                <p class="product-item__material1">
-                  {{
-                    pageService.cutText(
-                      20,
-                      "…",
-                      pageService.implode(
-                        "、",
-                        pageService.pluck("name", product.materials)
-                      )
-                    )
-                  }}
-                </p>
-                <div class="a-btn">
-                  <router-link
-                    class="a-btn__link1"
-                    :to="'/product/' + String(product.id)"
-                    >詳細を見る</router-link
-                  >
-                </div>
-              </li>
-
-              <li
-                class="product-item is-active"
-                data-anime="fadeup"
-                :data-category="'att-' + index"
-                v-for="(product, index) in tasteproducts"
+                v-for="(product, index) in mergedData"
                 v-bind:key="product.id"
               >
                 <router-link
@@ -145,6 +96,8 @@ export default defineComponent({
       symptoms: [] as any[],
       tasteproducts: [] as any[],
       flavorproducts: [] as any[],
+      mergedData: [] as any[],
+
 
       tasteIds: [] as number[],
       flavorIds: [] as number[],
@@ -201,6 +154,7 @@ export default defineComponent({
         return;
       }
       this.tasteproducts = tasteproductApiresult.data;
+      console.log("type of taste:", this.tasteproducts);
     }
 
     if (this.flavorIds.length != 0) {
@@ -212,7 +166,12 @@ export default defineComponent({
         return;
       }
       this.flavorproducts = flavorproductApiresult.data;
+      console.log("type of flavr:", this.flavorproducts);
+
     }
+
+    this.mergedData = {...this.tasteproducts, ...this.flavorproducts};
+    console.log("margedDtata:", this.mergedData);
 
     // console.log("taste product list:", tasteproductApiresult.data);
     // console.log("flavor product list:", flavorproductApiresult.data);
@@ -308,6 +267,8 @@ export default defineComponent({
     // 商品検索用のデータを取得する
     getTasteSearchData(): any {
       console.log("tasteIds:", this.tasteIds);
+      console.log("symptomIds:", this.symptomIds);
+
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
         flavor_ids: this.pageService.implode(",", ""),

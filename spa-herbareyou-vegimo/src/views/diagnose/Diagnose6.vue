@@ -266,7 +266,7 @@
             "&material_ids=" +
             "" +
             "&symptom_ids=" +
-            "" +
+            this.diagnoseData.diagnose4.condition +
             "&order_by=" +
             "" +
             "&recommendation_kind=" +
