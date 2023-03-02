@@ -175,6 +175,9 @@ export default defineComponent({
     this.$nextTick(function () {
       // alert(this.$route.params.id);
 
+    smoothscroll.polyfill();
+
+    
       console.log(typeof this.$route.params.id);
 
       if (this.$route.params.id === "1") {
@@ -193,7 +196,7 @@ export default defineComponent({
         const targetElement = this.$refs.targetElement;
 
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smoothscroll-polyfill" });
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
       }
 
