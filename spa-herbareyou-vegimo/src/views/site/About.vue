@@ -131,6 +131,7 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
+import smoothscroll from 'smoothscroll-polyfill';
 
 export default defineComponent({
   name: "SiteAbout",
@@ -159,7 +160,7 @@ export default defineComponent({
   },
   mounted: async function (): Promise<void> {
     // console.log("target:", this.$refs.targetelement);
-
+    smoothscroll.polyfill();
     document.body.className = "index";
     const result = await indexContentAboutApi();
     if (!result.success) {
