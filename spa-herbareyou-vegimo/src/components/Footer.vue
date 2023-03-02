@@ -8,7 +8,11 @@
       <div class="sec-container">
         <div class="sec-sub-container">
           <p class="footer-about-title">商品をさがす</p>
-          <router-link v-if="isSct" class="footer-about__link" :to="{ name: 'ProductIndex' }">
+          <router-link
+            v-if="isSct"
+            class="footer-about__link"
+            :to="{ name: 'ProductIndex' }"
+          >
             - 商品一覧
           </router-link>
           <a class="footer-about__link" href="/product/category/2">
@@ -21,46 +25,67 @@
             - HEELING　具体的な症状・不調に
           </a>
 
-          <router-link v-if="isSct" class="footer-about__link" :to="{
-            name: 'TrialSetIndex',
-          }">
+          <router-link
+            v-if="isSct"
+            class="footer-about__link"
+            :to="{
+              name: 'TrialSetIndex',
+            }"
+          >
             - 初めての方へ　お試しアソートセット
           </router-link>
-          <a class="footer-about__link">
-            - プレゼント＆ギフトBOX
-          </a>
+          <a class="footer-about__link"> - プレゼント＆ギフトBOX </a>
 
-          <router-link v-if="isSct" class="footer-about__link" to="/#this_month_herb_tee">
+          <router-link
+            v-if="isSct"
+            class="footer-about__link"
+            to="/#this_month_herb_tee"
+          >
             - 今月のおすすめハーブティ
           </router-link>
-
         </div>
 
         <div class="sec-sub-container">
           <div class="sub-container">
-            <router-link v-if="isSct" class="footer-about__link" :to="{
-              name: 'SiteSct',
-            }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{
+                name: 'Diagnose0',
+              }"
+            >
               ハーブティ診断を受ける
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" :to="{
-              name: 'BlogIndex',
-            }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{
+                name: 'BlogIndex',
+              }"
+            >
               植物療法士便り
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" to="/about/">
+            <router-link v-if="isSct" class="footer-about__link" to="/about/1">
               HERB ARE YOU?について
             </router-link>
           </div>
 
           <div class="sub1-container">
-            <router-link v-if="isSct" class="footer-about__link" :to="{ name: 'MyPageRegistered' }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{ name: 'MyPageRegistered' }"
+            >
               マイページ
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" :to="{ name: 'CartIndex' }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{ name: 'CartIndex' }"
+            >
               カートを見る
             </router-link>
           </div>
@@ -68,42 +93,67 @@
 
         <div class="sec-sub-container">
           <div class="sub-container">
-            <router-link v-if="isSct" class="footer-about__link" :to="{
-              name: 'SiteFaq',
-            }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{
+                name: 'SiteFaq',
+              }"
+            >
               よくあるご質問
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" :to="{
-              name: 'Diagnose0',
-            }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{
+                name: 'SiteAbout',
+                params: { id: Number(2) },
+              }"
+            >
               お問合せフォーム
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" :to="{
-              name: 'SiteSct',
-            }">
+            <router-link
+              v-if="isSct"
+              class="footer-about__link"
+              :to="{
+                name: 'SiteSct',
+              }"
+            >
               特定商取引に基づく表記│利用規約
             </router-link>
           </div>
 
           <div class="sub1-container">
-            <a v-if="isSct" class="footer-about__link" href="https://www.facebook.com/herbareyou.jp">
+            <a
+              v-if="isSct"
+              class="footer-about__link"
+              href="https://www.facebook.com/herbareyou.jp"
+            >
               Facebook
             </a>
 
-            <a v-if="isSct" class="footer-about__link" href="https://www.instagram.com/herbareyou/">
+            <a
+              v-if="isSct"
+              class="footer-about__link"
+              href="https://www.instagram.com/herbareyou/"
+            >
               Instagram
-          </a>
+            </a>
           </div>
         </div>
       </div>
     </footer>
 
     <footer class="footer-end" v-if="isSct">
-      <router-link v-if="isSct" class="footer-about__link" :to="{
-        name: 'SiteSct',
-      }">
+      <router-link
+        v-if="isSct"
+        class="footer-about__link"
+        :to="{
+          name: 'SiteSct',
+        }"
+      >
         Copyright © HERBAREYOU? All Rights Reserved.
       </router-link>
     </footer>
@@ -130,7 +180,7 @@ export default defineComponent({
   padding: 3rem 0 8rem;
   background-color: #f7f7f7;
 }
-.footer-about-title{
+.footer-about-title {
   margin-bottom: 1rem;
 }
 .footer-end {
@@ -173,14 +223,14 @@ export default defineComponent({
 }
 
 @media screen and (max-width: 768px) {
-  .sec-container{
+  .sec-container {
     flex-direction: column;
     row-gap: 4rem;
   }
 }
 
 @media screen and (max-width: 599px) {
-  .sec-container{
+  .sec-container {
     flex-direction: column;
     row-gap: 4rem;
   }

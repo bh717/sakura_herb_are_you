@@ -128,12 +128,13 @@
                 }" class="product-item__link">
                   <img :src="recommendProduct.upload_files[0].url" alt="" />
                 </router-link>
-                <p class="product-item__sub">
+                <span class="product-item__sub">
                   {{ recommendProduct.category.name }}
-                </p>
-                <p class="product-item__name">
+                </span>
+                <br/>
+                <span class="product-item__name">
                   {{ recommendProduct.category.series_name }}
-                </p>
+                </span>
                 <p class="product-item__ttl">
                   <span class="product-item__ttl-num">{{
                       recommendProduct.product_no
