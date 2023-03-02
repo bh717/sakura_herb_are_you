@@ -175,6 +175,7 @@ export default defineComponent({
 
     this.$nextTick(function () {
       // alert(this.$route.params.id);
+      this.commonScriptService.execute();
 
       console.log(typeof this.$route.params.id);
 
@@ -182,7 +183,6 @@ export default defineComponent({
         const targetElement = this.$refs.beforeTargetElement;
 
         if (targetElement) {
-          console.log("target:", this.$refs.beforeTargetElement);
           window.scrollTo({ top: 0, behavior: "smooth" });
           // targetElement.scrollIntoView({ behavior: "smooth" });
         }
@@ -199,7 +199,6 @@ export default defineComponent({
         }
       }
 
-      this.commonScriptService.execute();
     });
   },
 
