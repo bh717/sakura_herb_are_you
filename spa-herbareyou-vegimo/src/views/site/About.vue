@@ -191,15 +191,16 @@ export default defineComponent({
 
         const targetElement = this.$refs.targetElement;
 
-        if (targetElement) {
-          console.log("target:", this.$refs.targetelement);
-          // window.scrollIntoView({ top: targetElement.offsetTop, behavior: "smooth" });
+        if (typeof targetElement.scrollIntoViewIfNeeded === "function") {
+          targetElement.scrollIntoViewIfNeeded({ behavior: "smooth" });
+        } else {
           targetElement.scrollIntoView({ behavior: "smooth" });
+          // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+
         }
       }
 
       this.commonScriptService.execute();
-
     });
   },
 
