@@ -213,12 +213,9 @@ export default defineComponent({
           // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
           // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
           // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
-
-            const viewportHeight = window.innerHeight;
-            const targetTop = targetElement.offsetTop;
-            const targetBottom = targetTop + targetElement.offsetHeight;
-            const targetOffset = targetBottom - viewportHeight;
-            window.scrollTo({ top: targetOffset, behavior: "smooth" });
+          setTimeout(() => {
+            window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+          }, 100);
         }
       }
     },
