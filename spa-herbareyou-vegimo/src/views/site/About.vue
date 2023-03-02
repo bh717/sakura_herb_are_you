@@ -133,6 +133,9 @@ import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
 import smoothscroll from "smoothscroll-polyfill";
 
+smoothscroll.polyfill();
+
+
 export default defineComponent({
   name: "SiteAbout",
   watch: {},
@@ -160,7 +163,6 @@ export default defineComponent({
   },
   mounted: async function (): Promise<void> {
     // console.log("target:", this.$refs.targetelement);
-    smoothscroll.polyfill();
     document.body.className = "index";
     const result = await indexContentAboutApi();
     if (!result.success) {
@@ -175,9 +177,8 @@ export default defineComponent({
     this.$nextTick(function () {
       // alert(this.$route.params.id);
 
-    smoothscroll.polyfill();
 
-    
+
       console.log(typeof this.$route.params.id);
 
       if (this.$route.params.id === "1") {
