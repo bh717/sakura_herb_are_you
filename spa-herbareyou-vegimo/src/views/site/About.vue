@@ -48,7 +48,7 @@
           <div
             class="sec-container-form"
             data-anime="fadeup"
-            ref="targetMoveElement"
+            id="targetMoveElement"
           >
             <h2 class="sec-container-form__hd2">お問い合わせフォーム</h2>
             <div class="form-container">
@@ -207,11 +207,13 @@ export default defineComponent({
       }
       if (this.$route.params.id === "2") {
         // alert(23434);
-        const targetElement = this.$refs.targetMoveElement;
+        // const targetElement = this.$refs.targetMoveElement;
+        const targetElement = document.getElementById('targetMoveElement')
         if (targetElement) {
           const scroll = new SmoothScroll()
           // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-          scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
+          // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
+          window.scrollTo({ top: targetElement.offsetTop, behavior: 'smooth' })
         }
       }
     },
