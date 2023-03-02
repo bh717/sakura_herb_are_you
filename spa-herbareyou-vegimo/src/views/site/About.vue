@@ -3,7 +3,7 @@
     <Header />
     <main class="main">
       <article v-if="isShow">
-        <section class="sec" v-for="num in [1, 2, 3, 4, 5]">
+        <section class="sec" v-for="num in [1, 2, 3, 4, 5]" v-if="isFirstShow">
           <div
             :class="
               'sec-container' +
@@ -48,6 +48,7 @@
           <div
             class="sec-container-form"
             data-anime="fadeup"
+            v-if="isSecondShow"
             id="targetMoveElement"
           >
             <h2 class="sec-container-form__hd2">お問い合わせフォーム</h2>
@@ -140,6 +141,8 @@ export default defineComponent({
   data() {
     return {
       isShow: false,
+      isFirstShow: false,
+      isSecondShow: false,
       submitDisable: false,
       message: "",
       validateErrors: {} as any,
@@ -198,27 +201,33 @@ export default defineComponent({
   methods: {
     init: async function (): Promise<any> {
       if (this.$route.params.id === "1") {
-        const targetElement = this.$refs.beforeTargetElement;
-        if (targetElement) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          // targetElement.scrollIntoView({ behavior: "smooth" });
-        }
+        // const targetElement = this.$refs.beforeTargetElement;
+        // if (targetElement) {
+        //   window.scrollTo({ top: 0, behavior: "smooth" });
+        //   // targetElement.scrollIntoView({ behavior: "smooth" });
+        // }
+        this.isFirstShow = true;
+        this.isSecondShow = true;
+
       }
       if (this.$route.params.id === "2") {
         // alert(23434);
         // const targetElement = this.$refs.targetMoveElement;
-        const targetElement = document.getElementById("targetMoveElement");
-        if (targetElement) {
-          // const scroll = new SmoothScroll();
-          // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-          // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
-          // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
-          setTimeout(() => {
-            window.scrollTo({ top: targetElement.offsetTop + 100, behavior: "smooth" });
-          }, 100);
+        // const targetElement = document.getElementById("targetMoveElement");
+        // if (targetElement) {
+        //   // const scroll = new SmoothScroll();
+        //   // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        //   // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
+        //   // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+        //   setTimeout(() => {
+        //     window.scrollTo({ top: targetElement.offsetTop + 100, behavior: "smooth" });
+        //   }, 100);
 
-          // myDiv.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
+        //   // myDiv.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // }
+        this.isFirstShow = false;
+
+        this.isSecondShow = true;
       }
     },
     commonError: function (result: any = null): void {
