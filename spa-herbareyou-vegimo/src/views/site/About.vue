@@ -194,11 +194,7 @@ export default defineComponent({
         const targetElement = this.$refs.targetElement;
 
         if (targetElement) {
-          window.scroll({
-            top: targetElement.offsetTop,
-            left: 0,
-            behavior: "smooth",
-          });
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }
 
