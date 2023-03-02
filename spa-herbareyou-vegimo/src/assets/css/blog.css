@@ -46,7 +46,9 @@
 .blog-item-link__hd3 {
   font-size: 1.4rem;
   font-weight: bold;
-  text-align: center;
+  display: block;
+  text-align: left;
+  margin-left: 50%;
 }
 
 @media screen and (max-width: 767px) {

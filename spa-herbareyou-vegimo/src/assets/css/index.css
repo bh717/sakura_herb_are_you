@@ -288,6 +288,7 @@
 .blog-item-link__hd3 {
   font-size: 1.4rem;
   text-align: left;
+  display: block;
   color: #d6ac4e;
   margin-left: 250px;
   margin-top: 0px;
