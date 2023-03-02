@@ -214,8 +214,10 @@ export default defineComponent({
           // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
           // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
           setTimeout(() => {
-            window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+            window.scrollTo({ top: targetElement.offsetTop + 100, behavior: "smooth" });
           }, 100);
+
+          // myDiv.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       }
     },
