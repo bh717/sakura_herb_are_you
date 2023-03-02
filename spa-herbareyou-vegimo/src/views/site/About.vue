@@ -135,7 +135,6 @@ import smoothscroll from "smoothscroll-polyfill";
 
 smoothscroll.polyfill();
 
-
 export default defineComponent({
   name: "SiteAbout",
   watch: {},
@@ -177,8 +176,6 @@ export default defineComponent({
     this.$nextTick(function () {
       // alert(this.$route.params.id);
 
-
-
       console.log(typeof this.$route.params.id);
 
       if (this.$route.params.id === "1") {
@@ -197,7 +194,11 @@ export default defineComponent({
         const targetElement = this.$refs.targetElement;
 
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
+          window.scroll({
+            top: targetElement.offsetTop,
+            left: 0,
+            behavior: "smooth",
+          });
         }
       }
 
