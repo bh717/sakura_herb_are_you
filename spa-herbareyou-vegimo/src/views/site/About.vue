@@ -182,6 +182,7 @@ export default defineComponent({
         if (targetElement) {
           console.log("target:", this.$refs.beforeTargetElement);
           window.scrollTo({ top: 0, behavior: "smooth" });
+          // targetElement.scrollIntoView({ behavior: "smooth" });
         }
       }
 
@@ -192,7 +193,8 @@ export default defineComponent({
 
         if (targetElement) {
           console.log("target:", this.$refs.targetelement);
-          window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+          // window.scrollIntoView({ top: targetElement.offsetTop, behavior: "smooth" });
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
       }
 
