@@ -132,7 +132,7 @@ import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
 // import scroll from "smooth-scroll";
-import SmoothScroll  from "smooth-scroll";
+import SmoothScroll from "smooth-scroll";
 
 export default defineComponent({
   name: "SiteAbout",
@@ -178,7 +178,6 @@ export default defineComponent({
       this.commonScriptService.execute();
       this.init();
 
-
       // if (this.$route.params.id === "1") {
       //   const targetElement = this.$refs.beforeTargetElement;
       //   if (targetElement) {
@@ -208,12 +207,18 @@ export default defineComponent({
       if (this.$route.params.id === "2") {
         // alert(23434);
         // const targetElement = this.$refs.targetMoveElement;
-        const targetElement = document.getElementById('targetMoveElement')
+        const targetElement = document.getElementById("targetMoveElement");
         if (targetElement) {
-          const scroll = new SmoothScroll()
+          // const scroll = new SmoothScroll();
           // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
           // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
-          window.scrollTo({ top: targetElement.offsetTop, behavior: 'smooth' })
+          // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
+
+            const viewportHeight = window.innerHeight;
+            const targetTop = targetElement.offsetTop;
+            const targetBottom = targetTop + targetElement.offsetHeight;
+            const targetOffset = targetBottom - viewportHeight;
+            window.scrollTo({ top: targetOffset, behavior: "smooth" });
         }
       }
     },
