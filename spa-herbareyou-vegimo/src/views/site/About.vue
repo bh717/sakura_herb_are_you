@@ -131,7 +131,7 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
-import smoothscroll from 'smoothscroll-polyfill';
+import smoothscroll from "smoothscroll-polyfill";
 
 export default defineComponent({
   name: "SiteAbout",
@@ -192,12 +192,8 @@ export default defineComponent({
 
         const targetElement = this.$refs.targetElement;
 
-        if (typeof targetElement.scrollIntoViewIfNeeded === "function") {
-          targetElement.scrollIntoViewIfNeeded({ behavior: "smooth" });
-        } else {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-          // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
-
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smoothscroll-polyfill" });
         }
       }
 
