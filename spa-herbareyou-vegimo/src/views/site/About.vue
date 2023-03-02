@@ -3,11 +3,7 @@
     <Header />
     <main class="main">
       <article v-if="isShow">
-        <section
-          class="sec"
-          v-for="num in [1, 2, 3, 4, 5]"
-          ref="beforeTargetElement"
-        >
+        <section class="sec" v-for="num in [1, 2, 3, 4, 5]">
           <div
             :class="
               'sec-container' +
@@ -48,8 +44,12 @@
           </div>
         </section>
 
-        <section class="sec" ref="targetElement">
-          <div class="sec-container-form" data-anime="fadeup">
+        <section class="sec">
+          <div
+            class="sec-container-form"
+            data-anime="fadeup"
+            ref="targetMoveElement"
+          >
             <h2 class="sec-container-form__hd2">お問い合わせフォーム</h2>
             <div class="form-container">
               <form action="" class="form">
@@ -131,16 +131,15 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
-import smoothscroll from "smoothscroll-polyfill";
-
-smoothscroll.polyfill();
+// import scroll from "smooth-scroll";
+import SmoothScroll  from "smooth-scroll";
 
 export default defineComponent({
   name: "SiteAbout",
   watch: {},
   data() {
     return {
-      isShow: true,
+      isShow: false,
       submitDisable: false,
       message: "",
       validateErrors: {} as any,
@@ -159,10 +158,11 @@ export default defineComponent({
   },
   created: function (): void {
     // console.log("asdf");
+    this.init();
   },
   mounted: async function (): Promise<void> {
-    // console.log("target:", this.$refs.targetelement);
-    document.body.className = "index";
+    document.body.className = "about";
+
     const result = await indexContentAboutApi();
     if (!result.success) {
       if (result.message !== "") {
@@ -171,38 +171,50 @@ export default defineComponent({
       return;
     }
     this.aboutContents = result.data;
-    // this.isShow = true;
+
+    this.isShow = true;
 
     this.$nextTick(function () {
-      // alert(this.$route.params.id);
       this.commonScriptService.execute();
+      this.init();
 
-      console.log(typeof this.$route.params.id);
 
+      // if (this.$route.params.id === "1") {
+      //   const targetElement = this.$refs.beforeTargetElement;
+      //   if (targetElement) {
+      //     window.scrollTo({ top: 0, behavior: "smooth" });
+      //     // targetElement.scrollIntoView({ behavior: "smooth" });
+      //   }
+      // }
+      // if (this.$route.params.id === "2") {
+      //   // alert(23434);
+      //   const targetElement = this.$refs.targetMoveElement;
+      //   if (targetElement) {
+      //     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      //   }
+      // }
+    });
+  },
+
+  methods: {
+    init: async function (): Promise<any> {
       if (this.$route.params.id === "1") {
         const targetElement = this.$refs.beforeTargetElement;
-
         if (targetElement) {
           window.scrollTo({ top: 0, behavior: "smooth" });
           // targetElement.scrollIntoView({ behavior: "smooth" });
         }
       }
-
       if (this.$route.params.id === "2") {
         // alert(23434);
-        smoothscroll.polyfill();
-
-        const targetElement = this.$refs.targetElement;
-
+        const targetElement = this.$refs.targetMoveElement;
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+          const scroll = new SmoothScroll()
+          // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+          scroll.animateScroll(targetElement)
         }
       }
-
-    });
-  },
-
-  methods: {
+    },
     commonError: function (result: any = null): void {
       if (result.status === 422) {
         this.validateErrors = result.data;
