@@ -211,7 +211,7 @@ export default defineComponent({
         if (targetElement) {
           const scroll = new SmoothScroll()
           // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-          scroll.animateScroll(targetElement)
+          scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
         }
       }
     },
