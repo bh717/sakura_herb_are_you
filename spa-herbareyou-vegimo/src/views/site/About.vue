@@ -190,6 +190,7 @@ export default defineComponent({
 
       if (this.$route.params.id === "2") {
         // alert(23434);
+        smoothscroll.polyfill();
 
         const targetElement = this.$refs.targetElement;
 
