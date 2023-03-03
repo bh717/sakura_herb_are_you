@@ -46,25 +46,25 @@
             <p class="sec-container__name">
               {{ diagnoseData.diagnose0.name }}さん
             </p>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 3">どのような頭痛ですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 4">ミントを使用しても大丈夫ですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 7">どのような原因からだと考えられますか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 8">どのような痛みですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 9">どのようなかぜですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 14">身体のめぐりを良くしましょう！</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 15">ミントを使用しても大丈夫ですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 16">ミネラルを取り入れましょう！</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 17">どのような胃腸の悩みがありますか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 1">水分の巡りを良くしましょう！</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 2">身体を整えてボディフルネスを！</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 5">どのようにストレスを感じていますか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 6">どのような眠りの悩みですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 10">最も興味があるのはどれですか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 11">どこが疲れていますか？</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 12">ハーブティーでペースを取り戻しましょう</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 13">ハーブティーで前向きな気持ちに</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 18">ハーブティーで身体をポカポカ温めよう</h2>
-            <h2 class="sec-container__hd2" v-if="diagnoseData.diagnose2.condition === 19">おいしいハーブティーで素敵な毎日を</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 3">どのような頭痛ですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 4">ミントを使用しても大丈夫ですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 7">どのような原因からだと考えられますか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 8">どのような痛みですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 9">どのようなかぜですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 14">身体のめぐりを良くしましょう！</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 15">ミントを使用しても大丈夫ですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 16">ミネラルを取り入れましょう！</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 17">どのような胃腸の悩みがありますか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 1">水分の巡りを良くしましょう！</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 2">身体を整えてボディフルネスを！</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 5">どのようにストレスを感じていますか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 6">どのような眠りの悩みですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 10">最も興味があるのはどれですか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 11">どこが疲れていますか？</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 12">ハーブティーでペースを取り戻しましょう</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 13">ハーブティーで前向きな気持ちに</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 18">ハーブティーで身体をポカポカ温めよう</h2>
+            <h2 class="sec-container__hd4" v-if="diagnoseData.diagnose2.condition === 19">おいしいハーブティーで素敵な毎日を</h2>
 
             <h2 class="sec-container__hd3">
               味と香りの好みを選択してください。(複数可)

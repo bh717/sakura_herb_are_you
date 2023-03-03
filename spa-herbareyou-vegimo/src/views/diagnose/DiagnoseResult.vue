@@ -76,7 +76,8 @@
                     >
                       <span class="namestyle">#{{ taste.name }}</span>
                       <span v-if="product.tastes.length - 1 !== index"
-                        >、 </span>
+                        >、
+                      </span>
                     </dd>
                   </div>
 
@@ -262,6 +263,7 @@ import { PageService } from "../../services/PageService";
 import { addProductPriceData } from "@/utils/cart";
 import { showProductApi } from "@/api/products";
 import { indexProductApi } from "@/api/products";
+import { tSCallSignatureDeclaration } from "@babel/types";
 
 export default defineComponent({
   name: "DiagnoseResult",
@@ -297,28 +299,35 @@ export default defineComponent({
   },
   created: async function () {},
   mounted: async function (): Promise<void> {
-    this.init();
+    document.body.className = "index";
+
+    // this.init();
+    if (!(await this.setPageData())) {
+      return;
+    }
+
     this.$nextTick(function () {
       this.commonScriptService.execute();
     });
   },
-  beforeDestroy: function (): void {},
+  // beforeDestroy: function (): void {},
   methods: {
-    init: async function () {
+    setPageData: async function (): Promise<boolean> {
       const diagnoseJsonData = localStorage.getItem("diagnoseJsonData");
+      let diagnoseData;
       if (!diagnoseJsonData) {
         this.$router.push({
           name: "Diagnose0",
         });
-        return;
+      } else {
+        diagnoseData = JSON.parse(diagnoseJsonData);
       }
-      const diagnoseData = JSON.parse(diagnoseJsonData);
       if (!diagnoseData?.diagnose2) {
         this.$router.push({
           name: this.backPath,
         });
-        return;
       }
+
       this.diagnoseData = diagnoseData;
       this.name = diagnoseData?.diagnose0?.name;
 
@@ -332,7 +341,7 @@ export default defineComponent({
 
       if (!DetailedSymptomsApiResult.success) {
         this.commonError(DetailedSymptomsApiResult);
-        return;
+        // return;
       }
       this.symptoms = DetailedSymptomsApiResult.data;
 
@@ -402,6 +411,7 @@ export default defineComponent({
       console.log("multiproducts", this.products);
       console.log("multiImages", this.imageUrls);
       console.log("multimaterials", this.materials);
+      return true;
     },
     countUp: function (): void {
       this.num += 1;
