@@ -20,12 +20,19 @@
         <tr>
           <th>内容</th>
           <td class="py-2">
-            <textarea
-              class="form-control"
-              rows=""
-              cols=""
-              v-model="items.body"
-            ></textarea>
+            <div class="p-2">
+              <!-- <example-modal v-if="open" @close="open = false" v-show="showModal" /> -->
+              <example-modal v-show="showModal" />
+
+              <button type="button" v-on:click="showHyperlinkDialog">
+                リンクを設定する
+              </button>
+            </div>
+            <!-- <ejs-documenteditor ref="documenteditor" :enableSelection='true' :isReadOnly='false' :enableEditor='true'
+              :enableEditorHistory='true' :enableHyperlinkDialog='true' :enableSfdtExport='true' class="form-control"
+              rows="" cols="" v-model="items.body" @select="testFunction" /> -->
+            <textarea ref="documenteditor" class="form-control" rows="" cols="" v-model="items.body" />
+            <!-- <p ref="target">Lorem ipsum dolor sit amet</p> -->
             <ValidateError :errorMessages="validateErrors.body" />
           </td>
         </tr>
@@ -35,18 +42,13 @@
             <div>
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
-            <!-- <div v-if="items.upload_file_hashs.length !== 0">
-              <img :src="imageUrls[0]" with="100" />
-            </div> -->
-
             <div v-bind:style="{ 'display': `flex`, 'gap': `10px`, 'overflow-x': `auto`, 'width': `30rem` }"
               v-if="items.upload_file_hashs.length !== 0">
               <div v-for="imageUrl in imageUrls">
                 <img :src="imageUrl" width="100" height="100" />
               </div>
             </div>
-
-            <ValidateError :errorMessages="validateErrors.upload_file_urls" />
+            <ValidateError :errorMessages="validateErrors['upload_file_hashs.0']" />
           </td>
         </tr>
         <tr>
@@ -63,22 +65,12 @@
 
       <div class="d-flex justify-content-center">
         <div class="p-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="update()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="update()" :disabled="submitDisable">
             編集する
           </button>
         </div>
         <div class="p-2">
-          <button
-            type="button"
-            class="btn btn-danger"
-            v-on:click="destroy()"
-            :disabled="submitDisable"
-          >
+          <button type="button" class="btn btn-danger" v-on:click="destroy()" :disabled="submitDisable">
             削除する
           </button>
         </div>
@@ -88,7 +80,9 @@
 </template>
 
 <script lang="ts">
+// import Vue from 'vue'
 import { defineComponent } from "vue";
+import { DocumentEditorPlugin, Selection, Editor, EditorHistory, HyperlinkDialog, SfdtExport, RequestNavigateEventArgs } from '@syncfusion/ej2-vue-documenteditor';
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import {
@@ -97,6 +91,8 @@ import {
   destroyTherapistBlogApi,
 } from "@/api/therapist-blogs";
 import UploadFile from "@/components/UploadFile.vue";
+// import Vdialog from 'v-dialog';
+import exampleModal from './exampleModal.vue'
 
 export default defineComponent({
   name: "TherapistBlogUpdate",
@@ -104,6 +100,8 @@ export default defineComponent({
     ErrorMessage,
     ValidateError,
     UploadFile,
+    "example-modal":exampleModal,
+    // vDialog: Vdialog,
   },
   data: () => ({
     isShow: false,
@@ -116,18 +114,40 @@ export default defineComponent({
     } as any,
     blog: {} as any,
     imageUrls: [] as string[],
+    open: false,
+    showModal:false,
   }),
   mounted: async function () {
     const result = await showTherapistBlogApi(this.$route.params.id);
+
+    // document.addEventListener('mouseup', event => {
+    //   if (event.target === this.$refs.target)
+    //     this.testFunction();
+    // });
+
     if (!result.success) {
       this.commonError(result);
       return;
     }
+
     this.blog = result.data;
     this.init();
     this.isShow = true;
   },
+  provide: {
+    // DocumentEditor: [Selection, Editor, EditorHistory, HyperlinkDialog, SfdtExport]
+  },
   methods: {
+    showHyperlinkDialog: function () {
+      // alert(window.getSelection()?.toString()); 
+      // let element = this.$refs.modal.$el;
+      // // element?.modal('show');
+      // element.modal();
+      this.showModal = !this.showModal;
+      alert(this.showModal);
+      // this.$refs.modal.show();
+    },
+
     commonError: function (result: any = null): void {
       if (result.status === 422) {
         this.validateErrors = result.data;
@@ -138,13 +158,10 @@ export default defineComponent({
     },
     update: async function () {
       this.submitDisable = true;
-      console.log("updateData:", this.items);
-      
       const result = await updateTherapistBlogApi(
         this.$route.params.id,
         this.items
       );
-
       this.submitDisable = false;
       if (!result.success) {
         this.commonError(result);
@@ -165,9 +182,10 @@ export default defineComponent({
       this.blog.upload_files.forEach((item: {
         [x: string]: string; url: any;
       }, index: string | number) => {
-        this.imageUrls[index] = "https://d1jw4m1s7z1xyc.cloudfront.net/" + item?.file_path;
+        this.imageUrls[index] = "https://content.herbareyou.jp/" + item?.file_path;
         console.log(this.imageUrls[index]);
       })
+
     },
     destroy: async function () {
       if (!window.confirm("本当に削除しますか？")) {
@@ -196,4 +214,11 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+
+<style>
+@import "../../../node_modules/@syncfusion/ej2-vue-documenteditor/styles/material.css";
+</style>
+
+<style lang="scss" scoped>
+
+</style>

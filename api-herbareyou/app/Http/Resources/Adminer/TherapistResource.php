@@ -13,6 +13,7 @@ class TherapistResource extends JsonResource
     {
         $data = parent::toArray($request);
         $data['is_public_text'] = __('enums')[IsPublic::class][$data['is_public']];
+        
         $rows = count($data['upload_files']); 
 
         for($i=0; $i< $rows; $i++){

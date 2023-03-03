@@ -48,14 +48,10 @@
             <div>
               <UploadFile v-on:uploadedFile="setUploadFile" />
             </div>
-            <div v-bind:style="{ 'display':`flex`, 'gap':`10px`, 'overflow-x':`auto`, 'width':`30rem`}" v-if="items.upload_file_hashs.length !== 0">
-              <div v-for="imageUrl in imageUrls">
-                <img :src="imageUrl" width="100" height="100"/>
-              </div>
+            <div v-if="items.upload_file_hashs.length !== 0">
+              <img :src="imageUrls[0]" with="100" />
             </div>
-            <ValidateError
-              :errorMessages="validateErrors['upload_file_hashs.0']"
-            />
+            <ValidateError :errorMessages="validateErrors.upload_file_urls" />
           </td>
         </tr>
         <tr>
@@ -103,7 +99,6 @@ export default defineComponent({
   },
   data: () => ({
     isShow: false,
-    count: 0,
     message: "",
     submitDisable: false,
     validateErrors: {} as any,
@@ -116,7 +111,7 @@ export default defineComponent({
     therapists: [] as any[],
   }),
   mounted: async function () {
-    const result = await indexTherapistApi();   
+    const result = await indexTherapistApi();
     if (!result.success) {
       this.commonError(result);
       return;
@@ -135,7 +130,6 @@ export default defineComponent({
     },
     create: async function () {
       this.submitDisable = true;
-      console.log("create blog data:", this.items);
       const result = await storeTherapistBlogApi(this.items);
       if (!result.success) {
         this.commonError(result);
@@ -152,9 +146,8 @@ export default defineComponent({
     },
     setUploadFile: function (uploadFile: any) {
       console.log(uploadFile);
-      this.items.upload_file_hashs[this.count] = uploadFile.hash;
-      this.imageUrls[this.count] = uploadFile.url;
-      this.count ++;
+      this.items.upload_file_hashs[0] = uploadFile.hash;
+      this.imageUrls[0] = uploadFile.url;
       console.log(this.imageUrls);
     },
   },

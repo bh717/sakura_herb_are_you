@@ -75,6 +75,8 @@ class TherapistDomain extends BaseDomain
             array_push($fileId_array, $uploadFileIds);
         }
 
+        
+
         $therapistBlog->uploadFiles()->sync($fileId_array);
 
         // $uploadFileIds = $this->uploadFile
@@ -126,6 +128,8 @@ class TherapistDomain extends BaseDomain
         $therapistBlog->body = $data['body'];
         $therapistBlog->is_public = $data['is_public'];
         $therapistBlog->saveOrFail();
+
+        $fileId_array = [];
 
         foreach ($data['upload_file_hashs'] as $item) {
             $uploadFileIds = $this->uploadFile
