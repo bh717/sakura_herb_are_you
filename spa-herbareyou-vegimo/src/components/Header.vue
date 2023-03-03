@@ -172,7 +172,7 @@
                 v-on:click="closeMenu()"
                 :to="{
                 name: 'SiteAbout',
-                params: { id: Number(2) },
+                params: { id: Number(1) },
               }"
               >
                 HERB ARE YOU?について</router-link
