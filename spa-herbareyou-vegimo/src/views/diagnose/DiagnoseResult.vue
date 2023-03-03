@@ -89,7 +89,7 @@
                       v-on:click="toflavorSearch(flavor.id)"
                     >
                       <span class="namestyle">#{{ flavor.name }}</span>
-                      <span v-if="product.tastes.length - 1 !== index"
+                      <span v-if="product.flavors.length - 1 !== index"
                         >、
                       </span>
                     </dd>
@@ -426,9 +426,8 @@ export default defineComponent({
       this.selectPriceId = priceId;
     },
     tomaterialSearch: function (index: number): void {
-      // const url = Location.pathname;
       const query: string =
-        "/diagnose?" +
+        "/product?" +
         "taste_ids=" +
         "" +
         "&flavor_ids=" +
@@ -449,7 +448,7 @@ export default defineComponent({
     totasteSearch: function (index: number): void {
       // const url = Location.pathname;
       const query: string =
-        "/diagnoseproduct?" +
+        "/product?" +
         "taste_ids=" +
         index +
         "&flavor_ids=" +

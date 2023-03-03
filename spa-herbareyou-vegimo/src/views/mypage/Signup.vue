@@ -225,7 +225,7 @@ import axiosJsonpAdapter from 'axios-jsonp'
 
 import { registAuthApi } from "@/api/auth";
 
-const ZIPCODE_API_URL = 'http://zipcloud.ibsnet.co.jp/api/search'
+const ZIPCODE_API_URL = 'https://zipcloud.ibsnet.co.jp/api/search'
 
 export default defineComponent({
   name: "MyPageSignup",
