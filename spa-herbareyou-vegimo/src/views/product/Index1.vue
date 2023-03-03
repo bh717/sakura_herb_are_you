@@ -222,12 +222,13 @@
                 >
                   <img :src="product.upload_files[0].url" alt="" />
                 </router-link>
-                <p class="product-item__sub">
+                <span class="product-item__sub">
                   {{ product.category.name }}
-                </p>
-                <p class="product-item__name">
+                </span>
+                <br/>
+                <span class="product-item__name">
                   {{ product.category.series_name }}
-                </p>
+                </span>
                 <div class="origin-section">
                   <p class="product-item__ttl">
                     <span class="product-item__ttl-num">{{
