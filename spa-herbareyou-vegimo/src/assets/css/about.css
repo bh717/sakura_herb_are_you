@@ -65,10 +65,11 @@
 }
 
 .sec-container-form {
+  /* margin-top: 8rem; */
   opacity: 0;
   width: 85%;
   margin: auto;
-  padding: 5rem 0 8rem;
+  padding: 10rem 0 8rem;
 }
 
 .sec-container-form__hd2 {
