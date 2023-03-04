@@ -280,7 +280,6 @@ import ValidateError from "@/components/ValidateError.vue";
 
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-// import { storeCartDetailApi } from "@/api/carts";
 
 import { indexProductApi } from "@/api/trialproducts";
 import { indexKindApi } from "@/api/trialproducts";
@@ -432,10 +431,10 @@ export default defineComponent({
 
       this.product = testproductShowApiresult.data;
 
-      // let productkind = await indexKindApi(this.product.product_category_id-1000);
+      let productkind = await indexKindApi(this.product.product_category_id-1000);
 
-      // let productkinddata = productkind.data;
-      // console.log("productkind:", productkind);
+      let productkinddata = productkind.data;
+      console.log("productkind:", productkind);
 
       // if (productkinddata[0].kind === 2) {
       //   this.kind = "INSPIRATION";
@@ -449,23 +448,22 @@ export default defineComponent({
       //   this.kind = "MAINTENANCE";
       // }
 
-      // let subproduct = await indexSubItem(this.product.product_category_id);
-      // console.log("subproduct:", subproduct);
+      let subproduct = await indexSubItem(this.product.product_category_id);
+      console.log("subproduct:", subproduct);
 
-      // this.subproductdata = subproduct.data;
+      this.subproductdata = subproduct.data;
 
-      // for (let i = 0; i < this.subproductdata.length; i++) {
-      //   let apiresult = await showSubProductApi(
-      //     this.subproductdata[i].sub_product_id
-      //   );
-      //   this.subProducts.push(apiresult.data);
-      //   console.log("apiresult", apiresult);
-      // }
+      for (let i = 0; i < this.subproductdata.length; i++) {
+        let apiresult = await showSubProductApi(
+          this.subproductdata[i].sub_product_id
+        );
+        this.subProducts.push(apiresult.data);
+        console.log("apiresult", apiresult);
+      }
 
-      // console.log("totalSubProducts", this.subProducts);
+      console.log("totalSubProducts", this.subProducts);
 
-      // this.selectPriceId = this.product.prices[0].id + 316;
-      // おすすめ一覧
+      this.selectPriceId = this.product.prices[0].id;
       // let productIndexApiResult = await indexProductApi({
       //   // not_product_ids: this.product.id,
       //   recommendation_kind: productkinddata[0].kind,
@@ -479,11 +477,12 @@ export default defineComponent({
       //   return false;
       // }
       // this.recommendProducts = productIndexApiResult.data;
-      console.log("recommendProduct:", this.recommendProducts);
+      // console.log("recommendProduct:", this.recommendProducts);
       return true;
     },
     inCart: async function (): Promise<void> {
       this.isUpdateHeader = false;
+      console.log("selectPriceId", this.selectPriceId);
       addProductPriceData(this.selectPriceId, this.num);
       await this.$store.dispatch("setCartData");
       this.isUpdateHeader = true;
