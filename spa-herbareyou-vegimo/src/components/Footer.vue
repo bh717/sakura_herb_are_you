@@ -67,7 +67,7 @@
               植物療法士便り
             </router-link>
 
-            <router-link v-if="isSct" class="footer-about__link" to="/about/1">
+            <router-link v-if="isSct" class="footer-about__link" to="/about/my-section">
               HERB ARE YOU?について
             </router-link>
           </div>
@@ -108,7 +108,7 @@
               class="footer-about__link"
               :to="{
                 name: 'SiteAbout',
-                params: { id: Number(2) },
+                params: { id: 'my-section2' },
               }"
             >
               お問合せフォーム

@@ -25,7 +25,7 @@
 
               <router-link :to="{
                 name: 'SiteAbout',
-                params: { id: Number(1) },
+                params: { id: 'my-section' },
               }" class="a-btn__link" >HERB ARE YOUについてもっと詳しく知る</router-link>
 
             </div>

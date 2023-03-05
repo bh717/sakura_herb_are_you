@@ -3,7 +3,12 @@
     <Header />
     <main class="main">
       <article v-if="isShow">
-        <section class="sec" v-for="num in [1, 2, 3, 4, 5]" v-if="isFirstShow">
+        <section
+          class="sec"
+          v-for="num in [1, 2, 3, 4, 5]"
+          v-if="isFirstShow"
+          id="my-section"
+        >
           <div
             :class="
               'sec-container' +
@@ -44,7 +49,7 @@
           </div>
         </section>
 
-        <section class="sec">
+        <section class="sec" id="my-section2">
           <div
             class="sec-container-form"
             data-anime="fadeup"
@@ -137,7 +142,21 @@ import SmoothScroll from "smooth-scroll";
 
 export default defineComponent({
   name: "SiteAbout",
-  watch: {},
+  watch: {
+    '$route' (to, from) {
+      // perform actions to refresh the component here
+      console.log('Route changed, refreshing component...')
+
+      if (this.$route.params.id) {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
+    }
+  },
   data() {
     return {
       isShow: false,
@@ -177,9 +196,17 @@ export default defineComponent({
 
     this.isShow = true;
 
+    this.isFirstShow = true;
+
+    this.isSecondShow = true;
+
     this.$nextTick(function () {
       this.commonScriptService.execute();
-      this.init();
+
+      console.log(this.$route.params.id);
+
+      
+      // this.init();
 
       // if (this.$route.params.id === "1") {
       //   const targetElement = this.$refs.beforeTargetElement;
@@ -208,7 +235,6 @@ export default defineComponent({
         // }
         this.isFirstShow = true;
         this.isSecondShow = true;
-
       }
       if (this.$route.params.id === "2") {
         // alert(23434);

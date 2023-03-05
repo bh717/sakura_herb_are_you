@@ -18,10 +18,7 @@
         </div>
       </div>
       <h1 class="header-logo">
-        <router-link
-          class="header-logo__inner"
-          :to="{ name: 'Home' }"
-        >
+        <router-link class="header-logo__inner" :to="{ name: 'Home' }">
           <img
             class="header-logo__img"
             src="@/assets/img/common/logo-o.svg"
@@ -154,7 +151,8 @@
                 class="nav-list-item__link nav-list-item__link--mb50"
                 tabindex="-1"
                 href="/diagnose"
-                >ハーブティ診断を受ける</a>
+                >ハーブティ診断を受ける</a
+              >
             </li>
             <li class="nav-list-item">
               <router-link
@@ -171,12 +169,13 @@
                 class="nav-list-item__link nav-list-item__link--mb50"
                 v-on:click="closeMenu()"
                 :to="{
-                name: 'SiteAbout',
-                params: { id: Number(1) },
-              }"
+                  name: 'SiteAbout',
+                  params: { id: 'my-section' },
+                }"
               >
                 HERB ARE YOU?について</router-link
               >
+              
             </li>
             <li class="nav-list-item">
               <router-link
@@ -210,9 +209,9 @@
                 class="nav-list-item__link nav-list-item__link--mb50"
                 v-on:click="closeMenu()"
                 :to="{
-                name: 'SiteAbout',
-                params: { id: Number(2) },
-              }"
+                  name: 'SiteAbout',
+                  params: { id: 'my-section2' },
+                }"
                 >お問合せ</router-link
               >
             </li>
@@ -502,20 +501,26 @@ export default defineComponent({
 
       const pathName = window.location.pathname;
       console.log("pathName", window.location);
-      if(pathName === "/product" || pathName==="/product/" || pathName === '/' || pathName === '/blog' || pathName === '/blog/' || pathName === '/product/:id' || pathName === '/product/:id/')
-      {
+      if (
+        pathName === "/product" ||
+        pathName === "/product/" ||
+        pathName === "/" ||
+        pathName === "/blog" ||
+        pathName === "/blog/" ||
+        pathName === "/product/:id" ||
+        pathName === "/product/:id/"
+      ) {
         navToggleBars.forEach(function (bar: any) {
-              bar.style.backgroundColor = "#d6ac4e";
-            });
+          bar.style.backgroundColor = "#d6ac4e";
+        });
         headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
         iconImages[0].setAttribute("src", "/img/common/icon1.svg");
         iconImages[1].setAttribute("src", "/img/common/icon2.svg");
         iconImages[2].setAttribute("src", "/img/common/icon3.svg");
-      }
-      else{
+      } else {
         navToggleBars.forEach(function (bar: any) {
-              bar.style.backgroundColor = "#d6ac4e";
-            });
+          bar.style.backgroundColor = "#d6ac4e";
+        });
         headerLogoImage.setAttribute("src", "/img/common/logo-o.svg");
         iconImages[0].setAttribute("src", "/img/common/icon1.svg");
         iconImages[1].setAttribute("src", "/img/common/icon2.svg");
