@@ -22,10 +22,6 @@
               </vueper-slides>
             </div>
 
-            <!-- <div class="sec-container__img" data-anime="fadeup" v-for="(uploadfile, i) in blog.upload_files" :key="i">
-              <img :src="'https://content.herbareyou.jp/' +uploadfile.file_path"/>
-            </div> -->
-
           </div>
         </section>
         <section class="sec" data-anime="fadeup">
