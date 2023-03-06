@@ -205,7 +205,14 @@ export default defineComponent({
 
       console.log(this.$route.params.id);
 
-      
+      if (this.$route.params.id) {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
       // this.init();
 
       // if (this.$route.params.id === "1") {
