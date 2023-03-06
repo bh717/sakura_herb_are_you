@@ -143,19 +143,19 @@ import SmoothScroll from "smooth-scroll";
 export default defineComponent({
   name: "SiteAbout",
   watch: {
-    '$route' (to, from) {
-      // perform actions to refresh the component here
-      console.log('Route changed, refreshing component...')
+    // '$route' (to, from) {
+    //   // perform actions to refresh the component here
+    //   console.log('Route changed, refreshing component...')
 
-      if (this.$route.params.id) {
-        const sectionEl = document.getElementById(this.$route.params.id);
-        if (sectionEl) {
-          const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }
-    }
+    //   if (this.$route.params.id) {
+    //     const sectionEl = document.getElementById(this.$route.params.id);
+    //     if (sectionEl) {
+    //       const top =
+    //         sectionEl.getBoundingClientRect().top + window.pageYOffset;
+    //       window.scrollTo({ top, behavior: "smooth" });
+    //     }
+    //   }
+    // }
   },
   data() {
     return {
@@ -205,15 +205,17 @@ export default defineComponent({
 
       console.log(this.$route.params.id);
 
-      if (this.$route.params.id) {
-        const sectionEl = document.getElementById(this.$route.params.id);
-        if (sectionEl) {
-          const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }
-      // this.init();
+      // if (this.$route.params.id) {
+      //   const sectionEl = document.getElementById(this.$route.params.id);
+      //   if (sectionEl) {
+      //     const top =
+      //       sectionEl.getBoundingClientRect().top + window.pageYOffset;
+      //     window.scrollTo({ top, behavior: "smooth" });
+      //   }
+      // }
+
+
+      this.init();
 
       // if (this.$route.params.id === "1") {
       //   const targetElement = this.$refs.beforeTargetElement;
@@ -234,16 +236,16 @@ export default defineComponent({
 
   methods: {
     init: async function (): Promise<any> {
-      if (this.$route.params.id === "1") {
+      if (this.$route.params.id === "my-section") {
         // const targetElement = this.$refs.beforeTargetElement;
         // if (targetElement) {
         //   window.scrollTo({ top: 0, behavior: "smooth" });
         //   // targetElement.scrollIntoView({ behavior: "smooth" });
         // }
         this.isFirstShow = true;
-        this.isSecondShow = true;
+        this.isSecondShow = false;
       }
-      if (this.$route.params.id === "2") {
+      if (this.$route.params.id === "my-section2") {
         // alert(23434);
         // const targetElement = this.$refs.targetMoveElement;
         // const targetElement = document.getElementById("targetMoveElement");
