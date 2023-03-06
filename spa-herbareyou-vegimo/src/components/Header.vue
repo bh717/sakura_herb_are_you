@@ -75,14 +75,14 @@
                   >
                 </li>
 
-                <li class="child-list-item">
+                <!-- <li class="child-list-item">
                   <router-link
                     class="child-list-item__link child-list-item__link--mb30"
                     v-on:click="closeMenu()"
                     :to="{ name: 'Home', hash: '#detailedSymptomBlock' }"
                     >具体的な症状・テーマから探す</router-link
                   >
-                </li>
+                </li> -->
 
                 <li class="child-list-item">
                   <span class="child-list-item__txt child-list-item__txt--mb20"

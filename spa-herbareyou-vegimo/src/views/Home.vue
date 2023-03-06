@@ -43,7 +43,7 @@
         </div>
 
         <!-- show theme of product -->
-        <section class="sec sec--theme sec--gray" id="detailedSymptomBlock">
+        <!-- <section class="sec sec--theme sec--gray" id="detailedSymptomBlock">
           <div class="sec-container">
             <h2
               class="sec-container__hd2 sec-container__hd2--mb5 sec-container__hd2--lh"
@@ -54,7 +54,7 @@
                 >具体的な症状・テーマから探す</span
               >
             </h2>
-            <!-- <div class="symptom-section" data-anime="fadeup"> -->
+            <div class="symptom-section" data-anime="fadeup">
             <div class="symptom-container" data-anime="fadeup">
               <router-link
                 class="theme-btn__link"
@@ -63,9 +63,9 @@
                 >{{ symptom.name }}</router-link
               >
             </div>
-            <!-- </div> -->
+            </div>
           </div>
-        </section>
+        </section> -->
 
         <section class="sec">
           <div class="sec-container">
