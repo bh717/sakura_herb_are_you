@@ -96,6 +96,8 @@ export default defineComponent({
       symptoms: [] as any[],
       tasteproducts: [] as any[],
       flavorproducts: [] as any[],
+      symptomproducts: [] as any[],
+
       mergedData: [] as any[],
 
 
@@ -145,7 +147,8 @@ export default defineComponent({
     // 商品の検索を行う
     console.log("searchData:", this.getTasteSearchData());
 
-    let tasteproductApiresult, flavorproductApiresult;
+
+    let tasteproductApiresult, flavorproductApiresult, SymptomproductApiresult;
 
     if (this.tasteIds.length != 0) {
       tasteproductApiresult = await indexProductApi(this.getTasteSearchData());
@@ -170,7 +173,18 @@ export default defineComponent({
 
     }
 
-    this.mergedData = {...this.tasteproducts, ...this.flavorproducts};
+    if (this.tasteIds.length === 0 && this.flavorIds.length === 0)
+    {
+      SymptomproductApiresult = await indexProductApi(this.getSymptomSearchData());
+      if (!SymptomproductApiresult.success) {
+        this.commonError(SymptomproductApiresult);
+        return;
+      }
+      this.tasteproducts = SymptomproductApiresult.data;
+      console.log("type of Symptom:", this.SymptomproductApiresult);
+    }
+
+    this.mergedData = {...this.tasteproducts, ...this.flavorproducts, ...this.symptomproducts};
     console.log("margedDtata:", this.mergedData);
 
     // console.log("taste product list:", tasteproductApiresult.data);
@@ -271,6 +285,20 @@ export default defineComponent({
 
       return {
         taste_ids: this.pageService.implode(",", this.tasteIds),
+        flavor_ids: this.pageService.implode(",", ""),
+        material_ids: this.pageService.implode(",", ""),
+        symptom_ids: this.pageService.implode(",", this.symptomIds),
+        per_page: -1,
+        order_by: this.sortOrder,
+      };
+    },
+
+    getSymptomSearchData(): any {
+      console.log("tasteIds:", this.tasteIds);
+      console.log("symptomIds:", this.symptomIds);
+
+      return {
+        taste_ids: this.pageService.implode(",", ""),
         flavor_ids: this.pageService.implode(",", ""),
         material_ids: this.pageService.implode(",", ""),
         symptom_ids: this.pageService.implode(",", this.symptomIds),
