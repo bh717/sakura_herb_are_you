@@ -49,7 +49,7 @@
           </div>
         </section>
 
-        <section class="sec" id="my-section2">
+        <section class="sec" id="my-section2" v-if="isSecondShow">
           <div
             class="sec-container-form"
             data-anime="fadeup"
@@ -155,6 +155,7 @@ export default defineComponent({
           window.scrollTo({ top, behavior: "smooth" });
         }
       }
+
     }
   },
   data() {
@@ -205,14 +206,7 @@ export default defineComponent({
 
       console.log(this.$route.params.id);
 
-      if (this.$route.params.id) {
-        const sectionEl = document.getElementById(this.$route.params.id);
-        if (sectionEl) {
-          const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }
+      
 
 
       // this.init();
@@ -236,32 +230,23 @@ export default defineComponent({
 
   methods: {
     init: async function (): Promise<any> {
+      this.isFirstShow = true;
+      this.isSecondShow = true;
       if (this.$route.params.id === "my-section") {
-        // const targetElement = this.$refs.beforeTargetElement;
-        // if (targetElement) {
-        //   window.scrollTo({ top: 0, behavior: "smooth" });
-        //   // targetElement.scrollIntoView({ behavior: "smooth" });
-        // }
         this.isFirstShow = true;
-        this.isSecondShow = false;
+        this.isSecondShow = true;
+
+        if (this.$route.params.id) {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
       }
-      if (this.$route.params.id === "my-section2") {
-        // alert(23434);
-        // const targetElement = this.$refs.targetMoveElement;
-        // const targetElement = document.getElementById("targetMoveElement");
-        // if (targetElement) {
-        //   // const scroll = new SmoothScroll();
-        //   // targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        //   // scroll.animateScroll(targetElement, null, { offset: 0, speed: 500 });
-        //   // window.scrollTo({ top: targetElement.offsetTop, behavior: "smooth" });
-        //   setTimeout(() => {
-        //     window.scrollTo({ top: targetElement.offsetTop + 100, behavior: "smooth" });
-        //   }, 100);
-
-        //   // myDiv.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        // }
+      }
+      else if (this.$route.params.id === "my-section2") {
         this.isFirstShow = false;
-
         this.isSecondShow = true;
       }
     },
