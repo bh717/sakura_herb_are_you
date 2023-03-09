@@ -150,7 +150,7 @@ export default defineComponent({
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+            sectionEl.getBoundingClientRect().top + window.scrollY ;
           sectionEl.scrollIntoView({ behavior: "smooth" });
         }
       }
@@ -159,7 +159,7 @@ export default defineComponent({
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+            sectionEl.getBoundingClientRect().top + window.scrollY ;
           // sectionEl.scrollIntoView({ behavior: "smooth" });
           window.scroll(0, top);
         }
@@ -226,7 +226,7 @@ export default defineComponent({
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+            sectionEl.getBoundingClientRect().top + window.scrollY ;
           sectionEl.scrollIntoView({ behavior: "smooth" });
         }
       }
@@ -234,8 +234,9 @@ export default defineComponent({
       if (this.$route.params.id === "my-section2") {
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
+          console.log(sectionEl.getBoundingClientRect().top);
           const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+            sectionEl.getBoundingClientRect().top + window.scrollY ;
           // sectionEl.scrollIntoView({ behavior: "smooth" });
           window.scroll(0, top);
         }
