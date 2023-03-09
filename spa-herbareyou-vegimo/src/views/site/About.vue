@@ -137,17 +137,16 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import ValidateError from "@/components/ValidateError.vue";
 import { indexContentAboutApi } from "@/api/contents";
-// import scroll from "smooth-scroll";
-import SmoothScroll from "smooth-scroll";
 
 export default defineComponent({
   name: "SiteAbout",
+  // directives: { VueSmoothScroll },
   watch: {
     $route(to, from) {
       // perform actions to refresh the component here
       console.log("Route changed, refreshing component...");
 
-      if (this.$route.params.id) {
+      if (this.$route.params.id === "my-section") {
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
@@ -155,13 +154,34 @@ export default defineComponent({
           sectionEl.scrollIntoView({ behavior: "smooth" });
         }
       }
+
+      if (this.$route.params.id === "my-section2") {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          // sectionEl.scrollIntoView({ behavior: "smooth" });
+          window.scroll(0, top);
+        }
+      }
+
+      // if (this.$route.params.id) {
+      //   const sectionEl = document.getElementById(this.$route.params.id);
+
+      //   // this.$refs.sectionEl.scrollTo({ duration: 1000, offset: -100 })
+      //   if (sectionEl) {
+      //     const top =
+      //       sectionEl.getBoundingClientRect().top + window.pageYOffset;
+      //     sectionEl.scrollIntoView({ behavior: "smooth" });
+      //   }
+      // }
     },
   },
   data() {
     return {
-      isShow: false,
-      isFirstShow: false,
-      isSecondShow: false,
+      isShow: true,
+      isFirstShow: true,
+      isSecondShow: true,
       submitDisable: false,
       message: "",
       validateErrors: {} as any,
@@ -178,10 +198,7 @@ export default defineComponent({
     Header,
     ValidateError,
   },
-  created: function (): void {
-    // console.log("asdf");
-    this.init();
-  },
+  created: function (): void {},
   mounted: async function (): Promise<void> {
     document.body.className = "about";
 
@@ -205,7 +222,7 @@ export default defineComponent({
 
       console.log(this.$route.params.id);
 
-      if (this.$route.params.id) {
+      if (this.$route.params.id === "my-section") {
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
@@ -213,46 +230,20 @@ export default defineComponent({
           sectionEl.scrollIntoView({ behavior: "smooth" });
         }
       }
-      // this.init();
 
-      // if (this.$route.params.id === "1") {
-      //   const targetElement = this.$refs.beforeTargetElement;
-      //   if (targetElement) {
-      //     window.scrollTo({ top: 0, behavior: "smooth" });
-      //     // targetElement.scrollIntoView({ behavior: "smooth" });
-      //   }
-      // }
-      // if (this.$route.params.id === "2") {
-      //   // alert(23434);
-      //   const targetElement = this.$refs.targetMoveElement;
-      //   if (targetElement) {
-      //     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      //   }
-      // }
+      if (this.$route.params.id === "my-section2") {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          // sectionEl.scrollIntoView({ behavior: "smooth" });
+          window.scroll(0, top);
+        }
+      }
     });
   },
 
   methods: {
-    init: async function (): Promise<any> {
-      this.isFirstShow = true;
-      this.isSecondShow = true;
-      if (this.$route.params.id === "my-section") {
-        this.isFirstShow = true;
-        this.isSecondShow = true;
-
-        if (this.$route.params.id) {
-          const sectionEl = document.getElementById(this.$route.params.id);
-          if (sectionEl) {
-            const top =
-              sectionEl.getBoundingClientRect().top + window.pageYOffset;
-            window.scrollTo({ top, behavior: "smooth" });
-          }
-        }
-      } else if (this.$route.params.id === "my-section2") {
-        this.isFirstShow = false;
-        this.isSecondShow = true;
-      }
-    },
     commonError: function (result: any = null): void {
       if (result.status === 422) {
         this.validateErrors = result.data;
