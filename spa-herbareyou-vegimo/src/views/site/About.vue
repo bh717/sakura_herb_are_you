@@ -143,20 +143,19 @@ import SmoothScroll from "smooth-scroll";
 export default defineComponent({
   name: "SiteAbout",
   watch: {
-    '$route' (to, from) {
+    $route(to, from) {
       // perform actions to refresh the component here
-      console.log('Route changed, refreshing component...')
+      console.log("Route changed, refreshing component...");
 
       if (this.$route.params.id) {
         const sectionEl = document.getElementById(this.$route.params.id);
         if (sectionEl) {
           const top =
             sectionEl.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top, behavior: "smooth" });
+          sectionEl.scrollIntoView({ behavior: "smooth" });
         }
       }
-
-    }
+    },
   },
   data() {
     return {
@@ -206,9 +205,14 @@ export default defineComponent({
 
       console.log(this.$route.params.id);
 
-      
-
-
+      if (this.$route.params.id) {
+        const sectionEl = document.getElementById(this.$route.params.id);
+        if (sectionEl) {
+          const top =
+            sectionEl.getBoundingClientRect().top + window.pageYOffset;
+          sectionEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }
       // this.init();
 
       // if (this.$route.params.id === "1") {
@@ -237,15 +241,14 @@ export default defineComponent({
         this.isSecondShow = true;
 
         if (this.$route.params.id) {
-        const sectionEl = document.getElementById(this.$route.params.id);
-        if (sectionEl) {
-          const top =
-            sectionEl.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top, behavior: "smooth" });
+          const sectionEl = document.getElementById(this.$route.params.id);
+          if (sectionEl) {
+            const top =
+              sectionEl.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
         }
-      }
-      }
-      else if (this.$route.params.id === "my-section2") {
+      } else if (this.$route.params.id === "my-section2") {
         this.isFirstShow = false;
         this.isSecondShow = true;
       }
